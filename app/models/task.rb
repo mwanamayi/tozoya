@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :creator, class_name: "User",
+                       foreign_key: :user_id
 
   attr_accessible :title, :user_id
 

@@ -53,10 +53,9 @@ ActiveRecord::Schema.define(:version => 20140814195533) do
     t.datetime "end_time"
     t.string   "venue"
     t.string   "location"
-    t.boolean  "notify_user?"
+    t.boolean  "notify_user"
     t.integer  "notify_hours_until_event"
     t.integer  "user_id"
-    t.string   "username"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
   end
@@ -106,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20140814195533) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.string   "name",                   :default => "", :null => false
+    t.string   "username",               :default => "", :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
