@@ -1,10 +1,12 @@
 class Invitation < ActiveRecord::Base
   belongs_to :event
-  belongs_to :creator, class_name: "User",
+  belongs_to :invited_user, class_name: "User",
                     foreign_key: :user_id
 
-  def invited_user(user_id)
-    self.creator.name
+  attr_accessible :event_id, :user_id, :status
+
+  def invited_user_name
+    self.invited_user.username
   end
 
   def event_name

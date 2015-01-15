@@ -1,7 +1,7 @@
 ActiveAdmin.register Task do
   index do
     column :title
-    column :user
+    column :creator
     default_actions
   end
 
@@ -10,7 +10,7 @@ ActiveAdmin.register Task do
   form do |f|
     f.inputs "Task Details" do
       f.input :title
-      f.input :user
+      f.input :creator
     end
     f.buttons
   end

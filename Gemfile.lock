@@ -88,6 +88,9 @@ GEM
     json_spec (1.1.1)
       multi_json (~> 1.0)
       rspec (~> 2.0)
+    just-datetime-picker (0.0.6)
+      activeadmin (>= 0.4.4)
+      formtastic (>= 2.0.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -187,6 +190,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.2.0)
   jquery-rails
   json_spec
+  just-datetime-picker
   rabl
   rails (= 3.2.13)
   rspec-rails (>= 2.9.0)

@@ -29,4 +29,20 @@ ActiveAdmin.register Event do
     active_admin_comments
   end
 
+  form do |f|
+    f.inputs "Event Details" do
+      f.input :creator
+      f.input :name
+      f.input :description
+      f.input :start_time, :as => :just_datetime_picker
+      f.input :end_time, :as => :just_datetime_picker
+      f.input :venue
+      f.input :location
+      f.input :notify_user
+      f.input :notify_hours_until_event
+    end
+    f.actions
+  end
+
+
 end

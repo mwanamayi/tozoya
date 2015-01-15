@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :tasks
 
   before_save :ensure_authentication_token
+  before_create :skip_confirmation!
 
   def skip_confirmation!
     self.confirmed_at = Time.now

@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   index do
-    column :name
+    column :username
     column :email
     column :current_sign_in_at
     column :last_sign_in_at
@@ -8,12 +8,12 @@ ActiveAdmin.register User do
     default_actions
   end
 
-  filter :name
+  filter :username
   filter :email
 
   form do |f|
     f.inputs "User Details" do
-      f.input :name
+      f.input :username
       f.input :email
       f.input :password
       f.input :password_confirmation
@@ -23,7 +23,7 @@ ActiveAdmin.register User do
 
   show do
     attributes_table do
-      row :name
+      row :username
       row :email
       row :authentication_token
       row :confirmed_at
