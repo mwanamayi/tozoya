@@ -4,12 +4,12 @@ ActiveAdmin.register Event do
     column :creator
     column :name
     column :description
-    column :start_time
-    column :end_time
+    # column :start_time
+    # column :end_time
     column :venue
     column :location
-    column :notify_user
-    column :notify_hours_until_event
+    # column :notify_user
+    # column :notify_hours_until_event
     default_actions
   end
 
@@ -19,12 +19,12 @@ ActiveAdmin.register Event do
       row :creator
       row :name
       row :description
-      row :start_time
-      row :end_time
+      # row :start_time
+      # row :end_time
       row :venue
       row :location
-      row :notify_user
-      row :notify_hours_until_event
+      # row :notify_user
+      # row :notify_hours_until_event
     end
     active_admin_comments
   end
@@ -34,12 +34,12 @@ ActiveAdmin.register Event do
       f.input :creator
       f.input :name
       f.input :description
-      f.input :start_time, :as => :just_datetime_picker
-      f.input :end_time, :as => :just_datetime_picker
+      # f.input :start_time, :as => :just_datetime_picker
+      # f.input :end_time, :as => :just_datetime_picker
       f.input :venue
       f.input :location
-      f.input :notify_user
-      f.input :notify_hours_until_event
+      # f.input :notify_user
+      # f.input :notify_hours_until_event
     end
     f.actions
   end

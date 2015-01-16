@@ -14,7 +14,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(params[:event])
+    @event = current_user.created_events.build(params[:event])
     if @event.save
       @event
     else

@@ -4,11 +4,12 @@ class Event < ActiveRecord::Base
   has_many :invitations
   has_many :invited_users, through: :invitations, source: :user
 
-  just_define_datetime_picker :start_time, :add_to_attr_accessible => true
-  just_define_datetime_picker :end_time, :add_to_attr_accessible => true
+  # just_define_datetime_picker :start_time, :add_to_attr_accessible => true
+  # just_define_datetime_picker :end_time, :add_to_attr_accessible => true
 
 
-  attr_accessible :id, :user_id, :name, :description, :start_time, :end_time, :venue , :location, :notify_user, :notify_hours_until_event
+  attr_accessible :id, :user_id, :name, :description, :venue , :location
+  # , :notify_user, :notify_hours_until_event, :start_time, :end_time, 
 
   def attending_users
     self.invitations.where(status: "in").map { |invite| User.find(invite.user_id)}
