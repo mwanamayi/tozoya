@@ -2,54 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-    @user = User.new
-  end
-
-  def create
-    p session[:user_id]
-    @user = User.create(username: params[:user][:username],
-                        email: params[:user][:email],
-                        password: params[:user][:password])
-    session[:user_id] = @user.id
-    redirect_to events_path
-  end
-
-  def login
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
-      
-      p "logged in!!"
-      
-      p session[:user_id] = @user.id
-      redirect_to events_path
-    else
-      p @error = "Invalid email or password"
-      redirect_to root_path
-    end
-  end
-
-  def login_ios
-    # params[:password] = params[:user][:password]
-    params[:username] = params[:user][:username]
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
-      p @response = "Logged in"
-      session[:user_id] = @user.id
-      @username = @user.username
-    else
-      p @response = "Invalid email or password"
-    end
-    render :json => { :response => @response, :username => @username, :id => @user.id }
-  end
-
-  def logout
-    session.clear
-    redirect_to root_path
-  end
-
-  def logout_ios
-    session.clear
-    render json: { logout: "logged out"}
+    @users = User.new
   end
 
   def attending

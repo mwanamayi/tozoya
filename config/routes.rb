@@ -13,13 +13,18 @@ Imin::Application.routes.draw do
       put 'tasks/:id/open' => 'tasks#open', :as => 'open_task'
       put 'tasks/:id/complete' => 'tasks#complete', :as => 'complete_task'
       
-      get 'events' => 'events#index', :as => 'events'
+      get 'invited_events' => 'events#index', :as => 'invited_events'
       get 'created_events' => 'events#created_index', :as => 'created_events'
-      get 'attending_events' => 'attending_events#index', :as => 'attending_events'
+      get 'attending_events' => 'events#index', :as => 'attending_events'
       post 'events' => 'events#create'
       put 'events/:id/open' => 'events#open', :as => 'open_event'
       put 'events/:id/attend' => 'events#attend', :as => 'attend_event'
-    
+
+      get 'followers' => 'users#followers', :as => 'followers'
+      get 'following' => 'users#following', :as => 'following'
+      post 'follow' => 'users#follow', :as => 'follow'
+      post 'unfollow' => 'users#unfollow', :as => 'unfollow'
+     
     end
   end
 

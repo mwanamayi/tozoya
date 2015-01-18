@@ -3,7 +3,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :invited_user, class_name: "User",
                     foreign_key: :user_id
 
-  attr_accessible :event_id, :user_id, :status
+  attr_accessible :event_id, :user_id, :accepted
 
   def invited_user_name
     self.invited_user.username

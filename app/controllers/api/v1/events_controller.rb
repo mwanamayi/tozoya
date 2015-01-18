@@ -25,9 +25,9 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
-  def open
+  def attend
     @event = current_user.invited_events.find(params[:id])
-    @event.open!
+    @event.attend!
   rescue ActiveRecord::RecordNotFound
     render :status => 404,
            :json => { :success => false,
@@ -37,10 +37,10 @@ class Api::V1::EventsController < ApplicationController
 
   def attending
     @event = Event.find(params[:id])
-    @confirmed_invitations = @event.invitations.where(status: "in")
+    @confirmed_invitations = @event.invitations.where(accepted: true)
     @friends = []
     @confirmed_invitations.each do |invite|
-      @friends << User.find(invite.user_id)
+      @attending_users << User.find(invite.user_id)
     end
     # @users = @event.attending_users
 
