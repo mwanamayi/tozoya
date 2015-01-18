@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-  gem 'rails_12factor'
+gem 'rails_12factor'
 
 
 # Gems used only for assets and not required
@@ -33,7 +33,7 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '~> 2.2.4'
 gem 'activeadmin'
 gem 'rabl'
 gem 'acts_as_follower', '~> 0.1.1'
