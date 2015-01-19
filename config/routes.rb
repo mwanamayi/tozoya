@@ -17,8 +17,10 @@ Imin::Application.routes.draw do
       get 'created_events' => 'events#created_index', :as => 'created_events'
       get 'attending_events' => 'events#index', :as => 'attending_events'
       post 'events' => 'events#create'
-      put 'events/:id/open' => 'events#open', :as => 'open_event'
-      put 'events/:id/attend' => 'events#attend', :as => 'attend_event'
+
+      get 'invitations' => 'invitations#index', :as => 'invitations'
+      post 'invitations' => 'invitations#update', :as => 'update_invitation'
+      post 'invitations' => 'invitations#create'
 
       get 'followers' => 'users#followers', :as => 'followers'
       get 'following' => 'users#following', :as => 'following'

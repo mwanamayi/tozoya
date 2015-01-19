@@ -1,18 +1,19 @@
 class InvitationsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
+  def index
+    @event = Event.find(params[:event_id])
+    @invitations = current_user.invitations
+  end
+
   def create
     @event = Event.find(params[:event_id])
-    @invitation = @event.invitations.create(invitation_params)
-    redirect_to event_path(@event)
+    @invitation = @event.invitations.build(params[:invitation])
   end
 
   def update
-    p params[:id]
-    @invitation = Invitation.find(params[:id])
-    p @invitation
-    @invitation.update(status: params[:status])
-    redirect_to events_path
+    @invitation = Invitation.where(event_id: params[:id], user_id: current_user.id).first
+    @invitation.update(accepted: params[:accepted]).save
   end
 
   private
