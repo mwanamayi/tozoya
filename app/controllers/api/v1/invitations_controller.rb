@@ -1,9 +1,14 @@
-class InvitationsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+class Api::V1::InvitationsController < ApplicationController
+  skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
 
   def index
-    @event = Event.find(params[:event_id])
     @invitations = current_user.invitations
+  end
+
+  def index_specific
+    @invitation = Invitation.where(event_id: params[:event_id], 
+                                  user_id: current_user.id).first 
   end
 
   def create
@@ -11,17 +16,25 @@ class InvitationsController < ApplicationController
     @invitation = @event.invitations.build(params[:invitation])
   end
 
-  def update
-    @invitation = Invitation.where(event_id: params[:id], user_id: current_user.id).first
-    @invitation.update(accepted: params[:accepted]).save
+  def accept
+    @invitation = Invitation.where(event_id: params[:event_id], 
+                                  user_id: current_user.id).first
+    @invitation.accept!
+  rescue ActiveRecord::RecordNotFound
+    render :status => 404,
+           :json => { :success => false,
+                      :info => 'Not Found',
+                      :data => {} }
   end
 
-  private
-
-  def invitation_params
-    @user = User.find_by(username: params[:invitation][:username])
-    params[:invitation][:user_id] = @user.id
-    params[:invitation][:status] = "pending"
-    params.require(:invitation).permit(:user_id, :status)
+  def reject
+    @invitation = Invitation.where(event_id: params[:event_id], 
+                                  user_id: current_user.id).first
+    @invitation.reject!
+  rescue ActiveRecord::RecordNotFound
+    render :status => 404,
+           :json => { :success => false,
+                      :info => 'Not Found',
+                      :data => {} }
   end
 end

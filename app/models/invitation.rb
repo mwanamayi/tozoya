@@ -12,4 +12,12 @@ class Invitation < ActiveRecord::Base
     self.event.name
   end
 
+  def accept!
+    update_column(:accepted, true)
+  end
+
+  def reject!
+    update_column(:accepted, false)
+  end
+
 end

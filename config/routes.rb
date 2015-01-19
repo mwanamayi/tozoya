@@ -8,6 +8,7 @@ Imin::Application.routes.draw do
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
+
       get 'tasks' => 'tasks#index', :as => 'tasks'
       post 'tasks' => 'tasks#create'
       put 'tasks/:id/open' => 'tasks#open', :as => 'open_task'
@@ -15,11 +16,13 @@ Imin::Application.routes.draw do
       
       get 'invited_events' => 'events#index', :as => 'invited_events'
       get 'created_events' => 'events#created_index', :as => 'created_events'
-      get 'attending_events' => 'events#index', :as => 'attending_events'
+      get 'attending_events' => 'events#attending_index', :as => 'attending_events'
       post 'events' => 'events#create'
 
       get 'invitations' => 'invitations#index', :as => 'invitations'
-      post 'invitations' => 'invitations#update', :as => 'update_invitation'
+      post 'invitation' => 'invitations#index_specific', :as => 'invitation'
+      post 'accept_invitation' => 'invitations#accept', :as => 'accept_invitation'
+      post 'reject_invitation' => 'invitations#reject', :as => 'reject_invitation'
       post 'invitations' => 'invitations#create'
 
       get 'followers' => 'users#followers', :as => 'followers'

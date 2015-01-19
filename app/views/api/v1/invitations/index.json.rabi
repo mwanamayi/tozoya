@@ -1,9 +1,0 @@
-object false
-node (:success) { true }
-node (:info) { 'ok' }
-child :data do
-  node (:invitations_count) { @invitations.size }
-  child @invitations do
-    attributes :id, :event:id, :user_id
-  end
-end

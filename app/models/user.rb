@@ -24,4 +24,14 @@ class User < ActiveRecord::Base
   def skip_confirmation!
     self.confirmed_at = Time.now
   end
+
+  def attending_events
+    events = []
+    invitations = Invitation.where(user_id: self.id, accepted: true)
+    invitations.each do |i|
+      events << i.event
+      events
+    end
+    events
+  end
 end

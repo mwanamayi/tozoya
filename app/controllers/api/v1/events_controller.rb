@@ -13,29 +13,12 @@ class Api::V1::EventsController < ApplicationController
     @created_events = current_user.created_events
   end
 
-  def create
-    @event = current_user.created_events.build(params[:event])
-    if @event.save
-      @event
-    else
-      render :status => :unprocessable_entity,
-             :json => { :success => false,
-                        :info => @event.errors.full_messages,
-                        :data => {} }
-    end
+  def attending_index
+    @attending_events = current_user.attending_events
   end
 
-  def attend
-    @event = current_user.invited_events.find(params[:id])
-    @event.attend!
-  rescue ActiveRecord::RecordNotFound
-    render :status => 404,
-           :json => { :success => false,
-                      :info => 'Not Found',
-                      :data => {} }
-  end
-
-  def attending
+ 
+  def attending_users_index
     @event = Event.find(params[:id])
     @confirmed_invitations = @event.invitations.where(accepted: true)
     @friends = []
@@ -49,5 +32,18 @@ class Api::V1::EventsController < ApplicationController
       format.json { render :json => { :friends => @friends } }
     end
   end
+
+  def create
+    @event = current_user.created_events.build(params[:event])
+    if @event.save
+      @event
+    else
+      render :status => :unprocessable_entity,
+             :json => { :success => false,
+                        :info => @event.errors.full_messages,
+                        :data => {} }
+    end
+  end
+
 
 end
