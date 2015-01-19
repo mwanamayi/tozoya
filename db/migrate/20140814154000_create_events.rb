@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
-      t.integer :user_id
+      t.references :user, index: true
       t.string :name
       t.string :description
       t.string :venue

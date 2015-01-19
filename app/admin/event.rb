@@ -8,6 +8,12 @@ ActiveAdmin.register Event do
     # column :end_time
     column :venue
     column :location
+    column :invited_users_count do |event|
+      event.invited_users.count
+    end
+    column :attending_users_count do |event|
+      event.attending_users.count
+    end
     # column :notify_user
     # column :notify_hours_until_event
     default_actions

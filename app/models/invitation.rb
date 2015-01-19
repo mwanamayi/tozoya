@@ -1,7 +1,6 @@
 class Invitation < ActiveRecord::Base
   belongs_to :event
-  belongs_to :invited_user, class_name: "User",
-                    foreign_key: :user_id
+  belongs_to :invited_user, class_name: "User", foreign_key: :user_id
 
   attr_accessible :event_id, :user_id, :accepted
 
