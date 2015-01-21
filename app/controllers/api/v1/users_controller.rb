@@ -1,39 +1,12 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
     @users = User.new
   end
 
-  def attending
-    @attending_invitations = current_user.invitations.where(status: "in")
-    @attending_events = []
-    @attending_invitations.each do |invite|
-      @attending_events << Event.find(invite.event_id)
-    end
-    # @attending_events = current_user.attending_events
-
-    respond_to do |format|
-      format.html
-      format.json { render :json => { :attending_events => @attending_events }}
-    end
-  end
-
-  def created
-    @created_events = current_user.created_events
-
-    respond_to do |format|
-      format.html
-      format.json { render :json => { :created_events => @created_events }}
-    end
-  end
-
   def followers
     @followers = current_user.followers
-    respond_to do |format|
-      format.html
-      format.json { render :json => { :followers => @followers } }
-    end
   end
 
   def following

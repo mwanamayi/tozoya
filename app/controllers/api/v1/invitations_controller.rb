@@ -12,8 +12,15 @@ class Api::V1::InvitationsController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:event_id])
-    @invitation = @event.invitations.build(params[:invitation])
+    @invitation = Invitation.create(params[:invitation])
+    if @invitation.save
+      @invitation
+    else
+      render :status => :unprocessable_entity,
+             :json => { :success => false,
+                        :info => @invitation.errors.full_messages,
+                        :data => {} }
+    end
   end
 
   def accept
