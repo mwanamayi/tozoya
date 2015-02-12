@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150120011902) do
+ActiveRecord::Schema.define(:version => 20150212014757) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -48,14 +48,25 @@ ActiveRecord::Schema.define(:version => 20150120011902) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
   add_index "admin_users", ["username"], :name => "index_admin_users_on_username", :unique => true
 
+  create_table "class_registrations", :force => true do |t|
+    t.integer "course_id"
+    t.integer "user_id"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.integer "school_id"
+    t.integer "user_id"
+    t.string  "name"
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "description"
-    t.string   "venue"
-    t.string   "location"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "location_name"
+    t.string   "location_address"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "follows", :force => true do |t|
@@ -77,6 +88,10 @@ ActiveRecord::Schema.define(:version => 20150120011902) do
     t.boolean  "accepted",   :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.string "name"
   end
 
   create_table "tasks", :force => true do |t|
@@ -104,6 +119,11 @@ ActiveRecord::Schema.define(:version => 20150120011902) do
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
     t.string   "username",               :default => "", :null => false
+    t.string   "first_name",             :default => "", :null => false
+    t.string   "last_name",              :default => "", :null => false
+    t.string   "status",                 :default => "", :null => false
+    t.string   "avatar"
+    t.integer  "school_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

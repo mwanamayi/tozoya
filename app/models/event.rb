@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   # just_define_datetime_picker :end_time, :add_to_attr_accessible => true
 
 
-  attr_accessible :id, :user_id, :name, :description, :venue , :location
+  attr_accessible :id, :user_id, :name, :description, :location_name , :location_address
   # , :notify_user, :notify_hours_until_event, :start_time, :end_time, 
 
   def attending_users

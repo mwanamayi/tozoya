@@ -33,7 +33,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       t.string :authentication_token
 
+
+      ## User Details
       t.string :username, :null => false, :default => ""
+      t.string :first_name, null: false, default: ""
+      t.string :last_name, null: false, default: ""
+      t.string :status, null: false, default: ""
+      t.string :avatar
+      t.references :school, index: true
+
 
       t.timestamps
     end

@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   has_many :invitations
   has_many :invited_events, through: :invitations, source: :event
   has_many :created_events, class_name: "Event", foreign_key: :user_id
+  has_many :classes
+  has_many :class_registrations
+
+  belongs_to :school
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,7 +17,7 @@ class User < ActiveRecord::Base
          :confirmable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email, :status, :first_name, :last_name, :avatar, :password, :password_confirmation, :remember_me, :school_id
   # attr_accessible :title, :body
 
   has_many :tasks
