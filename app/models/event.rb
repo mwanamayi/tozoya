@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :invitations
 
+  delegate :avatar, to: :user
+
   # just_define_datetime_picker :start_time, :add_to_attr_accessible => true
   # just_define_datetime_picker :end_time, :add_to_attr_accessible => true
 

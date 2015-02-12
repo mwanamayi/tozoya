@@ -6,8 +6,8 @@ ActiveAdmin.register Event do
     column :description
     # column :start_time
     # column :end_time
-    column :venue
-    column :location
+    column :location_name
+    column :location_address
     column :invited_users_count do |event|
       event.invited_users.count
     end
