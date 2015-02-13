@@ -5,4 +5,12 @@ class School < ActiveRecord::Base
 
   attr_accessible :name
 
+  def student_count
+    self.users.where(status:"student").count
+  end
+
+  def professor_count
+    self.users.where(status:"professor").count
+  end
+
 end

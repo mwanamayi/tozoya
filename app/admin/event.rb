@@ -1,4 +1,5 @@
 ActiveAdmin.register Event do
+  menu parent: 'Events Menu'
   index do
     column :id
     column :creator
@@ -27,8 +28,8 @@ ActiveAdmin.register Event do
       row :description
       # row :start_time
       # row :end_time
-      row :venue
-      row :location
+      row :location_name
+      row :location_address
       # row :notify_user
       # row :notify_hours_until_event
     end
@@ -42,8 +43,8 @@ ActiveAdmin.register Event do
       f.input :description
       # f.input :start_time, :as => :just_datetime_picker
       # f.input :end_time, :as => :just_datetime_picker
-      f.input :venue
-      f.input :location
+      f.input :location_name
+      f.input :location_address
       # f.input :notify_user
       # f.input :notify_hours_until_event
     end

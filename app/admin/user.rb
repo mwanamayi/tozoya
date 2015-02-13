@@ -1,7 +1,9 @@
 ActiveAdmin.register User do
+  menu priority: 3
   index do
     column :username
     column :email
+    column :school
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
@@ -17,6 +19,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :school
     end
     f.buttons
   end
@@ -25,6 +28,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :username
       row :email
+      row :school
       row :authentication_token
       row :confirmed_at
       row :current_sign_in_at

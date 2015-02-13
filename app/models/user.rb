@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :invitations
   has_many :invited_events, through: :invitations, source: :event
   has_many :created_events, class_name: "Event", foreign_key: :user_id
-  has_many :classes
+  has_many :courses, through: :class_registrations, source: :course
   has_many :class_registrations
 
   belongs_to :school

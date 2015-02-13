@@ -1,4 +1,5 @@
 ActiveAdmin.register Invitation do
+  menu parent: 'Events Menu'
   index do 
     column :id
     column :event_name
