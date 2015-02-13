@@ -1,83 +1,83 @@
 
-# ####################################### ADMINS
+####################################### ADMINS
 
-# admins = [{:email => 'lisa@example.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa"},
-#           {:email => 'joel@example.com', :password => 'secret', :password_confirmation => 'secret', username: "joel"}]
+admins = [{:email => 'lisa@example.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa"},
+          {:email => 'joel@example.com', :password => 'secret', :password_confirmation => 'secret', username: "joel"}]
 
-# admins.each do |admin|
-#     AdminUser.create!admin
-#   end
+admins.each do |admin|
+    AdminUser.create!admin
+  end
 
 
-# ####################################### SCHOOLS
+####################################### SCHOOLS
 
-# schools = [{name: "New York University"}, 
-#            {name: "Pace University"}, 
-#            {name: "Columbia"}, 
-#            {name: "Berkeley College"}, 
-#            {name: "Lycee Francais Jules Verne"}, 
-#            {name: "Mc'Gill"}, 
-#            {name: "Yale"}]
+schools = [{name: "New York University"}, 
+           {name: "Pace University"}, 
+           {name: "Columbia"}, 
+           {name: "Berkeley College"}, 
+           {name: "Lycee Francais Jules Verne"}, 
+           {name: "Mc'Gill"}, 
+           {name: "Yale"}]
 
-# schools.each do |school|
-#   School.create!school
-# end
+schools.each do |school|
+  School.create!school
+end
 
-# @nyu = School.all.first
+@nyu = School.all.first
 
-# ####################################### USERS
+####################################### USERS
 
-# 900.times do 
-#   user = User.create!(email: Faker::Internet.email, username: Faker::Name.first_name, password: "secret", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, avatar: Faker::Avatar.image, status: "student")
-#   @nyu.users << user
+900.times do 
+  user = User.create!(email: Faker::Internet.email, username: Faker::Name.first_name, password: "secret", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, avatar: Faker::Avatar.image, status: "student")
+  @nyu.users << user
 
   @students = User.where(status: "student")
-# end
+end
 
-# @users = User.all
+@users = User.all
 
-# 100.times do 
-#   professor = User.create!(email: Faker::Internet.email, username: Faker::Name.first_name, password: "secret", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, avatar: Faker::Avatar.image, status: "professor", school_id: @nyu_id)
-#   @nyu.users << professor
-# end
+100.times do 
+  professor = User.create!(email: Faker::Internet.email, username: Faker::Name.first_name, password: "secret", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, avatar: Faker::Avatar.image, status: "professor", school_id: @nyu_id)
+  @nyu.users << professor
+end
 
-# @professors = User.where(status: "professor")
+@professors = User.where(status: "professor")
 
-# ####################################### COURSES
+####################################### COURSES
 
-# @professors.each do |p|
-#   course = Course.new(name: Faker::Commerce.department(3, true))
-#   course.professor = p
-#   course.save!
-#   @nyu.courses << course
-# end
+@professors.each do |p|
+  course = Course.new(name: Faker::Commerce.department(3, true))
+  course.professor = p
+  course.save!
+  @nyu.courses << course
+end
 
  @courses = Course.all
 
 
-# ######################################## EVENTS
+######################################## EVENTS
 
-# 50.times do
-#   event = Event.create!(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state)
-#   user = User.find(rand(1..1000))
-#   user.created_events << event
-# end
+50.times do
+  event = Event.create!(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state)
+  user = User.find(rand(1..1000))
+  user.created_events << event
+end
 
-# @events = Event.all
-# @events.each do |e|
-#   e.user = User.find(rand(1...1000))
-#   e.user_avatar = e.user.avatar
-#   e.save
-# end
-# # ######################################## INVITATIONS
+@events = Event.all
+@events.each do |e|
+  e.user = User.find(rand(1...1000))
+  e.user_avatar = e.user.avatar
+  e.save
+end
+######################################## INVITATIONS
 
-# invite_statuses = [true, false]
+invite_statuses = [true, false]
 
-# 374.times do
-#   Invitation.create!(event_id: rand(1...50), user_id: rand(1...1000),accepted:invite_statuses.sample )
-# end
+374.times do
+  Invitation.create!(event_id: rand(1...50), user_id: rand(1...1000),accepted:invite_statuses.sample )
+end
 
-######################################### REGISTRATIONS
+######################################## REGISTRATIONS
 
 def create_class_registration(class_id, student_id)
   ClassRegistration.create!(course_id: class_id, user_id: student_id )
