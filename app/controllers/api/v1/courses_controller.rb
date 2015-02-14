@@ -10,8 +10,11 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def students
+    p "params are #{params}"
     @course = Course.find(params[:id])
+    p "course is #{@course}"
     @students = @course.students
+
   end
 
 end

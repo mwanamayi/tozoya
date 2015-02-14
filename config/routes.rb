@@ -30,6 +30,9 @@ Imin::Application.routes.draw do
       post 'follow' => 'users#follow', :as => 'follow'
       post 'unfollow' => 'users#unfollow', :as => 'unfollow'
      
+      get 'registered_courses' => 'courses#index_specific', :as => 'registered_courses'
+      get 'students' => 'courses#students', :as => 'students'
+      # get 'specific_course' => 'courses#specific_course', :as => 'specific_course'
     end
   end
 
