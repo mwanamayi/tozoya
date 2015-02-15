@@ -48,6 +48,14 @@ end
 
 @professors = User.where(status: "professor")
 
+person = FakePerson.new
+my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @nyu_id},
+          {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id}]
+
+my_users.each do |users|
+    User.create!users
+end
+
 # ####################################### COURSES
 
 @professors.each do |p|
@@ -64,7 +72,7 @@ end
 
 50.times do
   e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state)
-  user = User.find(rand(1..250))
+  user = User.find(rand(1...@users.count))
   e.user = user
   e.save!
   user.created_events << e
@@ -72,7 +80,7 @@ end
 
 @events = Event.all
 @events.each do |e|
-  e.user = User.find(rand(1...250))
+  e.user = User.find(rand(1...@users.count))
   e.user_avatar = e.user.avatar
   e.save
 end
@@ -81,7 +89,7 @@ end
 invite_statuses = [true, false]
 
 374.times do
-  Invitation.create!(event_id: rand(1...50), user_id: rand(1...250),accepted:invite_statuses.sample )
+  Invitation.create!(event_id: rand(1...50), user_id: rand(1...@users.count),accepted:invite_statuses.sample )
 end
 
 ######################################## REGISTRATIONS
