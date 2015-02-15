@@ -39,6 +39,7 @@ gem 'rabl'
 gem 'acts_as_follower', '~> 0.1.1'
 gem "just-datetime-picker"
 gem "faker"
+gem "fake_person", "~> 1.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

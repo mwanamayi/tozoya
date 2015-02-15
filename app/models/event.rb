@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
 
   delegate :avatar, to: :user
 
+  before_create :add_user_avatar
+
   # just_define_datetime_picker :start_time, :add_to_attr_accessible => true
   # just_define_datetime_picker :end_time, :add_to_attr_accessible => true
 
@@ -32,6 +34,11 @@ class Event < ActiveRecord::Base
       invited_users
     end
     invited_users
+  end
+
+  def add_user_avatar
+    creator = User.find(self.user_id)
+    self.user_avatar = creator.avatar
   end
 
 end
