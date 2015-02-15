@@ -65,6 +65,9 @@ ActiveRecord::Schema.define(:version => 20150212055327) do
     t.string   "description"
     t.string   "location_name"
     t.string   "location_address"
+    t.time     "start_time"
+    t.date     "start_date"
+    t.datetime "datetime"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "user_avatar",      :default => ""

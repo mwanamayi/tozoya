@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
   before_create :skip_confirmation!
 
+  default_scope order('username ASC')
+
   def skip_confirmation!
     self.confirmed_at = Time.now
   end
