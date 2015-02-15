@@ -55,4 +55,8 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def format_datetime
+    self.datetime.strftime('%B %d, %Y at %H:%M%p')
+  end
+
 end
