@@ -29,7 +29,8 @@ end
 
 200.times do 
   person = FakePerson.new
-  user = User.create!(email: person.free_email_address, username: person.username, password: "secret", first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "student")
+  user = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
+                      first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "student")
   if !user.save
 
   end
@@ -38,24 +39,29 @@ end
   @students = User.where(status: "student")
 end
 
-@users = User.all
-
 50.times do   
   person = FakePerson.new
-  professor = User.create!(email: person.free_email_address, username: person.username, password: "secret", first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "professor", school_id: @nyu_id)
+  professor = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
+                          first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, 
+                          status: "professor", school_id: @nyu_id)
   @nyu.users << professor
 end
 
 @professors = User.where(status: "professor")
 
 person = FakePerson.new
-my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @nyu_id},
-          {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id}]
+my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', 
+              username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @nyu_id},
+          {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
+            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id}]
 
-my_users.each do |users|
-    User.create!users
+my_users.each do |user|
+    created_user = User.create!user
+    @nyu.users << created_user
 end
 
+
+@users = User.all
 # ####################################### COURSES
 
 @professors.each do |p|
@@ -71,7 +77,9 @@ end
 ######################################## EVENTS
 
 50.times do
-  e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state)
+  e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, 
+                location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state,
+                start_date: Faker::Time.forward(23), start_time: Faker::Time.forward(30) )
   user = User.find(rand(1...@users.count))
   e.user = user
   e.save!
@@ -90,6 +98,11 @@ invite_statuses = [true, false]
 
 374.times do
   Invitation.create!(event_id: rand(1...50), user_id: rand(1...@users.count),accepted:invite_statuses.sample )
+end
+
+50.times do
+  Invitation.create!(event_id: rand(1...50), user_id: 251 , accepted:invite_statuses.sample )
+  Invitation.create!(event_id: rand(1...50), user_id: 252 , accepted:invite_statuses.sample )
 end
 
 ######################################## REGISTRATIONS

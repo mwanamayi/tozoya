@@ -10,7 +10,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def created_index
-    @created_events = current_user.created_events
+    @created_events = current_user.created_events.where(['datetime > ?', DateTime.now])
   end
 
   def attending_index
