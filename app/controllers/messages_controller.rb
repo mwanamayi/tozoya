@@ -3,12 +3,11 @@ class Api::V1::MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
- def index
-  @conversation = Conversation.find(params[:conversation_id])
-  @messages = @conversation.messages
- end
+  def index
+    @conversation = Conversation.find(params[:conversation_id])
+    @messages = @conversation.messages
+  end
    
- end
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.build(params)
