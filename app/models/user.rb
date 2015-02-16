@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :created_events, class_name: "Event", foreign_key: :user_id
   has_many :courses, through: :class_registrations, source: :course
   has_many :class_registrations
+  has_many :conversations, foreign_key: :sender_id
 
   belongs_to :school
   # Include default devise modules. Others available are:
@@ -29,6 +30,14 @@ class User < ActiveRecord::Base
 
   def skip_confirmation!
     self.confirmed_at = Time.now
+  end
+
+  def self.current
+    Thread.current[:user]
+  end
+  
+  def self.current=(user)
+    Thread.current[:user] = user
   end
 
   def attending_events

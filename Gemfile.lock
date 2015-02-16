@@ -40,6 +40,7 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     acts_as_follower (0.1.1)
+    addressable (2.3.7)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (3.0.3)
@@ -57,6 +58,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    cookiejar (0.3.2)
+    daemons (1.1.9)
     database_cleaner (1.4.0)
     devise (2.2.8)
       bcrypt-ruby (~> 3.0)
@@ -64,7 +67,16 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.5)
+    em-http-request (1.1.2)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
+    eventmachine (1.0.7)
     execjs (2.2.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -74,12 +86,24 @@ GEM
     fake_person (1.0.3)
     faker (1.4.3)
       i18n (~> 0.5)
+    faye (1.1.0)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.9.1)
+      multi_json (>= 1.0.0)
+      rack (>= 1.0.0)
+      websocket-driver (>= 0.5.1)
+    faye-websocket (0.9.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     formtastic (2.3.1)
       actionpack (>= 3.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    http_parser.rb (0.6.0)
     i18n (0.6.1)
     inherited_resources (1.5.1)
       actionpack (>= 3.2, < 4.2)
@@ -115,6 +139,8 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.5)
+    private_pub (1.0.3)
+      faye
     rabl (0.11.5)
       activesupport (>= 2.3.14)
     rack (1.4.5)
@@ -181,6 +207,10 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     thor (0.19.1)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -192,6 +222,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.5.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.1)
 
 PLATFORMS
   ruby
@@ -209,10 +242,12 @@ DEPENDENCIES
   json_spec
   just-datetime-picker
   pg
+  private_pub
   rabl
   rails (= 3.2.13)
   rails_12factor
   rspec-rails (>= 2.9.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers
+  thin
   uglifier (>= 1.0.3)

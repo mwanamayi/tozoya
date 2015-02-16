@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150212055327) do
+ActiveRecord::Schema.define(:version => 20150215223245) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20150212055327) do
     t.integer "user_id"
   end
 
+  create_table "conversations", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "conversations", ["recipient_id"], :name => "index_conversations_on_recipient_id"
+  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id"
+
   create_table "courses", :force => true do |t|
     t.integer "school_id"
     t.integer "user_id"
@@ -93,6 +103,17 @@ ActiveRecord::Schema.define(:version => 20150212055327) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
+  create_table "messages", :force => true do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "schools", :force => true do |t|
     t.string "name"

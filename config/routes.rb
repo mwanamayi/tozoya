@@ -1,6 +1,9 @@
 Imin::Application.routes.draw do
 
   devise_for :users
+ 
+
+
   namespace :api do
     namespace :v1 do
       devise_scope :user do
@@ -33,6 +36,15 @@ Imin::Application.routes.draw do
       get 'registered_courses' => 'courses#index_specific', :as => 'registered_courses'
       get 'students' => 'courses#students', :as => 'students'
       # get 'specific_course' => 'courses#specific_course', :as => 'specific_course'
+
+      # resources :conversations do
+      #   resources :messages
+      # end
+      get 'messages' => 'messages#index', :as => 'messages'
+
+      get 'conversations' => 'conversations#index', :as => 'conversations'
+      post 'conversations' => 'conversations#create', :as => 'create_conversation'
+      root to: 'users#index'
     end
   end
 
