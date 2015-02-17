@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
                        foreign_key: :user_id
   belongs_to :user
   has_many :invitations
+  has_many :users, through: :invitations, source: :user
 
   delegate :avatar, to: :user
 

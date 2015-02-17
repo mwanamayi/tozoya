@@ -5,16 +5,30 @@ class Api::V1::EventsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @invited_events = current_user.invited_events
-    
+    invited_events = current_user.invited_events
+    if invited_events.count > 0
+      @invited_events =  invited_events.where(['datetime > ?', DateTime.now])
+    else
+      @invited_events = []
+    end
   end
 
   def created_index
-    @created_events = current_user.created_events.where(['datetime > ?', DateTime.now])
+    created_events = current_user.created_events
+    if created_events.count > 0
+      @created_events = created_events.where(['datetime > ?', DateTime.now])
+    else
+      @created_events = []
+    end
   end
 
   def attending_index
-    @attending_events = current_user.attending_events
+    all_attending_events = current_user.attending_events
+    @attending_events = []
+    all_attending_events.each do |event|
+      @attending_events << event if event.datetime > DateTime.now
+    end
+    @attending_events.sort! { |a,b| a.datetime <=> b.datetime }
   end
 
  
