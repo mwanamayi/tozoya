@@ -40,10 +40,12 @@ Imin::Application.routes.draw do
       # resources :conversations do
       #   resources :messages
       # end
-      get 'messages' => 'messages#index', :as => 'messages'
+      post 'messages' => 'messages#index', :as => 'messages'
+      get 'messages' => 'messages#create', :as => 'create_message'
 
       get 'conversations' => 'conversations#index', :as => 'conversations'
       post 'conversations' => 'conversations#create', :as => 'create_conversation'
+
       root to: 'users#index'
     end
   end

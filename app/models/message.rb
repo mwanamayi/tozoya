@@ -10,23 +10,29 @@ class Message < ActiveRecord::Base
   validates_presence_of :body, :conversation_id, :user_id
 
 
- default_scope order('updated_at DESC')
+  default_scope order('updated_at DESC')
 
- def sender
-  @sender = User.find(self.user_id)
- end
+  def sender
+    @sender = User.find(self.user_id)
+  end
 
- def sender_avatar
-  @sender_avatar = @sender.avatar
- end
+  def sender_avatar
+    sender = User.find(User.current.id)
+    @sender_avatar = sender.avatar
+  end
 
- def update_conversation_timestamp
-  conversation = self.conversation
-  conversation.updated_at = self.created_at
-  conversation.save
- end
+  def update_conversation_timestamp
+    conversation = self.conversation
+    conversation.updated_at = self.created_at
+    conversation.save
+  end
 
- def formatted_updated_at
-  self.updated_at.strftime('%b %d %Y, %H:%M%p')
- end
+  def formatted_updated_at
+    self.updated_at.strftime('%b %d %Y, %H:%M%p')
+  end
+
+  def sender_username
+     user = User.find(User.current.id)
+     user.username
+  end
 end
