@@ -12,13 +12,13 @@ class Message < ActiveRecord::Base
 
   default_scope order('updated_at DESC')
 
-  def sender
+  def find_sender
     @sender = User.find(self.user_id)
   end
 
   def sender_avatar
-    sender = User.find(User.current.id)
-    @sender_avatar = sender.avatar
+    find_sender
+    @sender_avatar = @sender.avatar
   end
 
   def update_conversation_timestamp
@@ -32,7 +32,7 @@ class Message < ActiveRecord::Base
   end
 
   def sender_username
-     user = User.find(User.current.id)
-     user.username
+    find_sender
+    @sender_username = @sender.username
   end
 end

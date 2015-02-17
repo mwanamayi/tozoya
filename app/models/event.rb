@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   # just_define_datetime_picker :end_time, :add_to_attr_accessible => true
 
 
-  attr_accessible :id, :user_id, :name, :description, :location_name , :location_address, :start_time, :start_date, :datetime
+  attr_accessible :id, :user_id, :name, :description, :location_name , :location_address, :start_time, :start_date, :datetime, :creator
   # , :notify_user, :notify_hours_until_event, :start_time, :end_time, 
 
   default_scope order('datetime ASC')
@@ -56,7 +56,7 @@ class Event < ActiveRecord::Base
   end
 
   def format_datetime
-    self.datetime.strftime('%B %d, %Y at %H:%M%p')
+    self.datetime.strftime('%a, %b %d, %I:%M%p')
   end
 
 end
