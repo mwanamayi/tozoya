@@ -7,7 +7,7 @@ class Conversation < ActiveRecord::Base
  
   validates_uniqueness_of :sender_id, :scope => :recipient_id
 
-  attr_accessible :sender_id, :recipient_id
+  attr_accessible :sender_id, :recipient_id, :updated_at
  
   scope :involving, ->(user) do
     where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
@@ -45,6 +45,11 @@ class Conversation < ActiveRecord::Base
     else
       "No messages yet"
     end
+  end
+
+  def formatted_updated_at
+    # self.datetime.strftime('%a, %b %d, %I:%M%p')
+    self.updated_at.strftime('%b %d, %I:%M%p')
   end
 
 end
