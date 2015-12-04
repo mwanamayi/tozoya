@@ -4,6 +4,14 @@ class Invitation < ActiveRecord::Base
 
   attr_accessible :event_id, :user_id, :accepted
 
+  def creator
+    self.event.creator
+  end
+
+  def creator_username
+    self.creator.username
+  end
+
   def invited_user_name
     self.invited_user.username
   end

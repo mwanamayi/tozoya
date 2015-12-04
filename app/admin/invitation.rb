@@ -3,6 +3,7 @@ ActiveAdmin.register Invitation do
   index do 
     column :id
     column :event_name
+    column :creator
     column :invited_user_name
     column("Status") do |invitation| 
       invitation.accepted? ? "IN" : "OUT"
