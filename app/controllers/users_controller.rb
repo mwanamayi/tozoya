@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find(params[:id])
+    print @user
+    respond_to do |format|
+      format.html
+      format.json { render :json => { :user => @user } }
+    end
+  end
+
   def followers
     @followers = current_user.followers
   end
@@ -46,14 +55,6 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
     redirect_to user_path(@user)
-  end
-
-  def show
-    @user = User.where(id: params[:id])
-    respond_to do |format|
-      format.html
-      format.json { render :json => { :user => @user } }
-    end
   end
 
   def profile

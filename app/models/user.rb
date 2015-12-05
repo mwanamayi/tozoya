@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
 
   default_scope order('username ASC')
 
+  def full_name
+    full_name = "#{self.first_name} #{self.last_name}"
+  end
+
   def skip_confirmation!
     self.confirmed_at = Time.now
   end

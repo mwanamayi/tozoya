@@ -53,7 +53,7 @@ person = FakePerson.new
 my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', 
               username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @nyu_id},
           {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
-            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id}]
+            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id, first_name: "Joel", last_name: "Yawili"}]
 
 my_users.each do |user|
     created_user = User.create!user
@@ -117,8 +117,8 @@ def get_class_id(student)
 end
 
 def register_students_for_class
-
   @students.each do |s|
+    print s
     4.times do
       get_class_id(s)
     end
