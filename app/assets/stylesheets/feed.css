@@ -2369,7 +2369,7 @@
 				border-radius: 0;
 				display: block;
 				position: relative;
-				width: 77px;
+				width: 100%;
 			}
 
 			.image.phone .inner, .image.phone:before, .image.phone:after {
@@ -2770,9 +2770,9 @@
 	}
 
 		.spotlight .image {
-			width: 15%;
+			width: 30%;
 			border-radius: 100%;
-			margin: 0 1em 1em 0;
+			margin: 0 3em 0 0;
 			display: block;
 		}
 
@@ -2783,8 +2783,7 @@
 			}
 
 		.spotlight .content {
-			width: 100%;
-			padding: 5%;
+			width: 70%;
 		}
 
 			.spotlight .content > :last-child {
@@ -3624,7 +3623,7 @@
 		}
 
 	}
-}
+
 
 /* Footer */
 
