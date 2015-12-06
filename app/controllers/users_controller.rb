@@ -1,17 +1,26 @@
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
+before_filter :authenticate_user!
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
-    print @user
+      @user = User.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render :json => { :user => @user } }
     end
+  end
+
+  def current_user_show
+    #   @user = User.find(current_user.id)
+    # respond_to do |format|
+    #   format.json { render :json => { :user => @user } }
+    # end
+      render "users/show"
   end
 
   def followers

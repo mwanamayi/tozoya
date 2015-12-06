@@ -9,6 +9,7 @@
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
   <title>Im' In</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'chat' %>
   <%= javascript_include_tag 'jquery.min' %>
@@ -68,6 +69,7 @@
 
 </body>
 <% else %>
+
 <%= yield %>
 <% end %>
 <div class="container">
