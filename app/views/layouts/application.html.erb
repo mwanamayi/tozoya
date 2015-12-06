@@ -11,13 +11,62 @@
   <title>Im' In</title>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'chat' %>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'jquery.poptrox.min' %>
   <%= csrf_meta_tags %>
 
   <!-- shiv here -->
 
 </head>
+
 <% if not user_signed_in? %>
-<%= yield :landing_page %>
+  <%= stylesheet_link_tag "landing_page" %>
+  <%= javascript_include_tag 'landing_page' %>
+
+<body class="landing_page is-loading">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+      <header>
+            <h2>One App.<h2>
+            <h2>A Thousand Of Faces, </h2><br>
+        <span class="avatar"><%= image_tag("joel.jpg") %></span>
+        <h1 class="name">Jane Doe</h1>
+        <p class="program">Senior Psychonautics Engineer</p>
+      </header>
+            <hr />
+              <ul class="actions">
+                <li><a href="#" class="button">I'm Already A User</a></li>
+              </ul>
+              <ul class="actions">
+                <li><a href="#" class="button">Get Me Started</a></li>
+              </ul>
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="copyright">
+        <li>&copy; Jane Doe</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+  <script>
+  if ('addEventListener' in window) {
+    window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+    document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+  }
+  </script>
+
+</body>
 <% else %>
 <%= yield %>
 <% end %>
