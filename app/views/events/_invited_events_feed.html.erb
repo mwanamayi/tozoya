@@ -9,8 +9,9 @@
       <%= image_tag(invited_events[0].user.avatar) %>
     </div>
     <div class="content">
-      <h3><%=invited_events[0].location_address%></h3>
-      <p>Morbi mattis ornare ornare. Duis quam turpis, gravida at leo elementum elit fusce accumsan dui libero, quis vehicula lectus ultricies eu. In convallis amet leo non sapien iaculis efficitur consequat lorem ipsum.</p>
+      <h3><%=invited_events[0].name %></h3>
+      <h5><%=invited_events[0].location_address %></h5>
+      <p><%=invited_events[0].description %></p>
     </div>
   </section>
   <% end %>
@@ -20,8 +21,9 @@
       <%= image_tag(invited_events[1].user.avatar) %>
     </div>
     <div class="content">
-      <h3><%=invited_events[1].location_address%></h3>
-      <p>Morbi mattis ornare ornare. Duis quam turpis, gravida at leo elementum elit fusce accumsan dui libero, quis vehicula lectus ultricies eu. In convallis amet leo non sapien iaculis efficitur consequat lorem ipsum.</p>
+      <h3><%=invited_events[1].name %></h3>
+      <h5><%=invited_events[1].location_address %></h5>
+      <p><%=invited_events[1].description %></p>
     </div>
   </section>
   <% end %>
