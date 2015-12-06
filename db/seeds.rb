@@ -2,7 +2,7 @@
 # ####################################### ADMINS
 
 admins = [{:email => 'lisa@example.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa"},
-          {:email => 'jcyawili@hotmail.fr', :password => 'secret', :password_confirmation => 'secret', username: "mwanamayi"},
+          {:email => 'jcyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', username: "mwanamayi"},
           {:email => 'joel@example.com', :password => 'secret', :password_confirmation => 'secret', username: "joel"}]
 
 admins.each do |admin|
