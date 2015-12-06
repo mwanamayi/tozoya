@@ -56,6 +56,8 @@ my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :passw
               username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @science_po_id},
           {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
             username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili"}]
+          {:email => 'jcyawili@hotmail.fr', :password => 'secret', :password_confirmation => 'secret', 
+            username: "mwanamayi", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "JC", last_name: "Yawili"}]
 
 my_users.each do |user|
     created_user = User.create!user
