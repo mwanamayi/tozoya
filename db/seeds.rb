@@ -2,6 +2,7 @@
 # ####################################### ADMINS
 
 admins = [{:email => 'lisa@example.com', :password => 'secret', :password_confirmation => 'secret', username: "lisa"},
+          {:email => 'jcyawili@hotmail.fr', :password => 'secret', :password_confirmation => 'secret', username: "mwanamayi"},
           {:email => 'joel@example.com', :password => 'secret', :password_confirmation => 'secret', username: "joel"}]
 
 admins.each do |admin|
@@ -11,7 +12,8 @@ admins.each do |admin|
 
 # ####################################### SCHOOLS
 
-schools = [{name: "New York University"}, 
+schools = [{name: "Science Po Paris"},
+          {name: "New York University"}, 
            {name: "Pace University"}, 
            {name: "Columbia"}, 
            {name: "Berkeley College"}, 
@@ -23,7 +25,7 @@ schools.each do |school|
   School.create!school
 end
 
-@nyu = School.all.first
+@science_po = School.all.first
 
 # ####################################### USERS
 
@@ -34,7 +36,7 @@ end
   if !user.save
 
   end
-  @nyu.users << user
+  @science_po.users << user
 
   @students = User.where(status: "student")
 end
@@ -43,21 +45,21 @@ end
   person = FakePerson.new
   professor = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
                           first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, 
-                          status: "professor", school_id: @nyu_id)
-  @nyu.users << professor
+                          status: "professor", school_id: @science_po_id)
+  @science_po.users << professor
 end
 
 @professors = User.where(status: "professor")
 
 person = FakePerson.new
 my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', 
-              username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @nyu_id},
+              username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @science_po_id},
           {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
-            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @nyu_id, first_name: "Joel", last_name: "Yawili"}]
+            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili"}]
 
 my_users.each do |user|
     created_user = User.create!user
-    @nyu.users << created_user
+    @science_po.users << created_user
 end
 
 
@@ -68,7 +70,7 @@ end
   course = Course.new(name: Faker::Commerce.department(3, true))
   course.professor = p
   course.save!
-  @nyu.courses << course
+  @science_po.courses << course
 end
 
  @courses = Course.all
@@ -96,7 +98,7 @@ end
 
 invite_statuses = [true, false]
 
-374.times do
+170.times do
   Invitation.create!(event_id: rand(1...50), user_id: rand(1...@users.count),accepted:invite_statuses.sample )
 end
 
@@ -108,6 +110,7 @@ end
 ######################################## REGISTRATIONS
 
 def create_class_registration(class_id, student_id)
+  print "here 5"
   ClassRegistration.create!(course_id: class_id, user_id: student_id )
 end
 
@@ -125,7 +128,7 @@ def register_students_for_class
 end
 
 def check_recurring_class_id(student, course_id)
-  if student.class_registrations.empty?
+  if not student.class_registrations
     create_class_registration(course_id, student.id)
   else
     student.class_registrations.each do |r|
