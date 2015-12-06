@@ -16,7 +16,7 @@ before_filter :authenticate_user!
   end
 
   def current_user_show
-    #   @user = User.find(current_user.id)
+      @user = User.find(current_user.id)
     # respond_to do |format|
     #   format.json { render :json => { :user => @user } }
     # end
