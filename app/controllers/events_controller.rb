@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    invited_events = current_user.invited_events
+    user = User.find(params[:id])
+    invited_events = user.invited_events
     if invited_events.count > 0
       @invited_events =  invited_events.where(['datetime > ?', DateTime.now])
     else

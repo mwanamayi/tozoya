@@ -14,11 +14,27 @@
         crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
       </header>
 
+
+    <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+          <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
     <!-- Main -->
       <div id="main">
-
+        <% @user.invited_events.each_slice(2) do |e|%>
+<%= render "events/invited_events_feed", invited_events: e %>
+<% end %>
         <!-- One -->
-          <section id="one">
+          <!--<section id="one">
             <header class="major">
               <h2>Ipsum lorem dolor aliquam ante commodo<br />
               magna sed accumsan arcu neque.</h2>
@@ -30,36 +46,36 @@
           </section>
 
         <!-- Two -->
-          <section id="two">
+          <!-- <section id="two">
             <h2>Recent Work</h2>
             <div class="row">
               <article class="6u 12u$(xsmall) work-item">
-                <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+                <a href="images/fulls/01.jpg" class="image fit thumb"><%= image_tag("thumbs/01.jpg") %> </a>
                 <h3>Magna sed consequat tempus</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
               <article class="6u$ 12u$(xsmall) work-item">
-                <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
+                <a href="images/fulls/02.jpg" class="image fit thumb"><%= image_tag("thumbs/02.jpg") %> </a>
                 <h3>Ultricies lacinia interdum</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
               <article class="6u 12u$(xsmall) work-item">
-                <a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
+                <a href="images/fulls/03.jpg" class="image fit thumb"><%= image_tag("thumbs/03.jpg") %> </a>
                 <h3>Tortor metus commodo</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
               <article class="6u$ 12u$(xsmall) work-item">
-                <a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+                <a href="images/fulls/04.jpg" class="image fit thumb"><%= image_tag("thumbs/04.jpg") %> </a>
                 <h3>Quam neque phasellus</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
               <article class="6u 12u$(xsmall) work-item">
-                <a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+                <a href="images/fulls/05.jpg" class="image fit thumb"><%= image_tag("thumbs/05.jpg") %> </a>
                 <h3>Nunc enim commodo aliquet</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
               <article class="6u$ 12u$(xsmall) work-item">
-                <a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+                <a href="images/fulls/06.jpg" class="image fit thumb"><%= image_tag("thumbs/06.jpg") %> </a>
                 <h3>Risus ornare lacinia</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
               </article>
@@ -70,7 +86,7 @@
           </section>
 
         <!-- Three -->
-          <section id="three">
+          <!--<section id="three">
             <h2>Get In Touch</h2>
             <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
             <div class="row">
@@ -108,8 +124,8 @@
           </section>
 
         <!-- Four -->
-        <!--
-          <section id="four">
+        
+          <!--<section id="four">
             <h2>Elements</h2>
 
             <section>
@@ -407,21 +423,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
               <h5>Fit</h5>
               <div class="box alt">
                 <div class="row 50% uniform">
-                  <div class="12u$"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-                  <div class="4u$"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-                  <div class="4u$"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-                  <div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-                  <div class="4u$"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
+                  <div class="12u$"><span class="image fit"><%= image_tag("fulls/05.jpg") %></span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/01.jpg") %> </span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/02.jpg") %> </span></div>
+                  <div class="4u$"><span class="image fit"><%= image_tag("thumbs/03.jpg") %> </span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/04.jpg") %> </span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/05.jpg") %> </span></div>
+                  <div class="4u$"><span class="image fit"><%= image_tag("thumbs/06.jpg") %> </span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/03.jpg") %> </span></div>
+                  <div class="4u"><span class="image fit"><%= image_tag("thumbs/02.jpg") %> </span></div>
+                  <div class="4u$"><span class="image fit"><%= image_tag("thumbs/01.jpg") %> </span></div>
                 </div>
               </div>
               <h5>Left &amp; Right</h5>
-              <p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-              <p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+              <p><span class="image left"><%= image_tag("avatar.jpg") %></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+              <p><span class="image right"><%= image_tag("avatar.jpg") %></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
             </section>
 
           </section>
@@ -429,18 +445,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
       </div>
 
-    <!-- Footer -->
-      <footer id="footer">
-        <ul class="icons">
-          <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-          <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-          <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-          <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-        </ul>
-        <ul class="copyright">
-          <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
-      </footer>
 
     <!-- Scripts -->
       <script src="assets/js/jquery.min.js"></script>
