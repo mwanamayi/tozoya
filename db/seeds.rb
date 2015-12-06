@@ -118,7 +118,6 @@ end
 
 def register_students_for_class
   @students.each do |s|
-    print s
     4.times do
       get_class_id(s)
     end
