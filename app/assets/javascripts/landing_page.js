@@ -26,7 +26,7 @@ $( document ).ready(function() {
     $(".landing_page .program").html('Bachelors In Applied Physics');
   }, 6500);
   setTimeout(function () {
-    $(".landing_page .avatar").children('img').attr("src", "/assets/brian.jpg");
+    $(".landing_page .avatar").children('img').attr("src", "/assets/brian.jpeg");
   }, 6500);
   setTimeout(function () {
     $(".landing_page .name").html('Lisa Williams');
