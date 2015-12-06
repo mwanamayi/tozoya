@@ -11,7 +11,7 @@ Imin::Application.routes.draw do
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
 
-        root to: "devise/sessions#new"
+        root to: "users#index"
       end
 
       resources :users

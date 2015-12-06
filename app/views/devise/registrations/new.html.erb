@@ -1,18 +1,92 @@
-<h2>Sign up</h2>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <title>Im' In</title>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  <%= stylesheet_link_tag "landing_page" %>
+  <%= javascript_include_tag 'landing_page' %>
+  <%= javascript_include_tag 'chat' %>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'jquery.poptrox.min' %>
+  <%= csrf_meta_tags %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <!-- shiv here -->
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+</head>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+<body class="landing_page is-loading">
 
-<%= render "devise/shared/links" %>
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+
+      <h2>Sign up</h2>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, :autofocus => true , required: true %>
+      </div>
+
+      <div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, :autofocus => true, required: true %>
+      </div>
+
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email, :autofocus => true, required: true %>
+      </div>
+
+      <div>
+        <%= f.label :username %>
+        <%= f.text_field :username, :autofocus => true, required: true %>
+      </div>
+
+      <div><%= f.label :password, required: true %>
+        <%= f.password_field :password %>
+      </div>
+
+      <div><%= f.label :password_confirmation, required: true %>
+        <%= f.password_field :password_confirmation %></div>
+        <br>
+        <div><%= f.submit "Sign up" %></div>
+        <% end %>
+
+        <hr />
+        <%= render "devise/shared/links" %>
+        <br>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="copyright">
+          <li>&copy; Jane Doe</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+    <script>
+    if ('addEventListener' in window) {
+      window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+      document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+    </script>
+
+  </body>

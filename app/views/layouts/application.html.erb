@@ -19,7 +19,7 @@
 
 </head>
 
-<% if not user_signed_in? %>
+<% if not user_signed_in? and current_page?(root_url)%>
   <%= stylesheet_link_tag "landing_page" %>
   <%= javascript_include_tag 'landing_page' %>
 
@@ -32,17 +32,17 @@
     <section id="main">
       <header>
             <h2>One App.<h2>
-            <h2>A Thousand Faces, </h2><br>
+            <h2>A Thousand Connections. </h2><br>
         <span class="avatar"><%= image_tag("joel.jpg") %></span>
         <h1 class="name">Jane Doe</h1>
         <p class="program">Senior Psychonautics Engineer</p>
       </header>
             <hr />
               <ul class="actions">
-                <li><a href="#" class="button">I'm Already A User</a></li>
+                <li><a href="/users/sign_in" class="button">Already A User</a></li>
               </ul>
               <ul class="actions">
-                <li><a href="#" class="button">Get Me Started</a></li>
+                <li><a href="/users/sign_up" class="button">Sign Me Up!</a></li>
               </ul>
 
     </section>
