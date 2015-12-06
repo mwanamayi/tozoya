@@ -55,7 +55,7 @@ person = FakePerson.new
 my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', 
               username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @science_po_id,first_name: "Lisa", last_name: "Asmussen"},
           {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
-            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili"}
+            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili"},
           {:email => 'jcyawili@hotmail.fr', :password => 'secret', :password_confirmation => 'secret', 
             username: "mwanamayi", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "JC", last_name: "Yawili"}]
 
