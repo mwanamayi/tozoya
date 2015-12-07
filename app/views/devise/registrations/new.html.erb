@@ -15,6 +15,7 @@
   <%= javascript_include_tag 'chat' %>
   <%= javascript_include_tag 'jquery.min' %>
   <%= javascript_include_tag 'jquery.poptrox.min' %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= csrf_meta_tags %>
 
   <!-- shiv here -->
@@ -32,12 +33,15 @@
 
       <h2>Sign up</h2>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, :autofocus => true , required: true %>
-
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-      
+
+      <div >
+        <%= f.label :your_school %>
+        <!-- <%= f.autocomplete_field :school_id, autocomplete_school_name_users_path %> -->
+        <%= f.select(:school_id, options_for_select([['Science Po Paris', 1], ['New York University', 2], ['Berkeley', 3], ['Columbia', 4], ['McGill', 5]], selected: nil, required: true)) %>
+      </div>
+
       <div>
         <%= f.label :first_name %>
         <%= f.text_field :first_name, :autofocus => true , required: true %>

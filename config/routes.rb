@@ -20,6 +20,10 @@ Imin::Application.routes.draw do
 
   end
 
+  resources :users do  
+    get :autocomplete_school_name, on: :collection
+  end  
+
   resources :users
 
   get 'tasks' => 'tasks#index', :as => 'tasks'

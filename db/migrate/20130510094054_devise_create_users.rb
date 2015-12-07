@@ -39,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
       t.string :status, null: false, default: ""
-      t.string :avatar, default: "http://thenittygritty.co/content/01-home/003-css-masking/mouse-black.png"
+      t.string :avatar, default: "bg.jpg"
       t.references :school, index: true
 
 

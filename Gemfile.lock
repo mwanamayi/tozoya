@@ -159,6 +159,8 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-jquery-autocomplete (1.0.3)
+      rails (>= 3.2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -249,6 +251,7 @@ DEPENDENCIES
   private_pub
   rabl
   rails (= 3.2.13)
+  rails-jquery-autocomplete
   rails_12factor
   rspec-rails (>= 2.9.0)
   sass-rails (~> 3.2.3)
