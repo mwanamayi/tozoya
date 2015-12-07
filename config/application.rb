@@ -61,6 +61,6 @@ module Imin
 
     config.assets.initialize_on_precompile = false
 
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
+     config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 end

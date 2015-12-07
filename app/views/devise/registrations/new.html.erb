@@ -9,13 +9,11 @@
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
   <title>Im' In</title>
-  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= stylesheet_link_tag "landing_page" %>
   <%= javascript_include_tag 'landing_page' %>
   <%= javascript_include_tag 'chat' %>
   <%= javascript_include_tag 'jquery.min' %>
   <%= javascript_include_tag 'jquery.poptrox.min' %>
-  <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= csrf_meta_tags %>
 
   <!-- shiv here -->
