@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'rails_12factor'
-gem 'rails-jquery-autocomplete'
 gem 'test-unit'
 
 # Gems used only for assets and not required
