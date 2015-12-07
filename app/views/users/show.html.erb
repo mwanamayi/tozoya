@@ -8,7 +8,9 @@
 
     <!-- Header -->
       <header id="header">
-        <a href="#" class="image avatar"><%= image_tag(@user.avatar) %></a>
+        <a href="#" class="image avatar">
+          <%= image_tag(@user.avatar) %>
+        </a>
         <h1>
           <strong>
             <%= @user.full_name %>
