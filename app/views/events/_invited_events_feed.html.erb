@@ -1,39 +1,39 @@
 
 <%= stylesheet_link_tag "feed" %>
 
-<% if invited_events[0] %>
+<% if events[0] %>
 <section class="wrapper">
   <!-- <div class="inner"> -->
   <section class="spotlight">
-      <a href="/users/<%= invited_events[0].user.id %>" class="image" >
-        <%= image_tag(invited_events[0].user.avatar) %>
-      </a>
+    <a href="/users/<%= events[0].user.id %>" class="image" >
+      <%= image_tag(events[0].user.avatar) %>
+    </a>
     <div class="content">
       <p>Created By 
-      <a href="/users/<%= invited_events[0].user.id %>" >
-        <%=invited_events[0].creator.capitalize %>
-      </a>
+        <a href="/users/<%= events[0].user.id %>" >
+          <%=events[0].creator.capitalize %>
+        </a>
       </p>
-      <p>Event Name: <%=invited_events[0].name %></p>
-      <p>Meeting Place: <%=invited_events[0].location_address %></p>
-      <p>What's it About: <%=invited_events[0].description %></p>
+      <p>Event Name: <%=events[0].name %></p>
+      <p>Meeting Place: <%=events[0].location_address %></p>
+      <p>What's it About: <%=events[0].description %></p>
     </div>
   </section>
   <% end %>
-  <% if invited_events[1] %>
+  <% if events[1] %>
   <section class="spotlight">
-      <a href="/users/<%= invited_events[1].user.id %>" class="image" >
-      <%= image_tag(invited_events[1].user.avatar) %>
+    <a href="/users/<%= events[1].user.id %>" class="image" >
+      <%= image_tag(events[1].user.avatar) %>
     </a>
     <div class="content">
       <p>By 
-      <a href="/users/<%= invited_events[1].user.id %>" >
-        <%=invited_events[1].creator.capitalize %>
-      </a>
+        <a href="/users/<%= events[1].user.id %>" >
+          <%=events[1].creator.capitalize %>
+        </a>
       </p>
-      <p>Event Name: <%=invited_events[1].name %></p>
-      <p>Meeting Place: <%=invited_events[1].location_address %></p>
-      <p>What's it About: <%=invited_events[1].description %></p>
+      <p>Event Name: <%=events[1].name %></p>
+      <p>Meeting Place: <%=events[1].location_address %></p>
+      <p>What's it About: <%=events[1].description %></p>
     </div>
   </section>
   <% end %>

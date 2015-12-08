@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    user = User.find(params[:id])
-    invited_events = user.invited_events
+    @user = User.find(params[:user_id])
+    invited_events = @user.invited_events
     if invited_events.count > 0
       @invited_events =  invited_events.where(['datetime > ?', DateTime.now])
     else
@@ -15,21 +15,26 @@ class EventsController < ApplicationController
   end
 
   def created_index
-    created_events = current_user.created_events
+    @user = User.find(params[:user_id])
+    created_events = @user.created_events
     if created_events.count > 0
-      @created_events = created_events.where(['datetime > ?', DateTime.now])
+      @events = created_events.where(['datetime > ?', DateTime.now])
     else
-      @created_events = []
+      @events = []
     end
   end
 
   def attending_index
-    all_attending_events = current_user.attending_events
-    @attending_events = []
+    @user = User.find(params[:user_id])
+    puts @user
+    all_attending_events = @user.attending_events
+    puts all_attending_events
+    @events = []
     all_attending_events.each do |event|
-      @attending_events << event if event.datetime > DateTime.now
+      @events << event if event.datetime > DateTime.now
     end
-    @attending_events.sort! { |a,b| a.datetime <=> b.datetime }
+    @events.sort! { |a,b| a.datetime <=> b.datetime }
+    puts @events
   end
 
  
@@ -40,7 +45,7 @@ class EventsController < ApplicationController
     @confirmed_invitations.each do |invite|
       @attending_users << User.find(invite.user_id)
     end
-    # @users = @event.attending_users
+    @users = @event.attending_users
 
     respond_to do |format|
       format.html
