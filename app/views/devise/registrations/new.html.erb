@@ -36,7 +36,6 @@
 
       <div >
         <%= f.label :your_school %>
-        <!-- <%= f.autocomplete_field :school_id, autocomplete_school_name_users_path %> -->
         <%= f.select(:school_id, options_for_select([['Science Po Paris', 1], ['New York University', 2], ['Berkeley', 3], ['Columbia', 4], ['McGill', 5]], selected: nil, required: true)) %>
       </div>
 
