@@ -5,35 +5,63 @@
 <section class="wrapper">
   <!-- <div class="inner"> -->
   <section class="spotlight">
+
+    <% if current_user.id == events[0].user.id %>
+
     <a href="/users/<%= events[0].user.id %>" class="image" >
       <%= image_tag(events[0].user.avatar) %>
     </a>
+
+    <% else %>
+
+    <a href="/created_events/<%= events[0].user.id %>" class="image" >
+      <%= image_tag(events[0].user.avatar) %>
+    </a>
+
+    <% end %>
+
     <div class="content">
-      <p>Created By 
+      <p>Created By, 
         <a href="/users/<%= events[0].user.id %>" >
-          <%=events[0].creator.capitalize %>
+          <%=events[0].user.full_name %>
         </a>
       </p>
-      <p>Event Name: <%=events[0].name %></p>
-      <p>Meeting Place: <%=events[0].location_address %></p>
-      <p>What's it About: <%=events[0].description %></p>
+      <p><span class="event_detail">Event Name:<br></span> <%=events[0].name %></p>
+      <p><span class="event_detail">Meeting Place:<br></span> <%=events[0].location_address %></p>
+      <p><span class="event_detail">What's it About:<br></span> <%=events[0].description %></p>
+      <p><span class="event_detail">Starts At:<br></span> <%= Event.format_datetime(events[0].start_date) %></p>
+      <p><span class="event_detail">Ends At:<br></span> <%= Event.format_datetime(events[0].end_date) %></p>
     </div>
   </section>
   <% end %>
   <% if events[1] %>
   <section class="spotlight">
+
+    <% if current_user.id == events[1].user.id %>
+
     <a href="/users/<%= events[1].user.id %>" class="image" >
       <%= image_tag(events[1].user.avatar) %>
     </a>
+
+    <% else %>
+
+    <a href="/created_events/<%= events[1].user.id %>" class="image" >
+      <%= image_tag(events[1].user.avatar) %>
+    </a>
+
+    <% end %>
+
     <div class="content">
-      <p>By 
+      <p>Created By, 
         <a href="/users/<%= events[1].user.id %>" >
-          <%=events[1].creator.capitalize %>
+          <%=events[1].user.full_name %>
         </a>
       </p>
-      <p>Event Name: <%=events[1].name %></p>
-      <p>Meeting Place: <%=events[1].location_address %></p>
-      <p>What's it About: <%=events[1].description %></p>
+      <p><span class="event_detail">Event Name:<br></span> <%=events[1].name %></p>
+      <p><span class="event_detail">Meeting Place:<br></span> <%=events[1].location_address %></p>
+      <p><span class="event_detail">What's it About:<br></span> <%=events[1].description %></p>
+      <p><span class="event_detail">Starts At:<br></span> <%= Event.format_datetime(events[1].start_date) %></p>
+      <p><span class="event_detail">Ends At:<br></span> <%= Event.format_datetime(events[1].end_date) %></p>
     </div>
   </section>
   <% end %>

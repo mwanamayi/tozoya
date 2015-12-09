@@ -29,7 +29,7 @@ end
 
 # ####################################### USERS
 
-200.times do 
+100.times do 
   person = FakePerson.new
   user = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
                       first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "student")
@@ -41,7 +41,7 @@ end
   @students = User.where(status: "student")
 end
 
-50.times do   
+10.times do   
   person = FakePerson.new
   professor = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
                           first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, 
@@ -67,15 +67,13 @@ end
 
 @users = User.all
 # ####################################### COURSES
+  bachelors = Course.create!(name: "Bachelor's")
+  masters = Course.create!(name: "Masters")
 
-@professors.each do |p|
-  course = Course.new(name: Faker::Commerce.department(3, true))
-  course.professor = p
-  course.save!
-  @science_po.courses << course
-end
+  @science_po.courses << bachelors
+  @science_po.courses << bachelors
 
- @courses = Course.all
+  @courses = Course.all
 
 
 ######################################## EVENTS
@@ -83,11 +81,20 @@ end
 50.times do
   e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, 
                 location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state,
-                start_date: Faker::Time.forward(23), start_time: Faker::Time.forward(30) )
+                start_date: Faker::Time.forward(30),end_date: Faker::Time.forward(30))
   user = User.find(rand(1...@users.count))
   e.user = user
   e.save!
   user.created_events << e
+end
+
+50.times do
+  f = Flight.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city + "," + Faker::Address.country , public: [true,false].sample,
+                date: Faker::Time.forward(180))
+  user = User.find(rand(1...@users.count))
+  f.user = user
+  f.save!
+  user.flights << f
 end
 
 @events = Event.all
@@ -100,13 +107,14 @@ end
 
 invite_statuses = [true, false]
 
-170.times do
-  Invitation.create!(event_id: rand(1...50), user_id: rand(1...@users.count),accepted:invite_statuses.sample )
+85.times do
+  Invitation.create!(event_id: rand(1...50), user_id: rand(1...(@users.count-2)),accepted:invite_statuses.sample )
 end
 
-50.times do
-  Invitation.create!(event_id: rand(1...50), user_id: 251 , accepted:invite_statuses.sample )
-  Invitation.create!(event_id: rand(1...50), user_id: 252 , accepted:invite_statuses.sample )
+25.times do
+  Invitation.create!(event_id: rand(1...50), user_id: 111 , accepted:invite_statuses.sample )
+  Invitation.create!(event_id: rand(1...50), user_id: 112 , accepted:invite_statuses.sample )
+  Invitation.create!(event_id: rand(1...50), user_id: 113 , accepted:invite_statuses.sample )
 end
 
 ######################################## REGISTRATIONS
@@ -123,7 +131,7 @@ end
 
 def register_students_for_class
   @students.each do |s|
-    4.times do
+    1.times do
       get_class_id(s)
     end
   end

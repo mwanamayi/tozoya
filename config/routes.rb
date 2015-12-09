@@ -1,5 +1,8 @@
 Imin::Application.routes.draw do
 
+  resources :flights
+
+
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   
@@ -34,6 +37,7 @@ Imin::Application.routes.draw do
   get 'invited_events/:user_id' => 'events#index', :as => 'invited_events'
   get 'created_events/:user_id' => 'events#created_index', :as => 'created_events'
   get 'attending_events/:user_id' => 'events#attending_index', :as => 'attending_events'
+  get 'not_attending_events/:user_id' => 'events#not_attending_index', :as => 'not_attending_events'
   post 'events' => 'events#create'
 
   get 'invitations' => 'invitations#index', :as => 'invitations'

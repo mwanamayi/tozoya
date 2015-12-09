@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username, :null => false, :default => ""
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
-      t.string :status, null: false, default: ""
+      t.string :status, null: false, default: "student"
       t.string :avatar, default: "bg.jpg"
       t.references :school, index: true
 

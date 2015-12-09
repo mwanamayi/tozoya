@@ -3,79 +3,90 @@
   <%= stylesheet_link_tag "user_show" %>
   <%= stylesheet_link_tag "options_navbar" %>
   <%= javascript_include_tag 'user_show' %>
-<%= javascript_include_tag "feed" %>
+  <%= javascript_include_tag "feed" %>
 </head>
 
-  <body id="top">
+<body id="top">
 
-    <!-- Header -->
-      <header id="header">
-        <a href="#" class="image avatar">
-          <%= image_tag(@user.avatar) %>
-        </a>
-        <h1>
-          <strong>
-            <%= @user.full_name %>
-          </strong>
+  <!-- Header -->
+  <header id="header">
+    <a href="#" class="image avatar">
+      <%= image_tag(@user.avatar) %>
+    </a>
+    <h1>
+      <strong>
+        <%= @user.full_name %>
+      </strong>
         </h1><!-- 
       <p>
         Masters In Management & Systems
-     </p> -->
-        <p>
-          <%= @user.school.name %>
+      </p> -->
+      <p>
+        <%= @user.school.name %>
       </p>
 
-        <ul class="icons">
-          <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
-          <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
-          <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-          <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-        </ul>
-        <ul class="copyright">
-          <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
-        </ul>
-      </header>
+      <ul class="icons">
+        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
+      </ul>
+    </header>
 
-      <div id="main">
+    <div id="main">
 
-<div class="options_navbar">
-<label for="show_filters" class="show_filters">Show Filters</label>
-  <input type="checkbox" id="show_filters" role="button">
-</div>
-<div class="filters">
+      <div class="options_navbar">
+        <label for="show_filters" class="show_filters">Show Filters</label>
+        <input type="checkbox" id="show_filters" role="button">
+      </div>
+      <div class="filters">
 
-  <a href="/invited_events/<%= @user.id %>" >
-<label class="filter filter_all_events" >
-  All Invites
-</label>
-</a>
+        <% if current_user.id == @user.id %>
+        <a href="/invited_events/<%= @user.id %>" >
+          <label class="filter filter_all_events" >
+            All Invites
+          </label>
+        </a>
 
-  <a href="/attending_events/<%= @user.id %>" >
-<label class="filter filter_attending_events" >
-  Attending
-</label>
-</a>
-<a href="/not_attending_events/<%= @user.id %>">
-<label class="filter filter_not_attending" >
-  Not Attending
-</label>
-</a>
-</div>
-<% if @events %>
-<% @events.each_slice(2) do |e|%>
-<div class="events_view">
-  <%= render "events/invited_events_feed", events: e %>
-</div>
-<% end %>
-<% else %>
-<% @user.invited_events.each_slice(2) do |e|%>
-<div class="events_view">
-  <%= render "events/invited_events_feed", events: e %>
-</div>
-<% end %>
-<% end %>
+        <a href="/attending_events/<%= @user.id %>" >
+          <label class="filter filter_attending_events" >
+            Attending
+          </label>
+        </a>
 
-        <!-- One -->
+        <a href="/not_attending_events/<%= @user.id %>">
+          <label class="filter filter_not_attending" >
+            Not Attending
+          </label>
+        </a>
+
+        <% end %>
+
+        <a href="/created_events/<%= @user.id %>">
+          <label class="filter filter_created" >
+            Personal Events
+          </label>
+        </a>
+      </div>
+
+      <% if @events %>
+      <% @events.each_slice(2) do |e|%>
+      <div class="events_view">
+        <%= render "events/invited_events_feed", events: e %>
+      </div>
+      <% end %>
+      <% else %>
+      <% @user.invited_events.each_slice(2) do |e|%>
+      <div class="events_view">
+        <%= render "events/invited_events_feed", events: e %>
+      </div>
+      <% end %>
+      <% end %>
+
+      <!-- One -->
           <!--<section id="one">
             <header class="major">
               <h2>Ipsum lorem dolor aliquam ante commodo<br />
@@ -87,7 +98,7 @@
             </ul>
           </section>
 
-        <!-- Two -->
+          <!-- Two -->
           <!-- <section id="two">
             <h2>Recent Work</h2>
             <div class="row">
@@ -127,7 +138,7 @@
             </ul>
           </section>
 
-        <!-- Three -->
+          <!-- Three -->
           <!--<section id="three">
             <h2>Get In Touch</h2>
             <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
@@ -165,8 +176,8 @@
             </div>
           </section>
 
-        <!-- Four -->
-        
+          <!-- Four -->
+
           <!--<section id="four">
             <h2>Elements</h2>
 
@@ -488,7 +499,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       </div>
 
 
-    <!-- Scripts -->
+      <!-- Scripts -->
       <script src="assets/js/jquery.min.js"></script>
       <script src="assets/js/jquery.poptrox.min.js"></script>
       <script src="assets/js/skel.min.js"></script>
@@ -496,4 +507,4 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
       <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
       <script src="assets/js/main.js"></script>
 
-  </body>
+    </body>

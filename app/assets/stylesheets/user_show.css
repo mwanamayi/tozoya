@@ -2555,12 +2555,14 @@
 		max-width: 54em;
 		padding: 2em 4em 4em 0em;
 		width: calc(100% - 35%);
+		margin-top: 2em;
 	}
 
 		#main > section {
 			/*border-top: solid 2px #efefef;*/
 			margin: 2em 0 2em 0;
 			padding: 4em 0 0 0;
+
 		}
 
 			#main > section:first-child {

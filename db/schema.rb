@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151206205938) do
+ActiveRecord::Schema.define(:version => 20151209024903) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,9 +75,8 @@ ActiveRecord::Schema.define(:version => 20151206205938) do
     t.string   "description"
     t.string   "location_name"
     t.string   "location_address"
-    t.time     "start_time"
-    t.date     "start_date"
-    t.datetime "datetime"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "user_avatar",      :default => ""
@@ -87,13 +86,15 @@ ActiveRecord::Schema.define(:version => 20151206205938) do
     t.text     "content"
     t.integer  "user_id"
     t.string   "picture"
-    t.boolean  "public",      :default => false
-    t.string   "departure",   :default => ""
-    t.string   "destination", :default => ""
-    t.date     "date"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "public"
+    t.string   "departure"
+    t.string   "destination"
+    t.datetime "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "flights", ["user_id"], :name => "index_flights_on_user_id"
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
@@ -140,8 +141,8 @@ ActiveRecord::Schema.define(:version => 20151206205938) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",                                                                         :null => false
-    t.string   "encrypted_password",     :default => "",                                                                         :null => false
+    t.string   "email",                  :default => "",        :null => false
+    t.string   "encrypted_password",     :default => "",        :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -155,14 +156,14 @@ ActiveRecord::Schema.define(:version => 20151206205938) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.string   "username",               :default => "",                                                                         :null => false
-    t.string   "first_name",             :default => "",                                                                         :null => false
-    t.string   "last_name",              :default => "",                                                                         :null => false
-    t.string   "status",                 :default => "",                                                                         :null => false
-    t.string   "avatar",                 :default => "http://thenittygritty.co/content/01-home/003-css-masking/mouse-black.png"
+    t.string   "username",               :default => "",        :null => false
+    t.string   "first_name",             :default => "",        :null => false
+    t.string   "last_name",              :default => "",        :null => false
+    t.string   "status",                 :default => "student", :null => false
+    t.string   "avatar",                 :default => "bg.jpg"
     t.integer  "school_id"
-    t.datetime "created_at",                                                                                                     :null => false
-    t.datetime "updated_at",                                                                                                     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :courses, through: :class_registrations, source: :course
   has_many :class_registrations
   has_many :conversations, foreign_key: :sender_id
+  has_many :flights
 
   belongs_to :school
   # Include default devise modules. Others available are:
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   default_scope order('username ASC')
 
   def full_name
-    full_name = "#{self.first_name} #{self.last_name}"
+    full_name = "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
   end
 
   def skip_confirmation!

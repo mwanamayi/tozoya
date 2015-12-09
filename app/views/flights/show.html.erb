@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @flight.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @flight.user %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @flight.picture %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @flight.public %>
+</p>
+
+<p>
+  <b>Departure:</b>
+  <%= @flight.departure %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%= @flight.destination %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @flight.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>
