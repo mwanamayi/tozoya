@@ -89,9 +89,14 @@ end
 end
 
 50.times do
-  f = Flight.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city + "," + Faker::Address.country , public: [true,false].sample,
+  # f = Flight.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city + "," + Faker::Address.country , public: [true,false].sample,
+  #               date: Faker::Time.forward(180))
+  # user = User.find(rand(1...@users.count))
+
+  f = Flight.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city , public: [true,false].sample,
                 date: Faker::Time.forward(180))
   user = User.find(rand(1...@users.count))
+
   f.user = user
   f.save!
   user.flights << f

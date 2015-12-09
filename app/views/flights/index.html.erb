@@ -1,3 +1,124 @@
+
+<head>
+  <%= stylesheet_link_tag "user_show" %>
+  <%= stylesheet_link_tag "options_navbar" %>
+  <%= javascript_include_tag 'user_show' %>
+  <%= javascript_include_tag "feed" %>
+</head>
+
+<body id="top">
+
+  <!-- Header -->
+  <header id="header">
+    <a href="#" class="image avatar">
+      <%= image_tag(current_user.avatar) %>
+    </a>
+    <h1>
+      <strong>
+        <%= current_user.full_name %>
+      </strong>
+        </h1><!-- 
+      <p>
+        Masters In Management & Systems
+      </p> -->
+      <p>
+        <%= current_user.school.name %>
+      </p>
+
+      <ul class="icons">
+        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
+      </ul>
+    </header>
+
+    <div id="main">
+
+      <div class="options_navbar">
+        <label for="show_filters" class="show_filters">Show Filters</label>
+        <input type="checkbox" id="show_filters" role="button">
+      </div>
+     <!--  <div class="filters">
+
+        <% if current_user.id == current_user.id %>
+        <a href="/invited_events/<%= current_user.id %>" >
+          <label class="filter filter_all_events" >
+            All Invites
+          </label>
+        </a>
+
+        <a href="/attending_events/<%= current_user.id %>" >
+          <label class="filter filter_attending_events" >
+            Attending
+          </label>
+        </a>
+
+        <a href="/not_attending_events/<%= current_user.id %>">
+          <label class="filter filter_not_attending" >
+            Not Attending
+          </label>
+        </a>
+
+        <% end %>
+
+        <a href="/created_events/<%= current_user.id %>">
+          <label class="filter filter_created" >
+            Personal Events
+          </label>
+        </a>
+      </div>
+ -->
+          <!-- Three -->
+          <section id="" class="flight_details">
+            <% @flights.each do |flight| %>
+            <h2><%= flight.user.full_name %></h2>
+            <p><%= flight.content %></p>
+            <div class="row">
+              <div class="8u 12u$(small)">
+                  <div class="row uniform 50%">
+                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x300&sensor=false&zoom=16&markers=#{flight.latitude}%2C#{flight.longitude}" %>
+                  </div><br>
+              </div>
+
+              <div class="4u$ 12u$(small)">
+                <ul class="labeled-icons">
+                  <li>
+                    <%=image_tag(flight.user.avatar) %>
+                  </li>
+                  <li>
+                    <h3 class="icon fa-plane"><span class="label">Departure</span></h3>
+                    <%= flight.departure %><br/>
+                  </li>
+                  <li>
+                    <h3 class="icon fa-home"><span class="label">Arrival</span></h3>
+                    <%= flight.destination %><br/>
+                  </li>
+                  <li>
+                    <h3 class="icon fa-calendar"><span class="label">Email</span></h3>
+                    <a href="#"><%= Flight.format_datetime(flight.date) %></a>
+                  </li>
+
+                  <li><a><input type="submit" value="Send Message" /></a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+<% end %>
+
+
+      <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.poptrox.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="assets/js/main.js"></script>
+
+    </body>
 <h1>Listing flights</h1>
 
 <table>

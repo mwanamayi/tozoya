@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20151209024903) do
     t.string   "departure"
     t.string   "destination"
     t.datetime "date"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

@@ -8,6 +8,8 @@ class CreateFlights < ActiveRecord::Migration
       t.string :departure
       t.string :destination
       t.datetime :date
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

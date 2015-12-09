@@ -57,7 +57,7 @@ class Event < ActiveRecord::Base
 
   def self.format_datetime(date)
     # self.datetime.strftime('%a, %b %d, %I:%M%p')
-    date.strftime('%b %d, %I:%M%p')
+    date.strftime('%b %d %Y, %I:%M%p')
   end
 
 end
