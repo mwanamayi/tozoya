@@ -1,4 +1,4 @@
-
+<!-- THIS IS THE PAGE "CONNECTIONS" THAT SHOW ALL THE USERS -->
 <head>
   <%= stylesheet_link_tag "user_show" %>
   <%= stylesheet_link_tag "options_navbar" %>
@@ -27,9 +27,9 @@
       </p>
 
       <ul class="icons">
-        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
-        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="<%= users_path %>" class="icon fa-group"><span class="label">Twitter</span></a></li>
+        <li><a href="<%= flights_path %>" class="icon fa-plane"><span class="label">Github</span></a></li>
+        <li><a href="<%= root_path %>" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
         <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
       </ul>
       <ul class="copyright">
