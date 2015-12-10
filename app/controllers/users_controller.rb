@@ -5,7 +5,10 @@ before_filter :authenticate_user!, except: [:index]
 
   def index
     @users = User.all
-    print @users
+  end
+
+  def root_index
+    @users = User.all
   end
 
   def show
