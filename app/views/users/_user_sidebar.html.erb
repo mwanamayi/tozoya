@@ -1,0 +1,25 @@
+
+    <a href="#" class="image avatar">
+      <%= image_tag(@user.avatar) %>
+    </a>
+    <h1>
+      <strong>
+        <%= @user.full_name %>
+      </strong>
+        </h1><!-- 
+      <p>
+        Masters In Management & Systems
+      </p> -->
+      <p>
+        <%= @user.school.name %>
+      </p>
+
+      <ul class="icons">
+        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
+      </ul>

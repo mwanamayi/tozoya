@@ -1,0 +1,33 @@
+<div class="options_navbar">
+        <label for="show_filters" class="show_filters">Show Filters</label>
+        <input type="checkbox" id="show_filters" role="button">
+      </div>
+      <div class="filters">
+
+        <% if current_user.id == @user.id %>
+        <a href="/invited_events/<%= @user.id %>" >
+          <label class="filter filter_all_events" >
+            All Invites
+          </label>
+        </a>
+
+        <a href="/attending_events/<%= @user.id %>" >
+          <label class="filter filter_attending_events" >
+            Attending
+          </label>
+        </a>
+
+        <a href="/not_attending_events/<%= @user.id %>">
+          <label class="filter filter_not_attending" >
+            Not Attending
+          </label>
+        </a>
+
+        <% end %>
+
+        <a href="/created_events/<%= @user.id %>">
+          <label class="filter filter_created" >
+            Personal Events
+          </label>
+        </a>
+      </div>

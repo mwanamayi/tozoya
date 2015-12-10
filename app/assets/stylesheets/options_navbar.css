@@ -1,3 +1,5 @@
+@import url("font-awesome.min.css");
+
 /*Strip the ul of padding and list styling*/
 .options_navbar ul {
   list-style-type:none;

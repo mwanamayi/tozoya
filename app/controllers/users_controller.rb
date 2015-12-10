@@ -5,6 +5,7 @@ before_filter :authenticate_user!, except: [:index]
 
   def index
     @users = User.all
+    print @users
   end
 
   def show

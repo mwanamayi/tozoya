@@ -1,10 +1,89 @@
-<% @users.each_with_index do |user, index| %>
-    <tr>
-      <td><%= index +=1 %></td>
-      <td><%= user.username %></td>
-      <td>
-        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => user.id, "data-rip" => user.id %>
-      </td>
-    </tr>
-<% end %>
+
+<head>
+  <%= stylesheet_link_tag "user_show" %>
+  <%= stylesheet_link_tag "options_navbar" %>
+  <%= javascript_include_tag 'user_show' %>
+  <%= javascript_include_tag "feed" %>
+  <%= stylesheet_link_tag "users" %>
+</head>
+
+<body id="top">
+
+  <!-- Header -->
+  <header id="header">
+    <a href="#" class="image avatar">
+      <%= image_tag(current_user.avatar) %>
+    </a>
+    <h1>
+      <strong>
+        <%= current_user.full_name %>
+      </strong>
+        </h1><!-- 
+      <p>
+        Masters In Management & Systems
+      </p> -->
+      <p>
+        <%= current_user.school.name %>
+      </p>
+
+      <ul class="icons">
+        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
+      </ul>
+    </header>
+
+<div id="main">
+
+  <div class=" users_list">
+    <ul class="list-group">
+      <div href="#" class="list-group-item title">
+        <center>
+        Students In Science Po
+      </center>
+      </div>
+      <% if !@users.any? %>
+
+      <% else %>
+      <% @users.each do |user| %>
+
+        <li href="#" class="list-group-item text-left">
+            <%=image_tag(user.avatar, class:"img-thumbnail") %>
+
+            <label class="name">
+              <%= user.full_name %><br> 
+            </label>
+
+        <div class = "options">
+          <label class="option">
+              <a  class="btn btn-xs " href="#" title="follow_unfollow">Follow</a>
+            </label>
+            
+          <label class="option">
+              <a  class="btn btn-xs icon fa-envelope" href="#" title="message"></a>
+          </label>
+        </div>
+          <div class="break">
+            
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>                                                                                
+</div>
+
+
+      <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.poptrox.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="assets/js/main.js"></script>
+
+    </body>

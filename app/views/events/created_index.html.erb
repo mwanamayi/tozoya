@@ -10,67 +10,12 @@
 
   <!-- Header -->
   <header id="header">
-    <a href="#" class="image avatar">
-      <%= image_tag(@user.avatar) %>
-    </a>
-    <h1>
-      <strong>
-        <%= @user.full_name %>
-      </strong>
-        </h1><!-- 
-      <p>
-        Masters In Management & Systems
-      </p> -->
-      <p>
-        <%= @user.school.name %>
-      </p>
-
-      <ul class="icons">
-        <li><a href="#" class="icon fa-group"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon fa-paper-plane-o"><span class="label">Github</span></a></li>
-        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-      </ul>
-      <ul class="copyright">
-        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
-      </ul>
+      <%= render 'users/user_sidebar' %>
     </header>
 
     <div id="main">
 
-      <div class="options_navbar">
-        <label for="show_filters" class="show_filters">Show Filters</label>
-        <input type="checkbox" id="show_filters" role="button">
-      </div>
-      <div class="filters">
-
-        <% if current_user.id == @user.id %>
-        <a href="/invited_events/<%= @user.id %>" >
-          <label class="filter filter_all_events" >
-            All Invites
-          </label>
-        </a>
-
-        <a href="/attending_events/<%= @user.id %>" >
-          <label class="filter filter_attending_events" >
-            Attending
-          </label>
-        </a>
-
-        <a href="/not_attending_events/<%= @user.id %>">
-          <label class="filter filter_not_attending" >
-            Not Attending
-          </label>
-        </a>
-
-        <% end %>
-
-        <a href="/created_events/<%= @user.id %>">
-          <label class="filter filter_created" >
-            Personal Events
-          </label>
-        </a>
-      </div>
+<%= render 'layouts/options_navbar' %>
 
       <% if @events %>
       <% @events.each_slice(2) do |e|%>
