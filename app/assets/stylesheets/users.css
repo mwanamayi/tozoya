@@ -21,7 +21,7 @@
 .users_list .options {
   position: relative;
   left: 25%;
-  transform: translateY(-125%);
+  bottom: 100%;
 }
 
 .users_list label a {
@@ -32,6 +32,7 @@
 
 .users_list li{
   height: 150px;
+  margin-bottom: 1em;
 }
 
 .jumbotron .btn {
@@ -62,7 +63,7 @@
 
 @media screen and (max-width : 760px){
   .users_list .options {
-    margin-left: 15%
+    margin-left: 15%;
   }
 }
 
