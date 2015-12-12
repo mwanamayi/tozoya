@@ -21,7 +21,9 @@
    <% @users.each do |user| %>
     <% if user.id != current_user.id %>
      <div class=”item”>
-   <%= user.first_name %> <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+      <%= user.first_name %>
+      <%= button_to "Send A Message", { action: "create",method: :post, sender_id: current_user.id, recipient_id: user.id} %>
+    </a>
  </div>
   <% end %>
  <% end %>

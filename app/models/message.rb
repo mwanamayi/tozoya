@@ -10,7 +10,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :body, :conversation_id, :user_id
 
 
-  default_scope order('updated_at DESC')
+  default_scope order('updated_at ASC')
 
   def find_sender
     @sender = User.find(self.user_id)
