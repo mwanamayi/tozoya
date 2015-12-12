@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
 
   after_create :update_conversation_timestamp
  
-  validates_presence_of :body, :conversation_id, :user_id
+  validates_presence_of :conversation_id, :user_id
 
 
   default_scope order('updated_at ASC')
@@ -38,5 +38,10 @@ class Message < ActiveRecord::Base
 
   def message_time
     self.created_at.strftime('%m/%d/%y' + "at" + '%l:%M %p')
+  end
+
+  def formatted_updated_at
+    # self.datetime.strftime('%a, %b %d, %I:%M%p')
+    self.updated_at.strftime('%I:%M%p')
   end
 end

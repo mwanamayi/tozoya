@@ -11,7 +11,7 @@ def index
   @user = current_user
  @messages = @conversation.messages
 
-  if @messages.length > 10
+  if @messages.length > 1000
    @over_ten = true
    @messages = @messages[-10..-1]
   end

@@ -1,49 +1,89 @@
 
 <head>
-  <%= stylesheet_link_tag "user_show" %>
-  <%= stylesheet_link_tag "options_navbar" %>
-  <%= javascript_include_tag "feed" %>
+  <%= stylesheet_link_tag "inbox" %>
+  <%= javascript_include_tag "inbox" %>
 </head>
 
 <body id="top">
 
-  <!-- Header -->
-  <header id="header">
-    <%= render 'users/user_sidebar' %>
-  </header>
-
   <div id="main">
-<% if @over_ten %>
-<%= link_to "Show More", "?m=all" %>
-<% end %>
-<div class=”ui segment”>
- <% @messages.each do |message| %>
- <% if message.body %>
- <% user = User.find(message.user_id) %>
- <div class=”item”>
-  <div class=”content”>
-   <div class=”header”><strong><%= user.first_name %></strong>
-      <%= message.message_time %>
-   </div>
-   <div class=”list”>
-     <div class=”item”>
-      <i class=”right triangle icon”></i>
-      <%= message.body %>
-    </div>
+    <% if @over_ten %>
+    <%= link_to "Show More", "?m=all" %>
+    <% end %>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+        </div>
+        <div class="col-sm-9 col-md-12">
+          <!-- Split button -->
+          <div class="btn-group">
+          </div>
+
+          <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+            &nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-refresh">  
+            </span>&nbsp;&nbsp;&nbsp;
+          </button>
+
+        </div>
+      </div>
+
+      <hr>
+      <div class="row scrollable">
+
+       <% @messages.each do |message| %>
+       <% if message.body %>
+       <% user = User.find(message.user_id) %>
+       <!-- Tab panes -->
+       <div class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+          <div class="list-group ">
+            <div class="list-group-item message_box read">
+
+              <span class="glyphicon">  
+              </span>
+
+              <% if user == current_user %>
+              <span class="name active" style="min-width: 100px; display: inline-block;">
+                Me
+
+              </span> <br>
+              <% else %>
+
+              <span class="name" style="min-width: 100px; display: inline-block;">
+                <%= message.user.full_name %>
+              </span><br>
+              <% end %>
+
+              <span class="text-muted">
+                <%= message.body %>
+              </span>
+
+              <span class="badge">
+                <%= message.formatted_updated_at %>
+              </span> 
+
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
   </div>
 </div>
-</div>
-<% end %>
-<% end %>
-</div>
+<center>
+
 <%= form_for([@conversation, @message], html: {class: 'ui reply form'}) do |f| %>
 <div class=”field”>
- <%= f.text_field :body, class: 'form-control' %>
+ <%= f.text_field :body, class: 'form-control message_field' %>
 </div>
 <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
 <div>
- <%= f.submit 'Add Reply', class: 'ui blue labeled submit icon button' %>
+ <%= f.submit 'Send', class: 'ui blue labeled submit icon button' %>
 </div>
 <% end %>
+</center>
 </div>
+
 </body>
