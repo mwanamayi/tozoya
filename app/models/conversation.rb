@@ -41,7 +41,7 @@ class Conversation < ActiveRecord::Base
 
   def last_message_body
     if self.messages.count > 0
-      self.messages.first.body
+      self.messages.last.body
     else
       "No messages yet"
     end
