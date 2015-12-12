@@ -35,4 +35,8 @@ class Message < ActiveRecord::Base
     find_sender
     @sender_username = @sender.username
   end
+
+  def message_time
+    self.created_at.strftime('%m/%d/%y' + "at" + '%l:%M %p')
+  end
 end

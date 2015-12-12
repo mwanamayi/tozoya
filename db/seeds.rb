@@ -154,6 +154,27 @@ def check_recurring_class_id(student, course_id)
   end
 end
 
+def create_conversation(user)
+  recipient = User.find(rand(1...@users.count))
+  conversation = Conversation.create!(sender_id: user.id, recipient_id: recipient.id)
+  ids = [user.id, recipient.id]
+
+  5.times do
+    message_sender_id = ids.sample
+    create_message(conversation.id,message_sender_id)
+  end
+
+end
+
+def create_message(conversation_id, message_sender_id)
+  message = Message.create!(body: Faker::Lorem.sentence(3, true), conversation_id: conversation_id, user_id: message_sender_id)
+end
+
+
 register_students_for_class
+
+@users.each do |user|
+  create_conversation(user)
+end
 
 

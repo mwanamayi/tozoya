@@ -51,14 +51,14 @@ Imin::Application.routes.draw do
   get 'students' => 'courses#students', :as => 'students'
       # get 'specific_course' => 'courses#specific_course', :as => 'specific_course'
 
-      # resources :conversations do
-      #   resources :messages
-      # end
-      post 'messages' => 'messages#index', :as => 'messages'
-      get 'messages' => 'messages#create', :as => 'create_message'
+      resources :conversations do
+        resources :messages
+      end
+      # post 'messages' => 'messages#index', :as => 'messages'
+      # get 'messages' => 'messages#create', :as => 'create_message'
 
-      get 'conversations' => 'conversations#index', :as => 'conversations'
-      post 'conversations' => 'conversations#create', :as => 'create_conversation'
+      # get 'conversations' => 'conversations#index', :as => 'conversations'
+      # post 'conversations' => 'conversations#create', :as => 'create_conversation'
 
 
 

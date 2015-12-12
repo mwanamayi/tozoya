@@ -3,18 +3,45 @@ class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
-  def index
-    @conversation = Conversation.find(params[:id])
-    @messages = @conversation.messages
-  end
-   
-  def create
-    @conversation = Conversation.find(params[:id])
-    @message = @conversation.messages.build(params)
-    @message.user_id = current_user.id
-    @message.save!
- 
-    @path = conversation_path(@conversation)
+  before_filter do
+   @conversation = Conversation.find(params[:conversation_id])
   end
 
+def index
+ @messages = @conversation.messages
+
+  if @messages.length > 10
+   @over_ten = true
+   @messages = @messages[-10..-1]
+  end
+
+  if params[:m]
+   @over_ten = false
+   @messages = @conversation.messages
+  end
+
+  if @messages.last
+  if @messages.last.user_id != current_user.id
+   # @messages.last.read = true;
+  end
+ end
+ 
+@message = @conversation.messages.new
+end
+
+def new
+ @message = @conversation.messages.new
+end
+
+def create
+ @message = @conversation.messages.create!(params[:message])
+ if @message
+  redirect_to conversation_messages_path(@conversation)
+ end
+end
+
+private
+ def message_params
+  params.require(:message).permit(:body, :user_id)
+ end
 end
