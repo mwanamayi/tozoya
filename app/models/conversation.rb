@@ -49,7 +49,7 @@ class Conversation < ActiveRecord::Base
 
   def formatted_updated_at
     # self.datetime.strftime('%a, %b %d, %I:%M%p')
-    self.updated_at.strftime('%b %d, %I:%M%p')
+    self.updated_at.strftime('%I:%M%p')
   end
 
 end
