@@ -4,9 +4,9 @@ class ConversationsController < ApplicationController
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
  
-  layout false
   def index
     puts "conversation index"
+    @user = current_user
     @users = User.all
     @conversations = Conversation.where("(sender_id = ? or recipient_id = ?)", current_user.id, current_user.id)
   #   @reciever = interlocutor(@conversation)

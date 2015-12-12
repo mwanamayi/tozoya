@@ -30,6 +30,12 @@
   border: solid 1px #b2b2b2;
 }
 
+.users_list label input[type=submit] {
+  width: 50%;
+  line-height: 3em;
+  border: solid 1px #b2b2b2;
+}
+
 .users_list li{
   height: 150px;
   margin-bottom: 1em;

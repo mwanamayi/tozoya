@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   end
 
 def index
+  @user = current_user
  @messages = @conversation.messages
 
   if @messages.length > 10

@@ -48,6 +48,7 @@
         Students In Science Po
       </center>
       </div>
+      <br>
       <% if !@users.any? %>
 
       <% else %>
@@ -66,7 +67,8 @@
             </label>
             
           <label class="option">
-              <a  class="btn btn-xs icon fa-envelope" href="#" title="message"></a>
+
+              <%= button_to "Send A Message", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: user.id} %>
           </label>
         </div>
           <div class="break">
