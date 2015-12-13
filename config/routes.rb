@@ -8,10 +8,12 @@ Imin::Application.routes.draw do
   
   devise_for :users
 
+  # authenticated :user do
+  #   root to: "users#current_user_show"
+  # end
   authenticated :user do
-    root to: "users#current_user_show"
+    root to: "flights#index"
   end
-
   unauthenticated :user do
     root to: "users#index"
   end
@@ -23,6 +25,9 @@ Imin::Application.routes.draw do
 
   end
 
+  get 'created_flights/:user_id' => 'flights#created_index', :as => 'created_flights'
+  
+
   resources :users
 
   get 'tasks' => 'tasks#index', :as => 'tasks'
@@ -30,11 +35,12 @@ Imin::Application.routes.draw do
   put 'tasks/:id/open' => 'tasks#open', :as => 'open_task'
   put 'tasks/:id/complete' => 'tasks#complete', :as => 'complete_task'
 
-  get 'invited_events/:user_id' => 'events#index', :as => 'invited_events'
-  get 'created_events/:user_id' => 'events#created_index', :as => 'created_events'
-  get 'attending_events/:user_id' => 'events#attending_index', :as => 'attending_events'
-  get 'not_attending_events/:user_id' => 'events#not_attending_index', :as => 'not_attending_events'
-  post 'events' => 'events#create'
+
+  # get 'invited_events' => 'events#index', :as => 'invited_events'
+  # get 'created_events/:user_id' => 'events#created_index', :as => 'created_events'
+  # get 'attending_events/:user_id' => 'events#attending_index', :as => 'attending_events'
+  # get 'not_attending_events/:user_id' => 'events#not_attending_index', :as => 'not_attending_events'
+  # post 'events' => 'events#create'
 
   get 'invitations' => 'invitations#index', :as => 'invitations'
   post 'invitation' => 'invitations#index_specific', :as => 'invitation'

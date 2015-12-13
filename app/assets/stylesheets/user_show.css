@@ -480,7 +480,7 @@
 		}
 
 		.row {
-			margin: 0 0 -1px -2.5em;
+			margin: 0 0 -1px 0.5em;
 		}
 
 		.row.uniform > * {
@@ -1988,6 +1988,7 @@
 
 	.image {
 		border-radius: 0.35em;
+		max-height: 50%;
 		border: 0;
 		display: inline-block;
 		position: relative;
@@ -2049,6 +2050,13 @@
 
 		.image img {
 			border-radius: 0.35em;
+			display: block;
+		}
+
+		.feed_image img {
+			border-radius: 0.35em;
+			height: 90px;
+			width: 90px;
 			display: block;
 		}
 

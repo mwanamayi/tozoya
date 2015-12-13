@@ -18,11 +18,12 @@
           <div class="btn-group">
           </div>
 
-          <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+
+          <a type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh" href="javascript:history.go(0)">
             &nbsp;&nbsp;&nbsp;
             <span class="glyphicon glyphicon-refresh">  
             </span>&nbsp;&nbsp;&nbsp;
-          </button>
+          </a>
 
           <div class="pull-right">
             <!-- <span class="text-muted"><b>1</b>–<b>50</b> of <b>160</b></span> -->
@@ -94,15 +95,15 @@
                           </label>
                         </div>
 
-                        <span class="glyphicon glyphicon-star-empty">  
+                        <span class="glyphicon">  
                         </span>
 
                         <span class="name" style="min-width: 120px; display: inline-block;">
                           <%= recipient.full_name %>
-                        </span> 
+                        </span>
 
                         <span class="text-muted">
-                          <%= conversation.last_message_body.truncate(50) %>
+                          <%= conversation.last_message_body.truncate(40) %>
                         </span>
 
                       <!--   <span class="text-muted" style="font-size: 11px;">
