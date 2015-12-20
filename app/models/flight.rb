@@ -5,8 +5,13 @@ class Flight < ActiveRecord::Base
   geocoded_by :destination
   after_validation :geocode, if: :destination_changed?
 
-  def self.format_datetime(date)
+  def self.day(date)
     # self.datetime.strftime('%a, %b %d, %I:%M%p')
-    date.strftime('%b %d %Y, %I:%M%p')
+    date.strftime('%B %d, %Y')
+  end
+
+  def self.time(date)
+    # self.datetime.strftime('%a, %b %d, %I:%M%p')
+    date.strftime('%I:%M%p')
   end
 end

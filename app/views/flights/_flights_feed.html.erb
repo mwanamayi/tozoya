@@ -1,45 +1,43 @@
-<div class="options_navbar">
+<!-- <div class="options_navbar">
         <label for="show_filters" class="show_filters">Show Filters</label>
         <input type="checkbox" id="show_filters" role="button">
-      </div>
+      </div> -->
           <!-- Three -->
           <section id="" class="flight_details">
             <% @flights.each do |flight| %>
-            <center><h3><%= flight.user.full_name %></h3></center>
-            <p><%= flight.content %></p>
-            <div class="row">
-              <div class="">
 
-                  <div class="row col-md-6">
-
-                <ul class="labeled-icons">
-                  <li>    
-                    <a href="/created_flights/<%= flight.user.id %>" class="feed_image" >
-                      <%= image_tag(flight.user.avatar) %>
-                    </a>
-                  </li>
-                  <li>
-                    <h3 class="icon fa-plane"><span class="label">Departure</span></h3>
-                    <%= flight.departure %><br/>
-                  </li>
-                  <li>
-                    <h3 class="icon fa-home"><span class="label">Arrival</span></h3>
-                    <%= flight.destination %><br/>
-                  </li>
-                  <li>
-                    <h3 class="icon fa-calendar"><span class="label">Email</span></h3>
-                    <a href="#"><%= Flight.format_datetime(flight.date) %></a>
-                  </li>
-
-                  <li><a><input type="submit" value="Send Message" /></a></li>
-                </ul>
-                  </div><br>
-              </div>
-
-              <div class="4u$ 12u$(small)">
+              <article class="post">
+                <header>
+                  <div class="title">
+                    <h3 class="icon fa-plane"> <%= flight.departure %></h3>
+                    <p class="icon fa-home"> <%= flight.destination %> </p>
+                  </div>
+                  <div class="meta">
+                    <p class="published icon fa-calendar"> <%= Flight.day(flight.date) %></p>
+                    <p class=" icon fa-clock-o"> <%= Flight.time(flight.date) %></p>
+                    <a href="#" class="author">
+                      <span class="name">
+                        <%= flight.user.first_name %>
+                      </span>
+                    <%= image_tag(flight.user.avatar) %>
+                   </a> 
+                  </div>
+                </header>
+                <footer>
+                  <ul class="actions">
+              <li><%= button_to "Contact #{flight.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: flight.user.id} %></li>
+                  </ul>
+                  <ul class="stats">
+<!--               <div class="4u$ 12u$(small)">
                     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x300&sensor=false&zoom=4&markers=#{flight.latitude}%2C#{flight.longitude}" %>
-              </div>
-            </div>
+              </div> -->
+                    <li><a href="#">General</a></li>
+                    <li><a href="#" class="icon fa-heart">28</a></li>
+                    <li><a href="#" class="icon fa-comment">128</a></li>
+                  </ul>
+                </footer>
+              </article>
+
           </section>
 <% end %>
 
