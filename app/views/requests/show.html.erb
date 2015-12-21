@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @request.content %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @request.picture %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @request.public %>
+</p>
+
+<p>
+  <b>Departure:</b>
+  <%= @request.departure %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%= @request.destination %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @request.date %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @request.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @request.longitude %>
+</p>
+
+<p>
+  <b>References:</b>
+  <%= @request.references %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

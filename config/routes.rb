@@ -1,5 +1,8 @@
 Imin::Application.routes.draw do
 
+  resources :requests
+
+
   resources :flights
 
 
@@ -25,7 +28,8 @@ Imin::Application.routes.draw do
 
   end
 
-  get 'created_flights/:user_id' => 'flights#created_index', :as => 'created_flights'
+  get 'flights/personal/:user_id' => 'flights#created_index', :as => 'created_flights'
+  get 'requests/personal/:user_id' => 'requests#created_index', :as => 'created_requests'
   
 
   resources :users

@@ -23,84 +23,84 @@
 
         </div>
       </div>
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-      <center>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <center>
                 <span class="glyphicon glyphicon-comment">
                   
                 </span> Chat
 
-      </center>
-                  </div>
-                  <div class="panel-body scrollable">
-                    <ul class="chat">
-                             <% @messages.each do |message| %>
-       <% if message.body %>
-       <% user = User.find(message.user_id) %>
-       <% if current_user != user %>
-                      <li class="left clearfix"><span class="chat-img pull-left">
-                        <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                      </span>
-                      <div class="chat-body clearfix">
-                        <div class="header">
-                          <strong class="primary-font pull-left"><%= message.user.full_name %></strong> 
-                          <small class="text-muted pull-right">
-                          <span class="glyphicon glyphicon-time">
-                          </span><%= message.formatted_updated_at %> 
-                        </small>
-                        </div>
-                        <br>
-                        <p class="pull-left">
-                          <%= message.body %>
-                        </p>
-                      </div>
-                    </li>
-<% else %>
-                    <li class="right clearfix"><span class="chat-img pull-right">
-                      <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                    </span>
-                    <div class="chat-body clearfix">
-                      <div class="header">
-                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><%= message.formatted_updated_at %> </small>
-                        <strong class="pull-right primary-font"><%= message.user.full_name %></strong>
-                      </div>
-                      <p class="pull-right">
-                         <%= message.body %>
-                      </p>
-                    </div>
-                  </li>
-                <% end %> 
-                <% end %>
-                <% end %>
-                </ul>
-              </div>
-        <%= form_for([@conversation, @message], html: {class: 'ui reply form'}) do |f| %>
-              <div class="panel-footer">
-                <div class="input-group">
-         <%= f.text_field :body, class: 'form-control input-sm', placeholder: "Type your message here...",id:"btn-input", required: true %>
-       <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-                  <span class="input-group-btn">
-         <%= f.submit 'Send', class: 'btn btn-warning btn-xs', id:'btn-chat' %>
-                    </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
+              </center>
             </div>
-          </div>
-          </center>
-        </div>
-
-
-        <div class=”field”>
+            <div class="panel-body scrollable">
+              <ul class="chat">
+                <% @messages.each do |message| %>
+                <% if message.body %>
+                <% user = User.find(message.user_id) %>
+                <% if current_user != user %>
+                <li class="left clearfix"><span class="chat-img pull-left">
+                  <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                </span>
+                <div class="chat-body clearfix">
+                  <div class="header">
+                    <strong class="primary-font pull-left"><%= message.user.full_name %></strong> 
+                    <small class="text-muted pull-right">
+                      <span class="glyphicon glyphicon-time">
+                      </span><%= message.formatted_updated_at %> 
+                    </small>
+                  </div>
+                  <br>
+                  <p class="pull-left">
+                    <%= message.body %>
+                  </p>
+                </div>
+              </li>
+              <% else %>
+              <li class="right clearfix"><span class="chat-img pull-right">
+                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+              </span>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><%= message.formatted_updated_at %> </small>
+                  <strong class="pull-right primary-font"><%= message.user.full_name %></strong>
+                </div>
+                <p class="pull-right">
+                 <%= message.body %>
+               </p>
+             </div>
+           </li>
+           <% end %> 
+           <% end %>
+           <% end %>
+         </ul>
        </div>
-       <div>
-       </div>
-       <% end %>
-     </center>
+       <%= form_for([@conversation, @message], html: {class: 'ui reply form'}) do |f| %>
+       <div class="panel-footer">
+        <div class="input-group">
+         <%= f.text_field :body, class: 'form-control input-sm', placeholder: "Type your message here...",id:"btn-input", required: true %>
+         <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
+         <span class="input-group-btn">
+           <%= f.submit 'Send', class: 'btn btn-warning btn-xs', id:'btn-chat' %>
+         </button>
+       </span>
+     </div>
    </div>
+ </div>
+</div>
+</div>
+</center>
+</div>
 
- </body>
+
+<div class=”field”>
+</div>
+<div>
+</div>
+<% end %>
+</center>
+</div>
+
+</body>

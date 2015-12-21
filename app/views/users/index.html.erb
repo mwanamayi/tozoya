@@ -2,92 +2,55 @@
 
 <!-- THIS IS THE PAGE "CONNECTIONS" THAT SHOW ALL THE USERS -->
 <head>
-  <%= stylesheet_link_tag "user_show" %>
-  <%= stylesheet_link_tag "options_navbar" %>
-  <%= javascript_include_tag 'user_show' %>
-  <%= javascript_include_tag "feed" %>
-  <%= stylesheet_link_tag "users" %>
+  <%= stylesheet_link_tag "main" %>
 </head>
 
-<body id="top">
+<!-- Sidebar -->
+<section id="">
 
-  <!-- Header -->
-  <header id="header">
-    <a href="#" class="image avatar">
-      <%= image_tag(current_user.avatar) %>
-    </a>
-    <h1>
-      <strong>
-        <%= current_user.full_name %>
-      </strong>
-        </h1><!-- 
-      <p>
-        Masters In Management & Systems
-      </p> -->
-      <p>
-        <%= current_user.school.name %>
-      </p>
-
-      <ul class="icons">
-        <li><a href="<%= users_path %>" class="icon fa-group"><span class="label">Twitter</span></a></li>
-        <li><a href="<%= flights_path %>" class="icon fa-plane"><span class="label">Github</span></a></li>
-        <li><a href="<%= root_path %>" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-      </ul>
-      <ul class="copyright">
-        <p>&copy; Apostell</p><p>Sign <%= link_to "Out",destroy_user_session_path, :method => :delete %> </a></p>
-      </ul>
+  <!-- Intro -->
+  <section id="intro">
+    <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+    <header>
+      <center>
+      <h2>Community</h2>
+      <p>Find Travelers</p>
+    </center>
     </header>
+  </section>
 
-<div id="main">
+  <% if !@users.any? %>
 
-  <div class=" users_list">
-    <ul class="list-group">
-      <div href="#" class="list-group-item title">
-        <center>
-        Students In Science Po
-      </center>
-      </div>
-      <br>
-      <% if !@users.any? %>
-
-      <% else %>
+  <% else %>
+  <section>
+    <ul class="posts">      
       <% @users.each do |user| %>
-
-        <li href="#" class="list-group-item text-left">
-            <%=image_tag(user.avatar, class:"img-thumbnail") %>
-
-            <label class="name">
-              <%= user.full_name %><br> 
-            </label>
-
-        <div class = "options">
-          <label class="option">
-              <a  class="btn btn-xs " href="#" title="follow_unfollow">Follow</a>
-            </label>
-            
-          <label class="option">
-
-              <%= button_to "Send A Message", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: user.id} %>
-          </label>
-        </div>
-          <div class="break">
-            
-          </div>
-        </li>
-        <% end %>
+      <!-- Posts List -->
+      <li>
+        <article>
+          <header>
+            <h3>
+              <a href="#">
+                <%= user.full_name %>
+              </a>
+            </h3>
+            <p>
+              <%= user.school.name %>
+            </p>
+            <% if current_user.follow(current_user) %>
+            <p>
+            <%= button_to "Unfollow", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope follow',sender_id: current_user.id, recipient_id: user.id} %>
+          </p>
+          <% else %>
+            <%= button_to "Follow", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: user.id} %>
+          <% end %>
+          </header>
+          <a href="#" class="image"><%=image_tag(user.avatar) %></a>
+        </article>
+      </li>
       <% end %>
     </ul>
-  </div>                                                                                
-</div>
+  </section>
+  <% end %>
 
-
-      <!-- Scripts -->
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-      <script src="assets/js/main.js"></script>
-
-    </body>
-
-<% end %>
+  <% end %>

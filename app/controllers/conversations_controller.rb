@@ -18,6 +18,8 @@ class ConversationsController < ApplicationController
     puts "create convo?"
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
       puts "no"
+      puts params[:sender_id]
+      puts params[:recipient_id]
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
     else
       puts "yes"

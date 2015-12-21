@@ -102,6 +102,17 @@ end
   user.flights << f
 end
 
+50.times do
+
+  r = Request.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city , public: [true,false].sample,
+                date: Faker::Time.forward(180))
+  user = User.find(rand(1...@users.count))
+
+  r.user = user
+  r.save!
+  user.requests << r
+end
+
 @events = Event.all
 @events.each do |e|
   e.user = User.find(rand(1...@users.count))

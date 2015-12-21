@@ -2,10 +2,13 @@
   <%= stylesheet_link_tag 'main' %>
         <!-- Header -->
           <header id="header">
-            <h1><a href="<%= root_path %>">Future Imperfect</a></h1>
+            <h1><a href="<%= root_path %>">Apostell</a></h1>
             <nav class="links">
               <ul>
-            <li><a href="<%= flights_path %>">Flights</a></li>
+            <li><a href="<%= flights_path %>">All Trips</a></li>
+            <li><a href="<%= created_flights_path(user_id: current_user.id) %>">My Trips</a></li>
+            <li><a href="<%= requests_path %>">All Requests</a></li>
+            <li><a href="<%= created_requests_path(user_id: current_user.id) %>">My Requests</a></li>
             <li><a href="<%= conversations_path %>">Messages</a></li>
             <li><a href="<%= users_path %>">Connections</a></li>
             <li><a href="<%= "#" %>">Profile</a></li>
@@ -19,7 +22,7 @@
                     <input type="text" name="query" placeholder="Search" />
                   </form>
                 </li>
-                <li class="menu">
+                <li class="menu_button">
                   <a class="fa-bars" href="#menu">Menu</a>
                 </li>
               </ul>
@@ -27,7 +30,7 @@
           </header>
 
         <!-- Menu -->
-          <section id="menu">
+          <section id="menu" hidden>
 
             <!-- Search -->
               <section>
