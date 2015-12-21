@@ -2,8 +2,7 @@ class Message < ActiveRecord::Base
   belongs_to :conversation
   belongs_to :user
 
-  attr_accessible :body
-  attr_accessible :conversation_id, :user_id
+  attr_accessible :body, :conversation_id, :user_id
 
   after_create :update_conversation_timestamp
  
