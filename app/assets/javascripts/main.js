@@ -137,5 +137,6 @@ $( document ).ready(function() {
 	}
 
 	$(window).resize(resizeBootstrapMap);
+	$(window).load(resizeBootstrapMap);
 
 });
