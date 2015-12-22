@@ -1,50 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="form">
 
-<p>
-  <b>Content:</b>
-  <%= @request.content %>
-</p>
+<!-- <%= link_to 'Edit', edit_request_path(@request) %> | -->
+<%= link_to "I'm Done!", requests_path %>
+  <p id="notice"><%= notice %></p>
+<center>
 
-<p>
-  <b>Picture:</b>
-  <%= @request.picture %>
-</p>
+<section id="sidebar">
+ <%= form_for(@request, class:"") do |f| %>
 
-<p>
-  <b>Public:</b>
-  <%= @request.public %>
-</p>
+  <div class="row uniform">
+    <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
 
-<p>
-  <b>Departure:</b>
-  <%= @request.departure %>
-</p>
+      <ul>
+        <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
-<p>
-  <b>Destination:</b>
-  <%= @request.destination %>
-</p>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_would_you_like_to_send_from_? %><br />
+      <%= f.text_field :departure %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_would_you_like_to_send_to__?%><br />
+      <%= f.text_field :destination %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :when_would_you_like_to_send_your_package_by_? %><br />
+      <%= f.datetime_select :date %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :optional_comment %><br />
+      <%= f.text_area :content, rows:3 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</section>
+</center>
 
-<p>
-  <b>Date:</b>
-  <%= @request.date %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @request.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @request.longitude %>
-</p>
-
-<p>
-  <b>References:</b>
-  <%= @request.references %>
-</p>
-
-
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+<!-- <%= link_to 'Edit', edit_request_path(@request) %> | -->
+<%= link_to "I'm Done!", requests_path %>
+</div>

@@ -2,68 +2,82 @@
         <label for="show_filters" class="show_filters">Show Filters</label>
         <input type="checkbox" id="show_filters" role="button">
       </div> -->
-          <!-- Three -->
+      <!-- Three -->
 
-  <section id="intro">
-    <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
-    <header>
-      <center>
-      <h2>Requests</h2>
-      <p>Traveling?! Find Out Who Needs Help With A Package</p>
-    </center>
-    </header>
-  </section>
-        
-        <% if @requests.present? %>
-          <%= will_paginate @requests %>
-        <% end %>
+      <section id="intro">
+        <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+        <header>
+          <center>
+            <h2>Requests</h2>
+            <p>Traveling?! Find Out Who Needs Help With A Package</p>
+          </center>
+        </header>
+      </section>
 
-          <section id="" class="request_details">
-            <% @requests.each do |request| %>
+      <% if @requests.present? %>
 
-              <article class="post">
-                <header>
-                  <div class="title mapContainer">
-                    <h3 class="icon fa-plane"> <%= request.departure %></h3>
-                    <p class="icon fa-home"> <%= request.destination %> </p>
-             <div class="4u$ 12u$(small) ">
-                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=500x250&sensor=false&zoom=4&markers=#{request.latitude}%2C#{request.longitude}", class:"map" %>
+      <div class="flickr_pagination">
+        <div class="page_info">
+          <%= page_entries_info @requests %>
+        </div>
+        <%= will_paginate @requests, :container => false %>
+      </div>
+      <% end %>
+
+      <section id="" class="request_details">
+        <% @requests.each do |request| %>
+
+        <article class="post">
+          <header>
+            <div class="title mapContainer">
+              <h3 class="icon fa-plane"> <%= request.departure %></h3>
+              <p class="icon fa-home"> <%= request.destination %> </p>
+              <div class="4u$ 12u$(small) ">
+                <%= image_tag "http://maps.google.com/maps/api/staticmap?size=500x250&sensor=false&zoom=4&markers=#{request.latitude}%2C#{request.longitude}", class:"map" %>
               </div> 
-                  </div>
-                  <div class="meta">
-                    <p class="published icon fa-calendar"> Send By<br><%= Request.day(request.date) %></p>
-                    <a href="#" class="author">
-                      <span class="name">
-                        <%= request.user.first_name %>
-                      </span>
-                   </a> 
-                    <p class="author">
-                      <span class="">
-                    <%= image_tag(request.user.avatar) %>
-                   </p> 
-                  </div>
-                </header>
-                <footer>
-                  <ul class="actions">
-              <li><%= button_to "Contact #{request.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: request.user.id} %></li>
-                  </ul>
-                  <ul class="stats">
-                    <!-- <li><a href="#">General</a></li> -->
-                    <li><a href="#" class="icon fa-star fa-2x">28</a></li>
-                    <!-- <li><a href="#" class="icon fa-comment">128</a></li> -->
-                  </ul>
-                </footer>
-              </article>
+            </div>
+            <div class="meta">
+              <p class="published icon fa-calendar"> Send By<br><%= Request.day(request.date) %></p>
+              <a href="#" class="author">
+                <span class="name">
+                  <%= request.user.first_name %>
+                </span>
+              </a> 
+              <p class="author">
+                <span class="">
+                  <%= image_tag(request.user.avatar) %>
+                </p> 
+              </div>
+            </header>
+            <footer>
+              <ul class="actions">
+                <p><%= request.content %></p> 
+                <li><%= button_to "Contact #{request.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: request.user.id} %></li>
+              </ul>
+              <ul class="stats">
+                <!-- <li><a href="#">General</a></li> -->
+                <li><a href="#" class="icon fa-star fa-2x">28</a></li>
+                <!-- <li><a href="#" class="icon fa-comment">128</a></li> -->
+              </ul>
+            </footer>
+          </article>
 
-          </section>
-<% end %>
-
-        <% if @requests.present? %>
-          <%= will_paginate @requests %>
+        </section>
         <% end %>
 
-      <!-- Scripts -->
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-      <script src="assets/js/main.js"></script>
+        <% if @requests.present? %>
+
+        <div class="flickr_pagination">
+          <div class="page_info">
+            <%= page_entries_info @requests %>
+          </div>
+          <%= will_paginate @requests, :container => false %>
+        </div>
+        <% end %>
+
+
+        <!-- Scripts -->
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>

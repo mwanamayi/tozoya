@@ -1,46 +1,43 @@
-<%= form_for(@flight) do |f| %>
-  <% if @flight.errors.any? %>
+<div class= "form">
+<center>
+<section id="sidebar">
+  <%= form_for(@flight, class:"") do |f| %>
+
+  <div class="row uniform">
+    <% if @flight.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
 
       <ul>
-      <% @flight.errors.full_messages.each do |msg| %>
+        <% @flight.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-<!--   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div> -->
-<!--   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div> -->
-<!--   <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.text_field :picture %>
-  </div> -->
-<!--   <div class="field">
-    <%= f.label :public %><br />
-    <%= f.check_box :public %>
-  </div> -->
-  
-  <div class="field">
-    <%= f.label :departure %><br />
-    <%= f.text_field :departure %>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_are_you_flying_from_? %><br />
+      <%= f.text_field :departure %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_are_you_flying_to_? %><br />
+      <%= f.text_field :destination %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_is_your_departure_date_? %><br />
+      <%= f.datetime_select :date %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :optional_comment %><br />
+      <%= f.text_area :content, rows:3 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :destination %><br />
-    <%= f.text_field :destination %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+</section>
+</center>
+
+</div>

@@ -1,53 +1,40 @@
-<%= form_for(@request) do |f| %>
-  <% if @request.errors.any? %>
+<center class="form">
+<section id="sidebar">
+  <%= form_for(@request, class:"") do |f| %>
+
+  <div class="row uniform">
+    <% if @request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
 
       <ul>
-      <% @request.errors.full_messages.each do |msg| %>
+        <% @request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_would_you_like_to_send_from_? %><br />
+      <%= f.text_field :departure %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :what_city_would_you_like_to_send_to__?%><br />
+      <%= f.text_field :destination %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :when_would_you_like_to_send_your_package_by_? %><br />
+      <%= f.datetime_select :date %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :optional_comment %><br />
+      <%= f.text_area :content, rows:3 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.text_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :public %><br />
-    <%= f.check_box :public %>
-  </div>
-  <div class="field">
-    <%= f.label :departure %><br />
-    <%= f.text_field :departure %>
-  </div>
-  <div class="field">
-    <%= f.label :destination %><br />
-    <%= f.text_field :destination %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :references %><br />
-    <%= f.text_field :references %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+</section>
+</center>
