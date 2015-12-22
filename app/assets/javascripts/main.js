@@ -127,6 +127,15 @@ $( document ).ready(function() {
     $("#menu").fadeOut();
   }
 
-});
+	});
+
+	function resizeBootstrapMap() {
+    var mapParentWidth = $('.mapContainer').width();
+    $('.map').width(mapParentWidth);
+    $('.map').height(mapParentWidth / 2);
+    console.log(mapParentWidth);
+	}
+
+	$(window).resize(resizeBootstrapMap);
 
 });
