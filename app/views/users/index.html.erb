@@ -37,12 +37,12 @@
             <p>
               <%= user.school.name %>
             </p>
-            <% if current_user.follow(current_user) %>
+            <% if current_user.following?(user) %>
             <p>
-            <%= button_to "Unfollow", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope follow',sender_id: current_user.id, recipient_id: user.id} %>
+            <%= button_to "Unfollow", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
           </p>
           <% else %>
-            <%= button_to "Follow", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: user.id} %>
+            <%= button_to "Follow", { action: "follow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
           <% end %>
           </header>
           <a href="#" class="image"><%=image_tag(user.avatar) %></a>

@@ -40,28 +40,28 @@ before_filter :authenticate_user!, except: [:index]
   end
 
   def follow
-    @friend = User.find_by(username: params[:user][:username])
-    redirect_to user_following_path unless current_user
+    @friend = User.find(params[:user_id])
+    # redirect_to user_following_path unless current_user
     # if current_user
     # if current_user == @friend
     # flash[:error] = "You cannot follow yourself."
     # redirect_to user_following_path(current_user)
     # else
     current_user.follow(@friend)
-    # flash[:notice] = "You are now following #{@friend.username}."
-    redirect_to user_following_path(current_user)
+    flash[:notice] = "You are now following #{@friend.first_name}."
+    redirect_to :back
     # end
     # end
   end
 
   def unfollow
-    @friend = User.find_by(username: params[:user][:username])
+    @friend = User.find(params[:user_id])
 
     redirect_to user_following_path unless current_user
     # if current_user
     current_user.stop_following(@friend)
-    flash[:notice] = "You are no longer following #{@friend.username}."
-    redirect_to user_following_path(@user)
+    flash[:notice] = "You are no longer following #{@friend.first_name}."
+    redirect_to :back
     # end
   end
 
