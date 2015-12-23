@@ -16,15 +16,6 @@
       </section>
 
 
-      <% if @flights.present? %>
-      <div class="flickr_pagination">
-        <div class="page_info">
-          <%= page_entries_info @flights %>
-        </div>
-        <%= will_paginate @flights, :container => false %>
-      </div>
-      <% end %>
-
       <section id="" class="flight_details">
         <% @flights.each do |flight| %>
 
@@ -69,7 +60,7 @@
 
         
         <% if @flights.present? %>
-        
+
       <div class="flickr_pagination">
         <div class="page_info">
           <%= page_entries_info @flights %>

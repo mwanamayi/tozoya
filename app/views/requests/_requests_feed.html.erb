@@ -14,16 +14,6 @@
         </header>
       </section>
 
-      <% if @requests.present? %>
-
-      <div class="flickr_pagination">
-        <div class="page_info">
-          <%= page_entries_info @requests %>
-        </div>
-        <%= will_paginate @requests, :container => false %>
-      </div>
-      <% end %>
-
       <section id="" class="request_details">
         <% @requests.each do |request| %>
 
