@@ -8,6 +8,8 @@ class RequestsController < InheritedResources::Base
       requests.each do |r|
         if current_user.friend?(r.user)
           filtered_requests << r
+        elsif r.public?
+          filtered_requests << r
         end
       end
       @requests = filtered_requests.present? ? filtered_requests.paginate(:page => params[:page]) : []

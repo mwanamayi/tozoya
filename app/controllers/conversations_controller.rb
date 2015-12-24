@@ -11,7 +11,7 @@ class ConversationsController < ApplicationController
     @conversations = Conversation.where("(sender_id = ? or recipient_id = ?)", current_user.id, current_user.id)
   #   @reciever = interlocutor(@conversation)
   #   @messages = @conversation.messages
-  #   @message = Message.new
+    @message = Message.new
   end
 
   def create

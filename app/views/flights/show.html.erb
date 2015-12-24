@@ -1,51 +1,55 @@
 <div class="form">
 
 
-<!-- <%= link_to 'Edit', edit_flight_path(@flight) %> | -->
-<%= link_to "I'm Done!", flights_path %>
-<p id="notice"><%= notice %></p>
+  <!-- <%= link_to 'Edit', edit_flight_path(@flight) %> | -->
+  <%= link_to "I'm Done!", flights_path %>
+  <p id="notice"><%= notice %></p>
 
-<center>
-<section id="sidebar">
-  <%= form_for(@flight, class:"") do |f| %>
+  <center>
+    <section id="sidebar">
+      <%= form_for(@flight, class:"") do |f| %>
 
-  <div class="row uniform">
-    <% if @flight.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+      <div class="row uniform">
+        <% if @flight.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
 
-      <ul>
-        <% @flight.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+            <% @flight.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
-      </ul>
-    </div>
-    <% end %>
 
-    <div class="field 12u 12u$(small)">
-      <%= f.label :what_city_are_you_flying_from_? %><br />
-      <%= f.text_field :departure %>
-    </div>
-    <div class="field 12u 12u$(small)">
-      <%= f.label :what_city_are_you_flying_to_? %><br />
-      <%= f.text_field :destination %>
-    </div>
-    <div class="field 12u 12u$(small)">
-      <%= f.label :what_is_your_departure_date_? %><br />
-      <%= f.datetime_select :date %>
-    </div>
-    <div class="field 12u 12u$(small)">
-      <%= f.label :optional_comment %><br />
-      <%= f.text_area :content, rows:3 %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  </div>
-  <% end %>
-</section>
-</center>
+        <div class="field 12u 12u$(small)">
+          <%= f.label :what_city_are_you_flying_from_? %><br />
+          <%= f.text_field :departure, required: true %>
+        </div>
+        <div class="field 12u 12u$(small)">
+          <%= f.label :what_city_are_you_flying_to_? %><br />
+          <%= f.text_field :destination, required: true %>
+        </div>
+        <div class="field 12u 12u$(small)">
+          <%= f.label :what_is_your_departure_date_? %><br />
+          <%= f.datetime_select :date, required: true %>
+        </div>
+        <div class="field 12u 12u$(small)">
+          <%= f.label :optional_comment %><br />
+          <%= f.text_area :content, rows:3 %>
+        </div>
+        <div class="field 12u 12u$(small)">
+          <%= f.label :who_can_see_this_flight_? %><br />
+          <%= f.select (:public),options_for_select([["Only my friends", "0"], ["Anyone", "1"]]), required: true %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </div>
+      <% end %>
+    </section>
+  </center>
 
-<!-- <%= link_to 'Edit', edit_flight_path(@flight) %> | -->
-<%= link_to "I'm Done!", flights_path %>
+  <!-- <%= link_to 'Edit', edit_flight_path(@flight) %> | -->
+  <%= link_to "I'm Done!", flights_path %>
 </div>

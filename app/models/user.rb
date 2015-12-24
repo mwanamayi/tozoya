@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
   if search && search.present?
     User.where('lower(username) LIKE ? OR lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
   else
-    followers and following_users
+    followers and following_users and friend_requests
   end
 end
 

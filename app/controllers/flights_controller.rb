@@ -4,9 +4,11 @@ class FlightsController < InheritedResources::Base
     flights = Flight.where(['date > ?', DateTime.now])
     filtered_flights =  []
     if flights.count > 0
-      flights.each do |r|
-        if current_user.friend?(r.user)
-          filtered_flights << r
+      flights.each do |f|
+        if current_user.friend?(f.user)
+          filtered_flights << f
+        elsif f.public?
+          filtered_flights << f
         end
       end
       @flights = filtered_flights.present? ? filtered_flights.paginate(:page => params[:page]) : []

@@ -39,8 +39,6 @@
               <ul class="chat">
                 <% if @messages.count > 0 %>
                 <% @messages.each do |message| %>
-                <% user = User.find(message["user_id"]) %>
-                <% if current_user != user %>
                 <li class="left clearfix"><span class="chat-img pull-left">
                   <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
                 </span>
@@ -58,21 +56,6 @@
                   </p>
                 </div>
               </li>
-              <% else %>
-              <li class="right clearfix"><span class="chat-img pull-right">
-                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-              </span>
-              <div class="chat-body clearfix">
-                <div class="header">
-                  <small class=" text-muted"><span class="glyphicon glyphicon-time"></span><%= message.formatted_updated_at %> </small>
-                  <strong class="pull-right primary-font"><%= message.user.full_name %></strong>
-                </div>
-                <p class="pull-right">
-                 <%= message.body %>
-               </p>
-             </div>
-           </li>
-           <% end %> 
            <% end %>
            <% end %>
          </ul>

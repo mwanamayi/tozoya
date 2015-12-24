@@ -17,19 +17,23 @@
 
     <div class="field 12u 12u$(small)">
       <%= f.label :what_city_would_you_like_to_send_from_? %><br />
-      <%= f.text_field :departure %>
+      <%= f.text_field :departure, required: true %>
     </div>
     <div class="field 12u 12u$(small)">
       <%= f.label :what_city_would_you_like_to_send_to__?%><br />
-      <%= f.text_field :destination %>
+      <%= f.text_field :destination, required: true %>
     </div>
     <div class="field 12u 12u$(small)">
       <%= f.label :when_would_you_like_to_send_your_package_by_? %><br />
-      <%= f.datetime_select :date %>
+      <%= f.datetime_select :date, required: true %>
     </div>
     <div class="field 12u 12u$(small)">
       <%= f.label :optional_comment %><br />
       <%= f.text_area :content, rows:3 %>
+    </div>
+    <div class="field 12u 12u$(small)">
+      <%= f.label :who_can_see_this_flight_? %><br />
+      <%= f.select (:public),options_for_select([["Only my friends", "0"], ["Anyone", "1"]]),required: true %>
     </div>
     <div class="actions">
       <%= f.submit %>
