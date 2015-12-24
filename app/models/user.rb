@@ -22,14 +22,18 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :status, :first_name, :last_name, :avatar, :password, :password_confirmation, :remember_me, :school_id
-  # attr_accessible :title, :body
+  attr_accessible :entity_name
 
   has_many :tasks
 
   before_save :ensure_authentication_token
+  before_create :downcase_everything
   before_create :skip_confirmation!
 
-  default_scope order('username ASC')
+  # validates :email, uniqueness: { case_sensitive: false }
+  validates :username, uniqueness: { case_sensitive: false }
+
+  default_scope order('first_name ASC')
 
   def full_name
     full_name = "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
@@ -37,6 +41,14 @@ class User < ActiveRecord::Base
 
   def skip_confirmation!
     self.confirmed_at = Time.now
+  end
+
+  def downcase_everything
+    self.first_name.downcase!
+    self.last_name.downcase!
+    self.email.downcase!
+    self.username.downcase!
+    self.entity_name.downcase!
   end
 
   def self.current

@@ -32,7 +32,7 @@ end
 100.times do 
   person = FakePerson.new
   user = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
-                      first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "student")
+                      first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, status: "student", entity_name: Faker::Company.name)
   if !user.save
 
   end
@@ -45,7 +45,7 @@ end
   person = FakePerson.new
   professor = User.create!(email: person.free_email_address, username: person.username, password: "secret", 
                           first_name: person.first_name, last_name: person.last_name, avatar: person.avatar_url, 
-                          status: "professor", school_id: @science_po_id)
+                          status: "professor", school_id: @science_po_id, entity_name: Faker::Company.name)
   @science_po.users << professor
 end
 
@@ -53,11 +53,11 @@ end
 
 person = FakePerson.new
 my_users = [{:email => 'lisa.asmussen@.gmail.com', :password => 'secret', :password_confirmation => 'secret', 
-              username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @science_po_id,first_name: "Lisa", last_name: "Asmussen"},
+              username: "lisa_asmussen", avatar: person.avatar_url, status: "student", school_id: @science_po_id,first_name: "Lisa", last_name: "Asmussen",entity_name: "Berkeley"},
           {:email => 'joelyawili@hotmail.com', :password => 'secret', :password_confirmation => 'secret', 
-            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili"},
+            username: "joelyawili", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "Joel", last_name: "Yawili", entity_name: "Appnexus"},
           {:email => 'jcyawili@hotmail.fr', :password => 'secret', :password_confirmation => 'secret', 
-            username: "mwanamayi", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "JC", last_name: "Yawili"}]
+            username: "mwanamayi", avatar: person.avatar_url, status: "student", school_id: @science_po_id, first_name: "JC", last_name: "Yawili", entity_name: "Science Po"}]
 
 my_users.each do |user|
     created_user = User.create!user

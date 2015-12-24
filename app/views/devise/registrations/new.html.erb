@@ -35,8 +35,8 @@
       <%= devise_error_messages! %>
 
       <div >
-        <%= f.label :your_school %>
-        <%= f.select(:school_id, options_for_select([['Science Po Paris', 1], ['New York University', 2], ['Berkeley', 3], ['Columbia', 4], ['McGill', 5]], selected: nil, required: true)) %>
+        <%= f.label :your_school_or_company_name %>
+        <%= f.text_field :entity_name, :autofocus => true, required: true %>
       </div>
 
       <div>

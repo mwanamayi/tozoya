@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20151220234827) do
     t.string   "last_name",              :default => "",        :null => false
     t.string   "status",                 :default => "student", :null => false
     t.string   "avatar",                 :default => "bg.jpg"
+    t.string   "entity_name",            :default => ""
     t.integer  "school_id"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
