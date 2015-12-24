@@ -56,4 +56,43 @@ class User < ActiveRecord::Base
     end
     events
   end
+
+  def friend?(user)
+    self.followed_by?(user) && self.following?(user)
+  end
+
+  def friends
+    users = User.all
+    friends = []
+    users.each do |u|
+      if self.followed_by?(u) && self.following?(u)
+        friends << u
+      end
+    end
+    return friends
+  end
+
+  def friend_requests
+    users = User.all
+    friend_requests = []
+    users.each do |u|
+      if self.followed_by?(u) && !self.following?(u)
+        friend_requests << u
+      end
+    end
+    return friend_requests
+  end
+
+  def filter(search)
+  if search && search.present?
+    User.where('lower(username) LIKE ? OR lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+  else
+    followers and following_users
+  end
 end
+
+end
+
+
+
+

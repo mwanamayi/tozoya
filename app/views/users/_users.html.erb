@@ -1,0 +1,32 @@
+<ul class="posts">      
+      <% @users.each do |user| %>
+      <!-- Posts List -->
+      <li>
+        <article>
+          <header>
+            <h3>
+              <a href="#">
+                <%= user.full_name %>
+              </a>
+            </h3>
+            <p>
+              <%= user.school.name %>
+            </p>
+            <% if current_user.friend?(user) %>
+            <p>
+            <%= button_to "Unfriend", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+          </p>
+          <% elsif current_user.followed_by?(user) and !current_user.following?(user) %>
+            <%= button_to "Accept Friend Request", { action: "follow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+          <% elsif current_user.following?(user) and !current_user.followed_by?(user) %>
+            <%= button_to "Your Friend Request Is Pending", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+          <% else current_user.following?(user) and !current_user.followed_by?(user) %>
+            <%= button_to "Connect", { action: "follow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+          <% end %>
+          </header>
+          <a href="#" class="image"><%=image_tag(user.avatar) %></a>
+        </article>
+      </li>
+      <% end %>
+    </ul>
+<!-- -->

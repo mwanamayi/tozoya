@@ -139,4 +139,9 @@ $( document ).ready(function() {
 	$(window).resize(resizeBootstrapMap);
 	$(window).load(resizeBootstrapMap);
 
-});
+    $("#users_search").keyup(function() {
+    	console.log("typing")
+      $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+      return false;
+    });
+  });

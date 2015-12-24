@@ -6,15 +6,21 @@
 </head>
 
 <!-- Sidebar -->
-<section id="">
 
   <!-- Intro -->
   <section id="intro">
+
     <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
     <header>
       <center>
       <h2>Community</h2>
       <p>Find Travelers</p>
+
+<%= form_tag users_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Add new travelers by first/last name or username" %><br>
+    <%= submit_tag "Search", :name => nil %>
+
+<% end %>
     </center>
     </header>
   </section>
@@ -22,34 +28,8 @@
   <% if !@users.any? %>
 
   <% else %>
-  <section>
-    <ul class="posts">      
-      <% @users.each do |user| %>
-      <!-- Posts List -->
-      <li>
-        <article>
-          <header>
-            <h3>
-              <a href="#">
-                <%= user.full_name %>
-              </a>
-            </h3>
-            <p>
-              <%= user.school.name %>
-            </p>
-            <% if current_user.following?(user) %>
-            <p>
-            <%= button_to "Unfollow", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
-          </p>
-          <% else %>
-            <%= button_to "Follow", { action: "follow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
-          <% end %>
-          </header>
-          <a href="#" class="image"><%=image_tag(user.avatar) %></a>
-        </article>
-      </li>
-      <% end %>
-    </ul>
+  <section id="users">
+    <%= render "users" %>
   </section>
   <% end %>
 

@@ -1,9 +1,16 @@
 class RequestsController < InheritedResources::Base
+  require 'will_paginate/array'
 
   def index
     requests = Request.where(['date > ?', DateTime.now])
+    filtered_requests =  []
     if requests.count > 0
-      @requests = requests.paginate(:page => params[:page])
+      requests.each do |r|
+        if current_user.friend?(r.user)
+          filtered_requests << r
+        end
+      end
+      @requests = filtered_requests.present? ? filtered_requests.paginate(:page => params[:page]) : []
     else
       @requests = []
     end
