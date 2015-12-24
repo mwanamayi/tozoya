@@ -374,6 +374,7 @@
 		appearance: none;
 		border-radius: 4px;
 		border: solid 1px #c8cccf;
+		/*border: solid 1px white;*/
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -398,6 +399,7 @@
 	select:focus,
 	textarea:focus {
 		border-color: #ff7496;
+		/*border: solid 1px white;*/
 	}
 
 	.select-wrapper {
@@ -484,7 +486,8 @@
 	input[type="checkbox"] + label:before,
 	input[type="radio"] + label:before {
 		border-radius: 4px;
-		border: solid 1px #c8cccf;
+		/*border: solid 1px #c8cccf;*/
+		border: solid 1px white;
 		content: '';
 		display: inline-block;
 		height: 1.65em;
@@ -504,7 +507,8 @@
 
 	input[type="checkbox"]:focus + label:before,
 	input[type="radio"]:focus + label:before {
-		border-color: #ff7496;
+		/*border-color: #ff7496;*/
+		border: solid 1px #ffffff;
 	}
 
 	input[type="checkbox"] + label:before {
@@ -717,7 +721,8 @@
 		padding: 0 1.5em;
 		background-color: transparent;
 		border-radius: 4px;
-		border: solid 1px #c8cccf;
+		/*border: solid 1px #c8cccf;*/
+		border: solid 1px #ffffff;
 		color: #414f57 !important;
 		cursor: pointer;
 		text-align: center;
