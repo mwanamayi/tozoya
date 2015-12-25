@@ -95,11 +95,22 @@ class User < ActiveRecord::Base
     return friend_requests
   end
 
+  def pending_requests
+    users = User.all
+    pending_requests = []
+    users.each do |u|
+      if !self.followed_by?(u) && self.following?(u)
+        pending_requests << u
+      end
+    end
+    return pending_requests
+  end
+
   def filter(search)
   if search && search.present?
     User.where('lower(username) LIKE ? OR lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
   else
-    followers and following_users and friend_requests
+    pending_requests + friend_requests + friends
   end
 end
 
