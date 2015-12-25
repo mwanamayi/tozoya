@@ -48,8 +48,14 @@ class Conversation < ActiveRecord::Base
   end
 
   def formatted_updated_at
-    # self.datetime.strftime('%a, %b %d, %I:%M%p')
-    self.updated_at.strftime('%I:%M%p')
+    if updated_at == Date.today
+      self.updated_at.strftime('%I:%M%p')
+    elsif ((Date.today - 7)..(Date.today)).include?(updated_at.strftime('%a, %d %b %Y').to_date)
+      self.updated_at.strftime('%A, %I:%M%p')
+    else
+      self.updated_at.strftime('%a, %b %d, %I:%M%p')
+    end
+    # self.updated_at.strftime('%I:%M%p')
   end
 
 end

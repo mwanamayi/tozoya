@@ -1,139 +1,42 @@
+    <header>
+      <center>
+        <h3 class="icon fa-envelope-o fa-2x"> inbox </h3>
+        <center>
+        </header>
 
-<head>
-  <%= stylesheet_link_tag "inbox" %>
-</head>
+        <div id="main">
 
-<body id="top">
-
-  <!-- Header -->
-
-  <div id="main">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-md-2">
-        </div>
-        <div class="col-sm-9 col-md-10">
-          <!-- Split button -->
-          <div class="btn-group">
-          </div>
-
-
-          <a type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh" href="javascript:history.go(0)">
-            &nbsp;&nbsp;&nbsp;
-            <span class="glyphicon glyphicon-refresh">  
-            </span>&nbsp;&nbsp;&nbsp;
-          </a>
-
-          <div class="pull-right">
-            <!-- <span class="text-muted"><b>1</b>–<b>50</b> of <b>160</b></span> -->
-            <div class="btn-group btn-group-sm">
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-              </button>
-              <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <hr>
-      <div class="row">
-        <div class="col-sm-3 col-md-2">
-          <a href="<%= users_path %>" class="btn btn-primary btn-sm btn-block" role="button">
-            <i class="glyphicon glyphicon-edit">
-            </i> 
-            New Message
-          </a>
-          <hr>
-        </div>
-
-        <div class="col-sm-9 col-md-10">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs">
-            <li class="active">
-              <a href="#home" data-toggle="tab">
-                <span class="glyphicon glyphicon-inbox">
-                </span>Inbox
-              </a>
-            </li>
-
-  <!--             <li>
-                <a href="#profile" data-toggle="tab">
-                  <span class="glyphicon glyphicon-user">
-                </span>
-                Social
-              </a>
-              </li>
-
-                <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>
-                  Promotions</a></li>
-                  <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
-                  </span></a></li> -->
-                </ul>
-
+          <div class="container">
+            <section id="users">
+              <ul class="posts">      
                 <% @conversations.each do |conversation| %>
                 <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-                  <% if conversation.sender_id == current_user.id %>
-                    <% recipient = User.find(conversation.recipient_id) %>
-                  <% else %>
-                    <% recipient = User.find(conversation.sender_id) %>
-                  <% end %>
+                <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+                <% else %>
+                <% recipient = User.find(conversation.sender_id) %>
                 <% end %>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div class="tab-pane fade in active" id="home">
-                    <div class="list-group ">
-                      <a href="<%= conversation_messages_path(conversation) %>" class="list-group-item message_box read">
+                <% end %>
+                <!-- Posts List -->
+                <li>
+                  <article>
+                    <header>
 
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-
-                        <span class="glyphicon">  
-                        </span>
-
-                        <span class="name" style="min-width: 120px; display: inline-block;">
+                      <a href="<%= conversation_messages_path(conversation) %>">
+                        <h3>
                           <%= recipient.full_name %>
-                        </span>
-
-                        <span class="text-muted">
+                        </h3>
+                        <p>
+                          <%= conversation.formatted_updated_at %><br>
                           <%= conversation.last_message_body.truncate(40) %>
-                        </span>
-
-                      <!--   <span class="text-muted" style="font-size: 11px;">
-                          - More content here
-                        </span>  -->
-
-                        <span class="badge">
-                          <%= conversation.formatted_updated_at %>
-                        </span> 
-
-                     <!--    <span class="pull-right">
-                          <span class="glyphicon glyphicon-paperclip">
-                          </span> -->
-                        </span>
+                        </p>
                       </a>
-                  <% end %>
-                    </div>
-                  </div>
-<!-- 
-                  <div class="row-md-12">
-
-                    <div class="well"> 
-                      <a href="#"></a>
-                    </div> -->
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+                    </header>
+                    <a href="#" class="image"><%=image_tag(recipient.avatar) %></a>
+                  </article>
+                </li>
+                <% end %>
+              </ul>
+            </section>
           </div>
-        </body>
+        </div>
