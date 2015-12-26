@@ -9,7 +9,7 @@
             <li><a href="<%= flights_path %>">Trips</a></li>
             <li><a href="<%= requests_path %>">Requests</a></li>
             <li><a href="<%= conversations_path %>">Inbox</a></li>
-            <li><a href="<%= users_path %>">Connections</a></li>
+            <li><a href="<%= users_path %>">Friends</a></li>
               </ul>
             </nav>
             <nav class="main">
@@ -40,13 +40,13 @@
             <!-- Links -->
               <section>
                 <ul class="links">
+            <li><a href="<%= edit_user_registration_path(current_user) %>"><%= image_tag(current_user.avatar) %></a></li>
             <li><a href="<%= flights_path %>"><h3>All Trips</h3></a></li>
             <li><a href="<%= created_flights_path(user_id: current_user.id) %>"><h3>My Trips</h3></a></li>
             <li><a href="<%= requests_path %>"><h3>All Requests</h3></a></li>
             <li><a href="<%= created_requests_path(user_id: current_user.id) %>"><h3>My Requests</h3></a></li>
             <li><a href="<%= conversations_path %>"><h3>Inbox</h3></a></li>
             <li><a href="<%= users_path %>"><h3>Connections</h3></a></li>
-            <li><a href="<%= "#" %>"><h3>Profile</h3></a></li>
                 </ul>
               </section>
 
