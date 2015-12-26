@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   default_scope order('first_name ASC')
 
   def full_name
-    full_name = "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
+    "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
   end
 
   def skip_confirmation!

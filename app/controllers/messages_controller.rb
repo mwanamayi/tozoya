@@ -8,26 +8,27 @@ class MessagesController < ApplicationController
   end
 
 def index
-  @user = current_user
  @messages = @conversation.messages
-
-  if @messages.length > 1000
-   @over_ten = true
-   @messages = @messages[-10..-1]
+ @messages.each do |m|
+    puts m.inspect
   end
 
-  if params[:m]
-   @over_ten = false
-   @messages = @conversation.messages
-  end
+  # if @messages.length > 1000
+  #  @over_ten = true
+  #  @messages = @messages[-10..-1]
+  # end
 
-  if @messages.last
-  if @messages.last.user_id != current_user.id
+  # if params[:m]
+  #  @over_ten = false
+  #  @messages = @conversation.messages
+  # end
+
+  # if @messages.last
+  # if @messages.last.user_id != current_user.id
    # @messages.last.read = true;
-  end
- end
- 
-@message = @conversation.messages.new
+  # end
+  puts "messages index"
+  @message = @conversation.messages.new
 end
 
 def new
