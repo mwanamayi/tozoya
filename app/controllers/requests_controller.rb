@@ -8,7 +8,7 @@ class RequestsController < InheritedResources::Base
       requests.each do |r|
         if current_user.friend?(r.user)
           filtered_requests << r
-        elsif r.public?
+        elsif r.public? || current_user == r.user
           filtered_requests << r
         end
       end

@@ -131,7 +131,7 @@ $( document ).ready(function() {
 
 	function resizeBootstrapMap() {
     var mapParentWidth = $('.mapContainer').width();
-    $('.map').width(mapParentWidth);
+    $('.map').width(mapParentWidth /1.3);
     $('.map').height(mapParentWidth / 2);
     console.log(mapParentWidth);
 	}
