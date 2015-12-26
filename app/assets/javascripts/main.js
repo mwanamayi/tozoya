@@ -146,6 +146,7 @@ $( document ).ready(function() {
     });
 
 
-$(".scrollable").scrollTop($(".scrollable")[0].scrollHeight);
+$(".scrollable").animate({ scrollTop: $(document).height()*1.2 }, "fast");
+  return false;
 
   });

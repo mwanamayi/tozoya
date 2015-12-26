@@ -3483,7 +3483,7 @@
 .inbox .scrollable {
   overflow:scroll;
   height: 20em;
-  width: 50em
+  width: 50em;
   margin-bottom: 0em;
 }
 
@@ -3542,7 +3542,7 @@
 	}
 
 	.inbox_form_field{
-    width: 20em;
+    width: 15em;
 }
 
 .inbox_form_button{
