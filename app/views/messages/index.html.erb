@@ -1,7 +1,7 @@
-    <header>
+    <header class"affix">
       <center>
         <h3> 
-          <% if @conversation.sender = current_user %>
+          <% if @conversation.sender == current_user %>
           <%= @conversation.recipient.full_name %>
           <% else %>
             <%= @conversation.sender.full_name %>
@@ -48,15 +48,15 @@
               <% end %>
             </ul>
 
-                    <%= form_for([@conversation, @message], html: {class: 'ui reply form '}) do |f| %>
+        <%= form_for([@conversation, @message], html: {class: ' affix ui reply form '}) do |f| %>
         <div class="panel-footer">
           <div class="input-group">
-           <%= f.text_area :body, class: 'inbox_form_field ', rows: 2, placeholder: "Type your message...",id:"btn-input", required: true %>
+           <%= f.text_area :body, class: 'inbox_form_field ', rows: 1, placeholder: "Type your message...",id:"btn-input", required: true %>
            <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
              <%= f.submit 'Send', class: 'inbox_form_button ', id:'btn-chat' %>
          </div>
        </div>
-       
+
           </center>
 
 

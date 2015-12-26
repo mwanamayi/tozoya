@@ -3502,13 +3502,15 @@
 	top: 2em;
   margin-bottom: 0em;
   padding-top: 0em;
+  padding-bottom: 0em;
 }
 
 .message_body_current_user {
 	color: rgb(46, 186, 174);
 	font-weight: 600;
 	padding:0.5em;
-	border-radius: 0.5em
+	border-radius: 0.5em;
+	text-align: left;
 }
 
 .message_body_other_user {
@@ -3516,7 +3518,8 @@
 	color: black;
 	font-weight: 600;
 	padding:0.5em;
-	border-radius: 0.5em
+	border-radius: 0.5em;
+	text-align: left;
 }
 
 .message_time {
