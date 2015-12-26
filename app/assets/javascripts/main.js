@@ -121,6 +121,10 @@ $( document ).ready(function() {
 		$("#menu").fadeIn();
 	});
 
+	$("#close_menu").click(function(){
+		$("#menu").fadeOut();
+	});
+
 	$(document).mouseup(function(e) {
 
   if( e.target.id != 'menu') {
