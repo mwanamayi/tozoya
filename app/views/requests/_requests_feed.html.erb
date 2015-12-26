@@ -9,7 +9,13 @@
         <header>
           <center>
             <h2>Requests</h2>
+            <% if @requests.present? %>
             <p>Traveling?! Find Out Who Needs Help With A Package</p>
+            <% else %>
+            <br>
+            <br>
+            <h3>Sorry! No Requests To Show You At The Moment! Try Adding More Friends</h3>
+            <% end %>
           </center>
         </header>
       </section>
