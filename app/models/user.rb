@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: { case_sensitive: false }
 
   default_scope order('first_name ASC')
+  mount_uploader :avatar, PictureUploader
 
   def full_name
     "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
@@ -111,6 +112,12 @@ class User < ActiveRecord::Base
     User.where('lower(username) LIKE ? OR lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
   else
     pending_requests + friend_requests + friends
+  end
+
+  def picture_size
+    if picture.size > 1.megabytes
+      errors.add(:avatar, "should be less than 1MB")
+    end
   end
 end
 
