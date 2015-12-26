@@ -114,11 +114,11 @@ class User < ActiveRecord::Base
     pending_requests + friend_requests + friends
   end
 
-  def picture_size
-    if picture.size > 1.megabytes
-      errors.add(:avatar, "should be less than 1MB")
-    end
-  end
+  # def picture_size
+  #   if picture.size > 1.megabytes
+  #     errors.add(:avatar, "should be less than 1MB")
+  #   end
+  # end
 end
 
 end

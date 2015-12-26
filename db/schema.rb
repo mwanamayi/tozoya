@@ -176,8 +176,8 @@ ActiveRecord::Schema.define(:version => 20151220234827) do
     t.string   "first_name",             :default => "",        :null => false
     t.string   "last_name",              :default => "",        :null => false
     t.string   "status",                 :default => "student", :null => false
-    t.string   "avatar",                 :default => "bg.jpg"
-    t.string   "entity_name",            :default => ""
+    t.string   "avatar"
+    t.string   "entity_name",            :default => "",        :null => false
     t.integer  "school_id"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
@@ -187,5 +187,6 @@ ActiveRecord::Schema.define(:version => 20151220234827) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

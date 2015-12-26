@@ -6,7 +6,7 @@ class Request < ActiveRecord::Base
   before_create :set_user_id
 
   default_scope order('date ASC')
-  
+  mount_uploader :picture, PictureUploader
   # self.per_page = 0
 
   def self.day(date)

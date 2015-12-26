@@ -78,15 +78,15 @@ end
 
 ######################################## EVENTS
 
-50.times do
-  e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, 
-                location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state,
-                start_date: Faker::Time.forward(30),end_date: Faker::Time.forward(30))
-  user = User.find(rand(1...@users.count))
-  e.user = user
-  e.save!
-  user.created_events << e
-end
+# 50.times do
+#   e = Event.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence(3), location_name: Faker::App.name, 
+#                 location_address: Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state,
+#                 start_date: Faker::Time.forward(30),end_date: Faker::Time.forward(30))
+#   user = User.find(rand(1...@users.count))
+#   e.user = user
+#   e.save!
+#   user.created_events << e
+# end
 
 50.times do
   # f = Flight.new(departure: Faker::Address.city + "," + Faker::Address.country, destination: Faker::Address.city + "," + Faker::Address.country , public: [true,false].sample,

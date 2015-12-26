@@ -1,6 +1,6 @@
 <center class="form">
 <section id="sidebar">
-  <%= form_for(@request, class:"") do |f| %>
+  <%= form_for(@request, accept: 'image/jpeg,image/gif,image/png', :html => {multipart: true}) do |f| %>
 
   <div class="row uniform">
     <% if @request.errors.any? %>
@@ -34,7 +34,11 @@
     <div class="field 12u 12u$(small)">
       <%= f.label :who_can_see_this_flight_? %><br />
       <%= f.select (:public),options_for_select([["Only my friends", "0"], ["Anyone", "1"]]),required: true %>
-    </div>
+    </div>    
+    <div class="field 12u 12u$(small)">
+      <%= f.label :add_an_image %><br />
+      <%= f.file_field :picture, :autofocus => true %>
+    </div><br>
     <div class="actions">
       <%= f.submit %>
     </div>
