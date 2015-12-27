@@ -48,7 +48,7 @@ def create
             recipient = @conversation.sender
           end
 
-  NewMessageMailer.new_message(recipient, message_sender).deliver
+  # NewMessageMailer.new_message(recipient, message_sender).deliver
  end
 end
 
