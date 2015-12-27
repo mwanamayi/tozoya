@@ -23,7 +23,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -214,6 +214,15 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+  if Rails.env.development? || Rails.env.test?
+  # Dev App
+    config.omniauth :facebook, "1051696661548345", "72200bcffc3dd1988e5a47ac863bca92", info_fields: 'email,first_name,last_name,picture'
+  else
+  # Real App
+    config.omniauth :facebook, "1051690404882304", "5916afde5d564008049c6d8f3412892b", info_fields: 'email,first_name,last_name,image,password'
+  end
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

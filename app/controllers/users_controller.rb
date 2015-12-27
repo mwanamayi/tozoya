@@ -87,7 +87,7 @@ before_filter :authenticate_user!, except: [:index]
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :password, :email, :phone_number, :entity_name)
+    params.require(:user).permit(:first_name, :last_name, :password, :email, :phone_number, :entity_name, :remote_avatar_url, :auth_method)
   end
 
 end

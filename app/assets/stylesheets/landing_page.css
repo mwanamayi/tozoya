@@ -98,10 +98,10 @@
 	#body_paris2 {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris2.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -111,10 +111,10 @@
 	#body_nyc {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("nyc.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("nyc.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("nyc.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("nyc.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("nyc2.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("nyc2.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("nyc2.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("nyc2.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -124,10 +124,10 @@
 	#body_cape_town {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("cape_town.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -138,10 +138,10 @@
 	#body_london {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("london.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -151,10 +151,10 @@
 	#body_amsterdam {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("amsterdam.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("amsterdam.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("amsterdam.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("amsterdam.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("amsterdam2.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("amsterdam2.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("amsterdam2.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("amsterdam2.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -164,10 +164,10 @@
 	#body_paris {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
-		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
-		background-image: url("overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
-		background-image: url("overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
+		background-image: url("overlay.png"), -moz-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
+		background-image: url("overlay.png"), -webkit-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
+		background-image: url("overlay.png"), -ms-linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
+		background-image: url("overlay.png"), linear-gradient(60deg, transparent 5%, rgba(0, 228, 255, 0.35)), url("paris.jpg");
 		background-repeat: repeat,			no-repeat,			no-repeat;
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -263,7 +263,7 @@
 	}
 
 	a:hover {
-		color: #ff7496;
+		/*color: #ff7496;*/
 	}
 
 	strong, b {
@@ -398,7 +398,7 @@
 	input[type="tel"]:focus,
 	select:focus,
 	textarea:focus {
-		border-color: #ff7496;
+		/*border-color: #ff7496;*/
 		/*border: solid 1px white;*/
 	}
 
@@ -501,7 +501,7 @@
 
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
-		color: #ff7496;
+		/*color: #ff7496;*/
 		content: '\f00c';
 	}
 
@@ -644,7 +644,7 @@
 	}
 
 	ul.icons li a:hover:before {
-		text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;
+		/*text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;*/
 	}
 
 	ul.icons li a:before {
@@ -660,7 +660,7 @@
 	}
 
 	ul.icons li a:hover {
-		border-color: #ff7496;
+		/*border-color: #ff7496;*/
 	}
 
 	@media screen and (max-width: 480px) {
@@ -681,6 +681,7 @@
 		display: inline-block;
 		padding: 0 0.75em 0 0;
 		vertical-align: middle;
+		background: rgba(255, 255, 255, 0.7);
 	}
 
 	ul.actions li:last-child {
@@ -735,8 +736,8 @@
 	input[type="button"]:hover,
 	button:hover,
 	.button:hover {
-		border-color: #ff7496;
-		color: #ff7496 !important;
+		/*border-color: #ff7496;*/
+		/*color: #ff7496 !important;*/
 	}
 
 	input[type="submit"].icon,

@@ -1,19 +1,19 @@
 
-  <%= stylesheet_link_tag 'main' %>
-        <!-- Header -->
-          <header id="header">
-            <h1><a href="<%= root_path %>">Apostell</a></h1>
-            <!-- <h1><a href="<%= root_path %>"><%=image_tag("logo.png")%></a></h1> -->
-            <nav class="links">
-              <ul>
-            <li><a href="<%= flights_path %>">Trips</a></li>
-            <li><a href="<%= requests_path %>">Requests</a></li>
-            <li><a href="<%= conversations_path %>">Inbox</a></li>
-            <li><a href="<%= users_path %>">Friends</a></li>
-              </ul>
-            </nav>
-            <nav class="main">
-              <ul>
+<%= stylesheet_link_tag 'main' %>
+<!-- Header -->
+<header id="header">
+  <h1><a href="<%= root_path %>">Apostell</a></h1>
+  <!-- <h1><a href="<%= root_path %>"><%=image_tag("logo.png")%></a></h1> -->
+  <nav class="links">
+    <ul>
+      <li><a href="<%= flights_path %>">Trips</a></li>
+      <li><a href="<%= requests_path %>">Requests</a></li>
+      <li><a href="<%= conversations_path %>">Inbox</a></li>
+      <li><a href="<%= users_path %>">Friends</a></li>
+    </ul>
+  </nav>
+  <nav class="main">
+    <ul>
           <!--       <li class="search">
                   <a class="fa-search" href="#search">Search</a>
                   <form id="search" method="get" action="#">
@@ -27,7 +27,7 @@
             </nav>
           </header>
 
-        <!-- Menu -->
+          <!-- Menu -->
           <section id="menu" hidden>
 
             <!-- Search -->
@@ -37,20 +37,37 @@
                 </form>
               </section> -->
 
-            <!-- Links -->
+              <!-- Links -->
               <section>
                 <ul class="links">
-            <li><a href="<%= edit_user_registration_path(current_user) %>"><%= image_tag(current_user.avatar) %><br>Profile</a></li>
-            <li><a href="<%= flights_path %>"><h3>All Trips</h3></a></li>
-            <li><a href="<%= created_flights_path(user_id: current_user.id) %>"><h3>My Trips</h3></a></li>
-            <li><a href="<%= requests_path %>"><h3>All Requests</h3></a></li>
-            <li><a href="<%= created_requests_path(user_id: current_user.id) %>"><h3>My Requests</h3></a></li>
-            <li><a href="<%= conversations_path %>"><h3>Inbox</h3></a></li>
-            <li><a href="<%= users_path %>"><h3>Friends</h3></a></li>
+
+                  <% if current_user.provider == "facebook" %>
+                  
+                  <li>
+                    <%= image_tag(current_user.avatar) %>
+                    <br><%= current_user.full_name %>
+                  </li>
+
+                  <% else %>
+
+                  <li>
+                    <a href="<%= edit_user_registration_path(current_user) %>">
+                      <%= image_tag(current_user.avatar) %>
+                      <br><%= current_user.full_name %>
+                    </a>
+                  </li>
+
+                  <% end %>
+                  <li><a href="<%= flights_path %>"><h3>All Trips</h3></a></li>
+                  <li><a href="<%= created_flights_path(user_id: current_user.id) %>"><h3>My Trips</h3></a></li>
+                  <li><a href="<%= requests_path %>"><h3>All Requests</h3></a></li>
+                  <li><a href="<%= created_requests_path(user_id: current_user.id) %>"><h3>My Requests</h3></a></li>
+                  <li><a href="<%= conversations_path %>"><h3>Inbox</h3></a></li>
+                  <li><a href="<%= users_path %>"><h3>Friends</h3></a></li>
                 </ul>
               </section>
 
-            <!-- Actions -->
+              <!-- Actions -->
               <section>
                 <ul class="actions vertical">
                   <li><a class="button small fit", id="close_menu" >Close Menu</a></li>
@@ -58,4 +75,4 @@
                 </ul>
               </section>
 
-          </section>
+            </section>

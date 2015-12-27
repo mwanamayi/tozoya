@@ -20,9 +20,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :token_authenticatable
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :status, :first_name, :last_name, :avatar, :password, :password_confirmation, :remember_me, :school_id
-  attr_accessible :entity_name
+  attr_accessible :entity_name, :remote_avatar_url, :auth_method
 
   has_many :tasks
 
@@ -31,7 +33,7 @@ class User < ActiveRecord::Base
   before_create :skip_confirmation!
 
   # validates :email, uniqueness: { case_sensitive: false }
-  validates :username, uniqueness: { case_sensitive: false }
+  # validates :username, uniqueness: { case_sensitive: false }
 
   default_scope order('first_name ASC')
   mount_uploader :avatar, PictureUploader
@@ -45,11 +47,26 @@ class User < ActiveRecord::Base
   end
 
   def downcase_everything
-    self.first_name.downcase!
-    self.last_name.downcase!
-    self.email.downcase!
-    self.username.downcase!
-    self.entity_name.downcase!
+    self.first_name.downcase! if first_name
+    self.last_name.downcase! if last_name
+    self.email.downcase! if email
+    # self.username.downcase! if username
+    self.entity_name.downcase! if entity_name
+  end
+
+  def update_facebook_pic(image)
+    if self.avatar != image
+      self.update_attributes!(remote_avatar_url: image.sub('http:','https:'))
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name 
+    end
   end
 
   def self.current
@@ -108,10 +125,11 @@ class User < ActiveRecord::Base
   end
 
   def filter(search)
-  if search && search.present?
-    User.where('lower(username) LIKE ? OR lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
-  else
-    pending_requests + friend_requests + friends
+    if search && search.present?
+      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
+    else
+      pending_requests + friend_requests + friends
+    end
   end
 
   # def picture_size
@@ -119,7 +137,6 @@ class User < ActiveRecord::Base
   #     errors.add(:avatar, "should be less than 1MB")
   #   end
   # end
-end
 
 end
 
