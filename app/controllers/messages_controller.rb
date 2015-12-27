@@ -39,6 +39,16 @@ def create
  @message = @conversation.messages.create!(params[:message])
  if @message
   redirect_to conversation_messages_path(@conversation)
+
+          message_sender = @message.user
+
+          if @conversation.sender == message_sender
+            recipient = @conversation.recipient
+          elsif @conversation.sender != message_sender
+            recipient = @conversation.sender
+          end
+
+  NewMessageMailer.new_message(recipient, message_sender).deliver
  end
 end
 
