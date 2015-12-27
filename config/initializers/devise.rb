@@ -220,7 +220,7 @@ Devise.setup do |config|
     config.omniauth :facebook, "1051696661548345", "72200bcffc3dd1988e5a47ac863bca92", info_fields: 'email,first_name,last_name,picture'
   else
   # Real App
-    config.omniauth :facebook, "1051690404882304", "5916afde5d564008049c6d8f3412892b", info_fields: 'email,first_name,last_name,image,password'
+    config.omniauth :facebook, "1051690404882304", "5916afde5d564008049c6d8f3412892b", info_fields: 'email,first_name,last_name,picture'
   end
 
 
