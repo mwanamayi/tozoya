@@ -17,7 +17,7 @@
       <p>Find Travelers</p>
 
 <%= form_tag users_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Add new travelers by first/last name or username" %><br>
+    <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search by first name,last name or email" %><br>
     <%= submit_tag "Search", :name => nil %>
 
 <% end %>

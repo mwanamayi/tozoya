@@ -1,21 +1,17 @@
 class RequestsController < InheritedResources::Base
   require 'will_paginate/array'
+  skip_before_filter  :verify_authenticity_token
+
+before_filter :authenticate_user!
 
   def index
-    requests = Request.where(['date > ?', DateTime.now])
-    filtered_requests =  []
-    if requests.count > 0
-      requests.each do |r|
-        if current_user.friend?(r.user)
-          filtered_requests << r
-        elsif r.public? || current_user == r.user
-          filtered_requests << r
-        end
+    @requests = Request.filter(params)
+    puts "controller requests are:"
+    puts @requests
+      respond_to do |format|
+        format.html
+        format.js #-> loads /views/requests/index.js.erb
       end
-      @requests = filtered_requests.present? ? filtered_requests.paginate(:page => params[:page]) : []
-    else
-      @requests = []
-    end
   end
   
 
@@ -29,5 +25,11 @@ class RequestsController < InheritedResources::Base
     end
 
   end
+
+  # private
+
+  # def request_params
+  #   params.require(:user).permit(:content, :date, :departure, :destination, :picture, :public, :latitude, :longitude)
+  # end
 end
 

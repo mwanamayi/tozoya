@@ -4,23 +4,6 @@
       </div> -->
       <!-- Three -->
 
-      <section id="intro">
-
-        <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
-        <header>
-          <center>
-            <h2>Requests</h2>
-            <% if @requests.present? %>
-            <p>Traveling?! Find Out Who Needs Help With A Package</p>
-            <% else %>
-            <br>
-            <br>
-            <h3>Sorry! No Requests To Show You At The Moment! Try Adding More Friends</h3>
-            <% end %>
-          </center>
-        </header>
-      </section>
-
       <section id="" class="request_details">
         <% @requests.each do |request| %>
 
@@ -48,8 +31,14 @@
             </header>
             <footer>
               <ul class="actions">
+                <% if request.user != current_user %>
                 <p><%= request.content %></p> 
                 <li><%= button_to "Contact #{request.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: request.user.id} %></li>
+                <% else %>
+                <li>
+                  <%= button_to 'Edit',edit_request_path(request),  method: :get, class: "button icon fa-envelope" %>
+                </li>
+                <% end %>
               </ul>
               <ul class="stats">
                 <!-- <li><a href="#">General</a></li> -->

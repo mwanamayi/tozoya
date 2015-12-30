@@ -4,14 +4,12 @@ class UsersController < ApplicationController
 before_filter :authenticate_user!, except: [:index]
 
   def index
-    if current_user
     @users = current_user.filter(params[:search])
 
       respond_to do |format|
         format.html
         format.js #-> loads /views/users/index.js.erb
       end
-    end
   end
 
   def root_index

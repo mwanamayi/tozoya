@@ -1,20 +1,14 @@
 class FlightsController < InheritedResources::Base
+  require 'will_paginate/array'
+  skip_before_filter  :verify_authenticity_token
 
   def index
-    flights = Flight.where(['date > ?', DateTime.now])
-    filtered_flights =  []
-    if flights.count > 0
-      flights.each do |f|
-        if current_user.friend?(f.user)
-          filtered_flights << f
-        elsif f.public?
-          filtered_flights << f
-        end
+    @flights = Flight.filter(params).paginate(:page => params[:page])
+
+      respond_to do |format|
+        format.html
+        format.js #-> loads /views/flights/index.js.erb
       end
-      @flights = filtered_flights.present? ? filtered_flights.paginate(:page => params[:page]) : []
-    else
-      @flights = []
-    end
   end
   
 

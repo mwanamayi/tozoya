@@ -1,11 +1,39 @@
 
 
 
-    <div id="main">
+<div id="main">
+  <section id="intro">
+    <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+    <header>
+      <center>
+        <h2>Trips</h2>
+        <% if @flights.present? %>            
+        <p>Need Help With Sending A Package?! Here's Who's Traveling</p>
+        <% else %>
+        <br>
+        <br>
+        <h3>Sorry! No Trips To Show You At The Moment! Try Adding More Friends</h3>
+        <% end %>
+      </center>
+    </header>
 
-<%= link_to 'Add A New Trip', new_flight_path %>
-      <%= render 'flights/flights_feed' %>
-    </div>
+    <header class="filter_field">
+      <center>
+        <%= form_tag flights_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+        <%= submit_tag "Search", :name => nil %>
+
+      </center>
+    </header>
+    <% end %>
+
+  </section>
+
+
+
+  <%= link_to 'Add A New Trip', new_flight_path %>
+  <%= render 'flights/flights_feed' %>
+</div>
 
 <br />
 

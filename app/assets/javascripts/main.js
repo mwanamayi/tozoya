@@ -149,6 +149,17 @@ $( document ).ready(function() {
       return false;
     });
 
+     $("#requests_search").submit(function() {
+    	console.log("typing")
+      $.get($("#requests_search").attr("action"), $("#requests_search").serialize(), null, "script");
+      return false;
+    });
+
+     $("#flights_search").submit(function() {
+    	console.log("typing")
+      $.get($("#flights_search").attr("action"), $("#flights_search").serialize(), null, "script");
+      return false;
+    });
 
 $(".scrollable").animate({ scrollTop: $(document).height()*1.2 }, "fast");
   return false;

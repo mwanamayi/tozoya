@@ -3496,6 +3496,7 @@
   height: 20em;
   width: 50em;
   margin-bottom: 0em;
+  border: 1px solid #ddd;
 }
 
 .inbox .scrollable ul {

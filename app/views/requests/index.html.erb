@@ -1,10 +1,39 @@
 
 
 
-    <div id="main">
-<%= link_to 'Post A New Request', new_request_path %>
+<div id="main">
 
-      <%= render 'requests/requests_feed' %>
-    </div>
+  <section id="intro">
+
+    <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+    <header>
+      <center>
+        <h2>Requests</h2>
+        <% if @requests.present? %>
+        <p>Traveling?! Find Out Who Needs Help With A Package</p>
+        <% else %>
+        <br>
+        <br>
+        <h3>Sorry! No Requests To Show You At The Moment! Try Adding More Friends or Adding A New Request</h3>
+        <% end %>
+      </center>
+    </header>
+
+    <header class="filter_field">
+      <center>
+        <%= form_tag requests_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "What city are you looking for?" %><br>
+        <%= submit_tag "Search", :name => nil %>
+
+      </center>
+    </header>
+    <% end %>
+  </section>
+
+  <%= link_to 'Post A New Request', new_request_path %>
+  <div id="requests">
+    <%= render 'requests/requests_feed' %>
+  </div>
+</div>
 
 <br />

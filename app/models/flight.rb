@@ -22,4 +22,29 @@ class Flight < ActiveRecord::Base
   def set_user_id
     self.user_id = User.current.id
   end
+
+  def self.filter(params)
+    search = params[:search]
+      filtered_flights =  []
+    if search && search.present?
+      flights = Flight.where('lower(departure) LIKE ? OR lower(destination) LIKE ? AND date > ?', "%#{search.downcase}%","%#{search.downcase}%",DateTime.now)
+    else
+      flights = Flight.where(['date > ?', DateTime.now])
+    end
+
+    if flights.count > 0
+      flights.each do |r|
+        if User.current.friend?(r.user)
+          filtered_flights << r
+        elsif r.public? || User.current == r.user
+          filtered_flights << r
+        end
+      end
+      @flights = filtered_flights.present? ? filtered_flights.paginate(:page => params[:page]) : []
+    else
+      @flights = []
+    end
+
+  end
+
 end

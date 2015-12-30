@@ -2,6 +2,25 @@
 
 
     <div id="main">
+
+  <section id="intro">
+    <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+    <header>
+      <center>
+        <h2>My Trips</h2>
+        <% if @flights.present? %>            
+        <p>Your personal upcoming Trips</p>
+        <% else %>
+        <br>
+        <br>
+        <h3>You do not currently have any upcoming trips. <br>Create one and it'll show up below
+        </h3>
+        <% end %>
+      </center>
+    </header>
+
+  </section>
+
 <%= link_to 'Add A New Trip', new_flight_path %>
       <%= render 'flights/flights_feed' %>
     </div>
