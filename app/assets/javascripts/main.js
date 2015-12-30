@@ -161,7 +161,7 @@ $( document ).ready(function() {
       return false;
     });
 
-$(".scrollable").animate({ scrollTop: $(document).height()*1.2 }, "fast");
+$(".scrollable").animate({ scrollTop: $(document).height()*2 }, "fast");
   return false;
 
   });

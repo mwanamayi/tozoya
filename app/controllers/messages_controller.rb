@@ -1,15 +1,15 @@
 class MessagesController < ApplicationController
   before_filter :authenticate_user!
   skip_before_filter :verify_authenticity_token,
-                     :if => Proc.new { |c| c.request.format == 'application/json' }
+  :if => Proc.new { |c| c.request.format == 'application/json' }
 
   before_filter do
    @conversation = Conversation.find(params[:conversation_id])
-  end
+ end
 
-def index
- @messages = @conversation.messages
- @messages.each do |m|
+ def index
+   @messages = @conversation.messages
+   @messages.each do |m|
     puts m.inspect
   end
 
@@ -40,20 +40,21 @@ def create
  if @message
   redirect_to conversation_messages_path(@conversation)
 
-          message_sender = @message.user
+  content = @message.body
+  message_sender = @message.user
 
-          if @conversation.sender == message_sender
-            recipient = @conversation.recipient
-          elsif @conversation.sender != message_sender
-            recipient = @conversation.sender
-          end
+  if @conversation.sender == message_sender
+    recipient = @conversation.recipient
+  elsif @conversation.sender != message_sender
+    recipient = @conversation.sender
+  end
 
-  # NewMessageMailer.new_message(recipient, message_sender).deliver
- end
+  NewMessageMailer.new_message(recipient, message_sender, content).deliver
+end
 end
 
 private
- def message_params
+def message_params
   params.require(:message).permit(:body, :user_id)
- end
+end
 end
