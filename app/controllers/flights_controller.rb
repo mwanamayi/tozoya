@@ -2,6 +2,8 @@ class FlightsController < InheritedResources::Base
   require 'will_paginate/array'
   skip_before_filter  :verify_authenticity_token
 
+before_filter :authenticate_user!
+
   def index
     @flights = Flight.filter(params).paginate(:page => params[:page])
 
