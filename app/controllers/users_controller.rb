@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
-before_filter :authenticate_user!, except: [:index]
+before_filter :authenticate_user!, except: [:root_index]
 
   def index
-    @users = User.current.filter(params[:search])
+    @users = current_user.filter(params[:search])
 
       respond_to do |format|
         format.html
