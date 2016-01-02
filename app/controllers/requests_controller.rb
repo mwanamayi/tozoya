@@ -6,8 +6,7 @@ before_filter :authenticate_user!
 
   def index
     @requests = Request.filter(params)
-    puts "controller requests are:"
-    puts @requests
+    @search = params[:search]
       respond_to do |format|
         format.html
         format.js #-> loads /views/requests/index.js.erb

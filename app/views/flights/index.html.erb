@@ -1,19 +1,13 @@
 
-
-
 <div id="main">
   <section id="intro">
     <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+
+    <% if @flights.present? %>   
     <header>
       <center>
-        <h2>Trips</h2>
-        <% if @flights.present? %>            
+        <h2>Trips</h2>         
         <p>Need Help With Sending A Package?! Here's Who's Traveling</p>
-        <% else %>
-        <br>
-        <br>
-        <h3>Sorry! No Trips To Show You At The Moment! <br>Try Adding More Friends or Adding A New Trip</h3>
-        <% end %>
       </center>
     </header>
 
@@ -26,13 +20,19 @@
       </center>
     </header>
     <% end %>
+    <% else %>
+    <header>
+      <center>
+        <h2>Trips</h2>  
+        <br>
+        <br>
+        <h3>Sorry! No Trips Found for "<%= @search %>"! <br>Try Adding More Friends or Adding A New Trip</h3>
+      </center>
+    </header>
 
+    <% end %>
   </section>
 
-
-
-  <%= link_to 'Add A New Trip', new_flight_path %>
-  <%= render 'flights/flights_feed' %>
 </div>
 
 <br />

@@ -16,19 +16,19 @@ Imin::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
 
-#   config.action_mailer.smtp_settings = {
-#       address:              'smtp.gmail.com',
-#       port:                 587,
-#       domain:               'smtp.mailgun.org',
-#       user_name:            'apostell.herokuapp.com',
-#       password:             '123m@ilgun098',
-#       authentication:       'plain',
-#       enable_starttls_auto: true,
-#       openssl_verify_mode: 'none'
-#   }
-
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'no-reply@apostell.com',
+      password:             '@postell',
+      authentication:       'plain',
+      enable_starttls_auto: true,
+      openssl_verify_mode: 'none'
+  }
+  config.action_mailer.asset_host = "http://localhost:3000"
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -49,5 +49,5 @@ Imin::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

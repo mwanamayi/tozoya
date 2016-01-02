@@ -51,19 +51,22 @@ Imin::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :sendmail
 
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.smtp_settings = {
-  #     address:              'smtp.gmail.com',
-  #     port:                 587,
-  #     domain:               'gmail.com',
-  #     user_name:            ENV['gmail_username'],
-  #     password:             ENV['gmail_password'],
-  #     authentication:       'plain',
-  #     enable_starttls_auto: true
-  # }
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'no-reply@apostell.com',
+      password:             '@postell',
+      authentication:       'plain',
+      enable_starttls_auto: true,
+      openssl_verify_mode: 'none'
+  }
+
+
+  config.action_mailer.asset_host = "http://apostell.com"
 
   # Enable threaded mode
   # config.threadsafe!
@@ -75,7 +78,7 @@ Imin::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'areuin.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'apostell.com' }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

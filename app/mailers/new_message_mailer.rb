@@ -6,13 +6,14 @@ class NewMessageMailer < ActionMailer::Base
   #
   #   en.new_message_mailer.new_message.subject
   #
-  def new_message(recipient,sender,content)
+  def new_message(recipient,sender,content,conversation)
 
     @sender = sender
     @recipient = recipient
     @content = content
+    @conversation = conversation
 
-    mail to: recipient.email, subject: "Apostell: New Message from #{sender.full_name}"
+    mail to: recipient.email, subject: "Apostell Messaging"
   
   end
 end

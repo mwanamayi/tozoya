@@ -1,21 +1,13 @@
 
-
-
 <div id="main">
-
   <section id="intro">
-
     <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
+
+    <% if @requests.present? %>   
     <header>
       <center>
-        <h2>Requests</h2>
-        <% if @requests.present? %>
+        <h2>Requests</h2>         
         <p>Traveling?! Find Out Who Needs Help With A Package</p>
-        <% else %>
-        <br>
-        <br>
-        <h3>Sorry! No Requests To Show You At The Moment! <br>Try Adding More Friends or Adding A New Request</h3>
-        <% end %>
       </center>
     </header>
 
@@ -28,12 +20,21 @@
       </center>
     </header>
     <% end %>
+    <% else %>
+    <header>
+      <center>
+        <h2>Requests</h2>  
+        <br>
+        <br>
+        <h3>Sorry! No Requests Found for "<%= @search %>"! <br>Try Adding More Friends or Adding A New Request</h3>
+      </center>
+    </header>
+
+    <% end %>
   </section>
 
-  <%= link_to 'Post A New Request', new_request_path %>
-  <div id="requests">
-    <%= render 'requests/requests_feed' %>
-  </div>
+  <%= render 'requests/requests_feed' %>
 </div>
 
 <br />
+

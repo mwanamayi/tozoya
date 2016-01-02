@@ -6,7 +6,7 @@ before_filter :authenticate_user!
 
   def index
     @flights = Flight.filter(params).paginate(:page => params[:page])
-
+    @search = params[:search]
       respond_to do |format|
         format.html
         format.js #-> loads /views/flights/index.js.erb

@@ -36,10 +36,10 @@ class User < ActiveRecord::Base
   # validates :username, uniqueness: { case_sensitive: false }
 
   default_scope order('first_name ASC')
-  mount_uploader :avatar, PictureUploader
+  # mount_uploader :avatar, PictureUploader
 
   def full_name
-    "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
+    "#{self.first_name}".capitalize! + " " + "#{self.last_name}".capitalize!
   end
 
   def skip_confirmation!
@@ -56,7 +56,8 @@ class User < ActiveRecord::Base
 
   def update_facebook_pic(image)
     if self.avatar != image
-      self.update_attributes!(remote_avatar_url: image.sub('http:','https:'))
+      # self.update_attributes!(remote_avatar_url: image.sub('http:','https:'))
+      self.update_attributes!(avatar: image.sub('http:','https:'))
     end
   end
 

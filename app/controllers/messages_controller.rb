@@ -49,7 +49,7 @@ def create
     recipient = @conversation.sender
   end
 
-  NewMessageMailer.new_message(recipient, message_sender, content).deliver
+  NewMessageMailer.new_message(recipient, message_sender, content, @conversation).deliver
 end
 end
 
