@@ -7,14 +7,14 @@
     <header>
       <center>
         <h2>Trips</h2>         
-        <p>Need Help With Sending A Package?! Here's Who's Traveling</p>
+        <p>Below is the list of your friends' upcoming trips.</p>
       </center>
     </header>
 
     <header class="filter_field">
       <center>
         <%= form_tag flights_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "Search requests by city of departure or destination" %><br>
         <%= submit_tag "Search", :name => nil %>
 
       </center>
@@ -29,7 +29,7 @@
     <header class="filter_field">
       <center>
         <%= form_tag flights_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "Search requests by city of departure or destination" %><br>
         <%= submit_tag "Search", :name => nil %>
 
       </center>
@@ -37,8 +37,7 @@
         <% end %>
         <br>
         <br>
-        <h3>Oops! No Trips To Show You.<br><br>
-        Try Adding More Friends or Adding A New Trip </h3>    
+        <h3>Welcome to the Flights Feed.<br> Friends with upcoming trips will show up here. </h3>    
       </center>
     </header>
 
@@ -51,7 +50,7 @@
         <header class="filter_field">
           <center>
             <%= form_tag flights_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+            <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "Search requests by city of departure or destination" %><br>
             <%= submit_tag "Search", :name => nil %>
 
           </center>
@@ -59,7 +58,7 @@
         <% end %>
         <br>
         <br>
-        <h3>Sorry! No Trips Found for "<%= @search %>"! <br>Try Adding More Friends or Adding A New Trip</h3>
+        <h3>Sorry! No Trips Found for "<%= @search %>"! <br>Try Modifying Your Search</h3>
       </center>
     </header>
 

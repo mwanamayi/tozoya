@@ -16,6 +16,6 @@ class ConnectionsMailer < ActionMailer::Base
     @sender = sender
     @recipient = recipient
 
-    mail from: "#{@sender.full_name}<no-reply@apostell.com>",to: recipient.email, subject: "You're now connected to #{@recipient.first_name.capitalize!}"
+    mail from: "#{@sender.full_name}<no-reply@apostell.com>",to: recipient.email, subject: "You're now connected to #{@sender.first_name.capitalize!}"
   end
 end

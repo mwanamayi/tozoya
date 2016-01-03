@@ -7,14 +7,14 @@
     <header>
       <center>
         <h2>Requests</h2>         
-        <p>Traveling?! Find Out Who Needs Help With A Package</p>
+        <p>Below is a list of all friends needing help with a package.</p>
       </center>
     </header>
 
     <header class="filter_field">
       <center>
         <%= form_tag requests_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "What city are you looking for?" %><br>
+        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "Search requests by city of departure or destination" %><br>
         <%= submit_tag "Search", :name => nil %>
 
       </center>
@@ -29,7 +29,7 @@
     <header class="filter_field">
       <center>
         <%= form_tag requests_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "What city are you looking for?" %><br>
+        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "Search requests by city of departure or destination" %><br>
         <%= submit_tag "Search", :name => nil %>
 
       </center>
@@ -37,8 +37,8 @@
         <% end %>
         <br>
         <br>
-        <h3>Oops! No Requests To Show You.<br><br>
-        Try Adding More Friends or Adding A New Request </h3>     
+        <h3>Welcome to the Request Feed.<br> Friends who need help with a package will show up here.<br><br>
+        </h3>     
       </center>
     </header>
     <% else %>
@@ -49,7 +49,7 @@
     <header class="filter_field">
       <center>
         <%= form_tag requests_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "What city are you looking for?" %><br>
+        <%= text_field_tag :search, params[:search], id: 'requests_search',placeholder: "Search requests by city of departure or destination" %><br>
         <%= submit_tag "Search", :name => nil %>
 
       </center>
@@ -57,7 +57,7 @@
     <% end %>
         <br>
         <br>
-        <h3>Sorry! No Requests Found for "<%= @search %>"! <br>Try Adding More Friends or Adding A New Request</h3>
+        <h3>Sorry! No Requests Found for "<%= @search %>"! <br>Try Modifying Your Search</h3>
       </center>
     </header>
 

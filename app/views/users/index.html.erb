@@ -14,10 +14,10 @@
     <header>
       <center>
       <h2>Community</h2>
-      <p>Find Travelers</p>
+      <p>Find Friends</p>
 
 <%= form_tag users_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search by first name,last name or email" %><br>
+    <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %><br>
     <%= submit_tag "Search", :name => nil %>
 
 <% end %>
