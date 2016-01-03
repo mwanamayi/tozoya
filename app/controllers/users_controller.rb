@@ -55,10 +55,10 @@ before_filter :authenticate_user!, except: [:index]
     # redirect_to user_following_path(current_user)
     # else
 
-    if current_user.followed_by?(user) and !current_user.following?(user)
+    if current_user.followed_by?(@friend) and !current_user.following?(@friend)
       ConnectionsMailer.accept_friend_request(@friend, current_user).deliver
 
-    elsif !current_user.following?(user) and !current_user.followed_by?(user)
+    elsif !current_user.following?(@friend) and !current_user.followed_by?(@friend)
       ConnectionsMailer.send_friend_request(@friend, current_user).deliver
     
     end
@@ -84,7 +84,7 @@ before_filter :authenticate_user!, except: [:index]
   end
 
   def update
-    current_user.update(user_params)
+    current_user.update(@friend_params)
     redirect_to user_path(@user)
   end
 
