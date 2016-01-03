@@ -16,9 +16,18 @@
       <h2>Community</h2>
       <p>Find Friends</p>
 
-<%= form_tag users_path, :method => 'get' do %>
+    <%= form_tag users_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %><br>
     <%= submit_tag "Search", :name => nil %>
+    <br><br>
+
+    <%= link_to "Invite Facebook Friends",
+    "http://www.facebook.com/dialog/send?
+    app_id=1051690404882304
+    &link=https://www.apostell.com
+    &redirect_uri=https://facebook.com",
+    target: '_blank',
+    class:"button big" %>
 
 <% end %>
     </center>

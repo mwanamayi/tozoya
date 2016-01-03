@@ -35,12 +35,31 @@
               <ul class="actions">
                 <% if flight.user != current_user %>
                 <p><%= flight.content %></p> 
-                <li><%= button_to "Contact #{flight.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: flight.user.id} %></li>
+
+                <li>
+                  <%= button_to "Contact #{flight.user.first_name}", { action: "create",method: :post, controller: 'conversations', class: 'icon fa-envelope',sender_id: current_user.id, recipient_id: flight.user.id} %>
+                </li>
+
                 <% else %>
+
                 <li>
                   <%= button_to 'Edit',edit_flight_path(flight),  method: :get, class: "button icon fa-envelope" %>
                 </li>
+
                 <% end %>
+
+
+                <li>
+                  <%= button_to "Share Flight On Facebook",
+                  "https://www.facebook.com/dialog/feed?app_id=1051690404882304
+                  &redirect_uri=https://www.facebook.com
+                  &link=https://www.apostell.com/
+                  &picture=http://maps.google.com/maps/api/staticmap?size=400x250&sensor=false&zoom=4&markers=#{flight.latitude}%2C#{flight.longitude}
+                  &description=Check%20out%20my%20upcoming%20flight%20from%20#{flight.departure}%20to%20#{flight.destination}%20on%20apostell.com%20for%20help%20with%20delivering%20a%20package,
+                  &caption=My%20flight%20to%20#{flight.destination}",
+                  form: {target: '_blank'} %>
+                  
+              </li>
               </ul>
               </ul>
               <ul class="stats">
