@@ -20,10 +20,42 @@
       </center>
     </header>
     <% end %>
+
+    <% elsif !@search.present?%>
+    <header>
+      <center>
+        <h2>Trips</h2>     
+
+    <header class="filter_field">
+      <center>
+        <%= form_tag flights_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+        <%= submit_tag "Search", :name => nil %>
+
+      </center>
+    </header>
+        <% end %>
+        <br>
+        <br>
+        <h3>Sorry! No Trips Found. Try Adding More Friends or Adding A New Trip </h3>    
+      </center>
+    </header>
+
+
     <% else %>
     <header>
       <center>
         <h2>Trips</h2>  
+
+        <header class="filter_field">
+          <center>
+            <%= form_tag flights_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], id: 'flights_search',placeholder: "What city are you looking for?" %><br>
+            <%= submit_tag "Search", :name => nil %>
+
+          </center>
+        </header>
+        <% end %>
         <br>
         <br>
         <h3>Sorry! No Trips Found for "<%= @search %>"! <br>Try Adding More Friends or Adding A New Trip</h3>
@@ -32,6 +64,7 @@
 
     <% end %>
   </section>
+  <%= render 'flights/flights_feed' %>
 
 </div>
 

@@ -6,9 +6,10 @@
 
         <div id="main">
 
+          <% if @conversations.present? %>  
           <div class="container">
             <section id="users">
-              <ul class="posts">      
+              <ul class="posts">    
                 <% @conversations.each do |conversation| %>
                 <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
                 <% if conversation.sender_id == current_user.id %>
@@ -39,4 +40,14 @@
               </ul>
             </section>
           </div>
+          <% else %>
+          <center>
+            <br>
+            <br>
+            <h3>
+              You Currently Do Not Have Any Conversations
+            </h3>
+          </center>
+          <% end %>
         </div>
+
