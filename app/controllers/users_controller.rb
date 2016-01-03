@@ -54,11 +54,22 @@ before_filter :authenticate_user!, except: [:index]
     # flash[:error] = "You cannot follow yourself."
     # redirect_to user_following_path(current_user)
     # else
+
+    if current_user.followed_by?(user) and !current_user.following?(user)
+      ConnectionsMailer.accept_friend_request(@friend, current_user).deliver
+
+    elsif !current_user.following?(user) and !current_user.followed_by?(user)
+      ConnectionsMailer.send_friend_request(@friend, current_user).deliver
+    
+    end
+
     current_user.follow(@friend)
+
     flash[:notice] = "You are now following #{@friend.first_name}."
     redirect_to :back
     # end
     # end
+
   end
 
   def unfollow

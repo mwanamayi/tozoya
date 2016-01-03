@@ -1,5 +1,4 @@
 class NewMessageMailer < ActionMailer::Base
-  default sender: "no-reply@apostell.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -13,7 +12,7 @@ class NewMessageMailer < ActionMailer::Base
     @content = content
     @conversation = conversation
 
-    mail to: recipient.email, subject: "Apostell Messaging"
+    mail from: "Apostell Messaging <no-reply@apostell.com>",to: @recipient.email, subject: "#{sender.full_name} sent you a message"
   
   end
 end
