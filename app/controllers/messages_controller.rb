@@ -37,20 +37,20 @@ end
 
 def create
  @message = @conversation.messages.create!(params[:message])
- if @message
-  redirect_to conversation_messages_path(@conversation)
+  if @message
+    redirect_to conversation_messages_path(@conversation)
 
-  content = @message.body
-  message_sender = @message.user
+    content = @message.body
+    message_sender = @message.user
 
-  if @conversation.sender == message_sender
-    recipient = @conversation.recipient
-  elsif @conversation.sender != message_sender
-    recipient = @conversation.sender
+    if @conversation.sender == message_sender
+      recipient = @conversation.recipient
+    elsif @conversation.sender != message_sender
+      recipient = @conversation.sender
+    end
+
+    NewMessageMailer.new_message(recipient, message_sender, content, @conversation).deliver
   end
-
-  NewMessageMailer.new_message(recipient, message_sender, content, @conversation).deliver
-end
 end
 
 private

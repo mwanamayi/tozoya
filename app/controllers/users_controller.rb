@@ -65,7 +65,6 @@ before_filter :authenticate_user!, except: [:index]
 
     current_user.follow(@friend)
 
-    flash[:notice] = "You are now following #{@friend.first_name}."
     redirect_to :back
     # end
     # end

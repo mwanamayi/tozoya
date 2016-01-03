@@ -252,10 +252,11 @@
                                   <td align="left" valign="top" class="flexibleContainerBox">
                                     <table border="0" cellpadding="0" cellspacing="0" width="350" style="max-width: 100%;">
                                       <td align="left" class="textContent">
-                                        <img src="<%= @sender.avatar %>" width="100" class="flexibleImage" style="border-radius:0;max-width:100%;" alt="Text" title="Text" />
+                                        <img src="<%= @sender.avatar %>" width="75" class="flexibleImage" style="border-radius:100%;max-width:100%;" alt="Text" title="Text" />
                                         <!-- <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Left Column</h3> -->
-                                        <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
+                                        <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
 
+                                            <br>
                                             Hi <%= @recipient.first_name.capitalize!%>,<br><br>
 
                                             I'd like for us to connect on Apostell.<br><br>
@@ -316,12 +317,12 @@
                                                 <% if Rails.env.development? %>
 
                                                 <td align="center" valign="middle" class="buttonContent" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;margin-top:3px">
-                                                  <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://localhost:3000/<%= conversation_messages_path(@conversation)%>" target="_blank">See Your Friends</a>
+                                                  <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://localhost:3000/<%= users_path%>" target="_blank">See Your Friends</a>
 
                                                   <% else %>
 
                                                   <td align="center" valign="middle" class="buttonContent" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;margin-top:3px">
-                                                    <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://apostell.com/<%= conversation_messages_path(@conversation)%>" target="_blank">See Your Friends</a>
+                                                    <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://apostell.com/<%= users_path%>" target="_blank">See Your Friends</a>
 
                                                     <% end %>
                                                   </td>
