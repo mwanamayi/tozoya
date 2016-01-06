@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   # mount_uploader :avatar, PictureUploader
 
   def full_name
-    "#{self.first_name}".capitalize! + " " + "#{self.last_name}".capitalize!
+    "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
   end
 
   def skip_confirmation!
