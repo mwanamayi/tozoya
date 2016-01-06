@@ -1,5 +1,6 @@
 class ConnectionsMailer < ActionMailer::Base
-
+require 'digest/sha2' 
+default "Message-ID" => lambda {"<#{SecureRandom.uuid}@apostell.com>"}
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
