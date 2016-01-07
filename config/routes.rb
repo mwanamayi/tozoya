@@ -32,7 +32,10 @@ Imin::Application.routes.draw do
   get 'requests/personal/:user_id' => 'requests#created_index', :as => 'created_requests'
   
 
-  resources :users
+  resources :users, except: ['show']
+
+  get 'users/find/' => 'users#find_index', :as => 'users_find'
+
 
   get 'tasks' => 'tasks#index', :as => 'tasks'
   post 'tasks' => 'tasks#create'

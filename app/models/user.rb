@@ -129,7 +129,15 @@ class User < ActiveRecord::Base
     if search && search.present?
       User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
     else
-      pending_requests + friend_requests + friends
+      friends
+      end
+  end
+
+  def filter_find(search)
+    if search && search.present?
+      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+    else
+      pending_requests + friend_requests
     end
   end
 

@@ -14,6 +14,17 @@ before_filter :authenticate_user!, except: [:index]
     end
   end
 
+  def find_index
+    if current_user
+    @users = current_user.filter_find(params[:search])
+    @search = params[:search]
+      respond_to do |format|
+        format.html
+        format.js #-> loads /views/users/index.js.erb
+      end
+    end
+  end
+
   def root_index
     @users = User.all
   end
@@ -77,6 +88,8 @@ before_filter :authenticate_user!, except: [:index]
     redirect_to user_following_path unless current_user
     # if current_user
     current_user.stop_following(@friend)
+    @friend.stop_following(current_user)
+    
     flash[:notice] = "You are no longer following #{@friend.first_name}."
     redirect_to :back
     # end
