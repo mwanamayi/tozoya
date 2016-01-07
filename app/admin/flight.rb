@@ -1,6 +1,9 @@
 ActiveAdmin.register Flight do
   menu priority: 4
   index do
+    column("User") do |flight| 
+      flight.user.full_name
+    end
     column :date
     column :departure
     column :destination

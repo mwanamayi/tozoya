@@ -1,6 +1,9 @@
 ActiveAdmin.register Request do
   menu priority: 4
   index do
+    column("User") do |request| 
+      request.user.full_name
+    end
     column :date
     column :departure
     column :destination
