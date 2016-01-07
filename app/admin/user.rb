@@ -1,9 +1,8 @@
 ActiveAdmin.register User do
   menu priority: 3
   index do
-    column :username
+    column :full_name
     column :email
-    column :school
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
@@ -16,25 +15,24 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "User Details" do
-      f.input :username
+      f.input :first_name
+      f.input :last_name
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :school
+      f.input :entity_name
     end
     f.buttons
   end
 
   show do
     attributes_table do
-      row :username
-      row :email
-      row :school
-      row :authentication_token
-      row :confirmed_at
-      row :current_sign_in_at
-      row :last_sign_in_at
-      row :sign_in_count
+    row :full_name
+    row :email
+    row :current_sign_in_at
+    row :last_sign_in_at
+    row :sign_in_count
+    row :created_at
     end
     active_admin_comments
   end

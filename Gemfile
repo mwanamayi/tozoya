@@ -49,7 +49,7 @@ gem 'thin'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem "compass"
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate'
 
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
