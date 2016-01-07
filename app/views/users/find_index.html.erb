@@ -17,7 +17,7 @@
 
       <% if current_page?(users_path) %>
       <p> Your Current Friends</p>
-        <%= link_to "Go To Pending Requests", users_find_path %><br><br>
+        <%= link_to "Go To Friend Requests", users_find_path %><br><br>
 
       <%= form_tag users_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %><br>
