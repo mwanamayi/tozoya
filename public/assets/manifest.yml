@@ -17,8 +17,12 @@ cities.gif: cities-53b02a4acfe295428439d96087d4669d.gif
 cities/index.gif: cities-53b02a4acfe295428439d96087d4669d.gif
 cities2.gif: cities2-c42d1f58cf52a16a8fc740cb699c33fd.gif
 cities2/index.gif: cities2-c42d1f58cf52a16a8fc740cb699c33fd.gif
+favicon-32x32.ico: favicon-32x32-965f4e1fb704b5dd8dc4216f0d7988c7.ico
+favicon-32x32/index.ico: favicon-32x32-965f4e1fb704b5dd8dc4216f0d7988c7.ico
 favicon.ico: favicon-fc4603dee2fd5de07d4a5cc3b2af7062.ico
 favicon/index.ico: favicon-fc4603dee2fd5de07d4a5cc3b2af7062.ico
+favicon.png: favicon-beaf040aa87117096547d2e39462abc0.png
+favicon/index.png: favicon-beaf040aa87117096547d2e39462abc0.png
 fly.gif: fly-d3657c40aed2ffb4a7838ea423b381ac.gif
 fly/index.gif: fly-d3657c40aed2ffb4a7838ea423b381ac.gif
 fulls/01.jpg: fulls/01-8fe00c00aac863042ef59d73e07dc953.jpg
