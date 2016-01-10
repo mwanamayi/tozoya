@@ -23,7 +23,7 @@
   <%= csrf_meta_tags %>
 
   <!-- shiv here -->
-
+<%= favicon_link_tag 'favicon.ico' %>
 </head>
 
 <% if not user_signed_in? and current_page?(root_url) %>
