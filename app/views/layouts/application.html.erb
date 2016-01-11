@@ -11,7 +11,6 @@
   <title>Apostell</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <%= stylesheet_link_tag 'font-awesome' %>
-      <%= javascript_include_tag 'application'%>
       <%= javascript_include_tag 'jquery'%>
       <%= javascript_include_tag 'main'%>
       <%= javascript_include_tag 'skel'%>
@@ -33,97 +32,88 @@
 <%= stylesheet_link_tag "landing_page2" %>
 <%= javascript_include_tag 'landing_page2' %>
 
-
   <body class="landing">
+    <div id="page-wrapper">
 
-    <!-- Page Wrapper -->
-      <div id="page-wrapper">
-          <header id="header" class="alt">
-            <h1><a href="index.html">Apostell</a></h1>
-          </header>
 
-        <!-- Banner -->
-          <section id="banner">
-            <div class="inner">
-              <h2>APOSTELL</h2>
-              <p>One Community.
-              One Million Shipping Destinations.<br />
+      <!-- Banner -->
+        <section id="banner">
+          <h2>Apostell</h2>
+          <p>One Community<br>
+          One Million Shipping Destinations</p>
+          <ul class="actions">
+            <li><%= button_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook" %></li>
+            <li><a href="#main" class="button">Learn More</a></li>
+          </ul>
+        </section>
 
-        <ul class="actions">
-          <li><%= button_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook" %></li>
-        </ul>
-<!-- 
-        <ul class="actions">
-          <li><a href="/users/sign_in" class="button">Sign In Through Apostell</a></li>
-        </ul>
+      <!-- Main -->
+        <section id="main" class="container">
 
-        <ul class="actions">
-          <li><a href="/users/sign_up" class="button">Sign Me Up!</a></li>
-        </ul> -->
-
-          </div>
-            <a href="#one" class="more scrolly">How It Works</a>
+          <section class="box special">
+            <header class="major">
+              <h2>How It Works</h2>
+            </header>
           </section>
 
-        <!-- One -->
-         <section id="one" class="wrapper style1 special">
-            <div class="inner">
-                <h2>How It Works</h2>
+          <section class="box special features">
+            <div class="features-row">
+              <section>
+                <span class="icon major fa-send-o accent2"></span>
+                <h3>Need To Send A Package?</h3>
+                <p>Need to send something across the globe but want to avoid high shipping fees?
+                  Want to ship something to a destination where shipping may be non-existent?</p>
+              </section>
+              <section>
+                <span class="icon major fa-search accent3"></span>
+                <h3>Find travelling friends</h3>
+                <p>Friends or, friends of friends are constantly travelling and probably even heading to the destination you need to send your package to.</p>
+              </section>
             </div>
-          </section>
- 
-        <!-- Two -->
-          <section id="one" class="wrapper alt style2">
-            <section class="spotlight">
-              <div class="image"><%= image_tag("ship.jpeg") %></div>
-              <div class="content">
-                <h2>Shipping Something?</h2>
-                <p>Need to send something across the globe but want to avoid high shipping fees?<br>
-                  Want to ship something to a destination where shipping is non-existent?</p>
-              </div>
-            </section>
-            <section class="spotlight">
-              <div class="image"><%= image_tag("friends.jpeg") %></div><div class="content">
-                <h2>Find travelling friends</h2>
-                <p>Friends, or friends of friends are constantly travelling and maybe even some probably heading your way.</p>
-              </div>
-            </section>
-            <section class="spotlight">
-              <div class="image"><%= image_tag("contact.jpeg") %></div><div class="content">
-                <h2>Connect</h2>
+            <div class="features-row">
+              <section>
+                <span class="icon major fa-envelope-o accent4"></span>
+                <h3>Connect</h3>
                 <p>Get in touch with them and make arrangements to get your package delivered to where it needs to be.</p>
-              </div>
-            </section>
-          </section>
-
-        <!-- CTA -->
-          <section id="cta" class="wrapper style4">
-            <div class="inner">
-              <header>
-                <h2>Sounds Interesting?</h2>
-                <p>With us, there's no sign up hassle needed. We use your pre-existing Facebook credentials.</p>
-              </header>
-              <ul class="actions vertical">
-                <li><a href="#" class="button special">Login With Facebook</a></li>
-              </ul>
+              </section>
+              <section>
+                <span class="icon major fa-plane accent5"></span>
+                <h3>...You Can Also Make Requests</h3>
+                <p>Apostell also allows you to post requests for others to help you out if they happen to be heading to, or leaving from the location you'd like your item to be delivered to, or picked up from. </p>
+              </section>
             </div>
           </section>
 
-        <!-- Footer -->
-          <footer id="footer">
-            <ul class="icons">
-              <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-              <li>&copy; Apostell</li>
-            </ul>
-          </footer>
+        </section>
 
-      </div>
+      <!-- CTA -->
+        <section id="cta">
+
+          <h2>Interested?</h2>
+          <p>No Sign Up Needed! Just Log In Easily With Facebook</p>
+          <ul class="actions">
+            <li><%= button_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook" %></li>
+          </ul>
+
+
+        </section>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <ul class="icons">
+            <li><a href="https://www.facebook.com/apostellofficial" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="mailto:support@apostell.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Apostell. All rights reserved.</li>
+          </ul>
+        </footer>
+
+    </div>
 
 
   </body>
+
   <% elsif not user_signed_in? %>
   <%= stylesheet_link_tag "landing_page2" %>
   <%= javascript_include_tag 'landing_page2' %>
