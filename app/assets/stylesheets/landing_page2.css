@@ -3043,20 +3043,22 @@
 			margin-bottom: 0;
 		}
 
-		#banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
+		#banner h1, #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
 			color: #fff;
 		}
 
-		#banner h2 {
-			font-size: 3.5em;
+		#banner h1 {
+			font-size: 4em;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
+			text-shadow: 3px 3px grey;
 		}
 
 		#banner p {
 			font-size: 1.25em;
 			margin-bottom: 1.75em;
+			text-shadow: 1px 2px grey;
 		}
 
 		#banner input[type="submit"],
