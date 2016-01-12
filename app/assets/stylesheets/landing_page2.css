@@ -3049,10 +3049,10 @@
 
 		#banner h1 {
 			font-size: 4em;
+			font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
-			text-shadow: 3px 3px grey;
 		}
 
 		#banner p {
@@ -3358,6 +3358,14 @@
 			#header {
 				display: none;
 			}
+
+		#banner h1 {
+			font-size: 3em;
+			font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+			line-height: 1em;
+			margin: 0 0 0.5em 0;
+			padding: 0;
+		}
 
 		/* Banner */
 
