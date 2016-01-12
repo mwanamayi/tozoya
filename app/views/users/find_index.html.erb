@@ -38,18 +38,22 @@
 
       <% end %>
 
-<!--     <%= link_to "Invite Facebook Friends",
+    <% if [1,2,3,4].include? current_user.id %>
+     <%= link_to "Invite Facebook Friends",
     "http://www.facebook.com/dialog/send?
     app_id=1051690404882304
     &link=www.apostell.com
     &redirect_uri=https://facebook.com",
     target: '_blank',
-    class:"button big" %> -->
+    class:"button big" %> 
+
+    <% end %>
 
   </center>
 </header>
 </section>
 <section id="users">
+  <br>
   <%= render "users" %>
 </section>
 
