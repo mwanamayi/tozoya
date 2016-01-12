@@ -41,8 +41,8 @@
           <h1 class="title">Welcome To Apostell</h1>
           <p>One Community. One Million Shipping Destinations.</p>
           <ul class="actions">
-            <li><%= button_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook" %></li>
-            <li><a href="#main" class="button">Learn More</a></li>
+            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook" %></li>
+            <li><a href="#features" class="button">Learn More</a></li>
           </ul>
         </section>
 
@@ -51,11 +51,13 @@
 
           <section class="box special">
             <header class="major">
-              <h2>How It Works</h2>
+              <h2>Shipping Was Always Meant To Be This Convenient.</h2>
+              <p>Forget the hassle and high costs of getting packages delivered to a loved one, a friend or a family member.</p>
             </header>
+            <span class="image featured"><%= image_tag("friends.jpeg") %></span>
           </section>
 
-          <section class="box special features">
+          <section class="box special features" id="features">
             <div class="features-row">
               <section>
                 <span class="icon major fa-send-o accent2"></span>
@@ -91,7 +93,7 @@
           <h2>Interested?</h2>
           <p>No Sign Up Needed! Just Log In Easily With Facebook</p>
           <ul class="actions">
-            <li><%= button_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook" %></li>
+            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook" %></li>
           </ul>
 
 
