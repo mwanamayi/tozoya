@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_all_invites
-    if request.original_url == ("http://localhost:3000/users/sign_up" || "https://localhost:3000/users/sign_up" || "http://apostell.com/users/sign_up" || "https://apostell.com/users/sign_up" || "http://apostell.com/users/sign_up" )
+    if request.original_url == ("http://localhost:3000/users/sign_up" || "https://localhost:3000/users/sign_up" || "http://www.apostell.com/users/sign_up" || "https://www.apostell.com/users/sign_up" )
       redirect_to root_path
     end
   end
