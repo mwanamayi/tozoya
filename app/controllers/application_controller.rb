@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
     User.current = current_user
   end
 
+  def route_name
+    Rails.application.routes.router.recognize(request) do |route, _|
+      return route.name.to_s
+    end
+  end
+
   protected
   def authenticate_user!
     if user_signed_in?
@@ -20,8 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_all_invites
-    if new_user_registration_path
-      redirect_to "https://www.apostell.com/"
+    puts "route is:"
+    puts route_name
+    if ["new_user_registration","new_user_session"].include?(route_name)
+      redirect_to root_path
     end
   end
 
