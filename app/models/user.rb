@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   acts_as_follower
   acts_as_followable
+  acts_as_reader
 
   has_many :invitations
   has_many :invited_events, through: :invitations, source: :event
@@ -139,6 +140,23 @@ class User < ActiveRecord::Base
     else
       pending_requests + friend_requests
     end
+  end
+
+  def unread_conversations
+    unread_conversations = []
+    conversations = self.conversations
+    all_unread = conversations.unread_by(self)
+
+    all_unread.each do |c|
+      if c.messages.present? && (c.messages.last.user != User.current)
+        unread_conversations << c
+      end
+    end
+    unread_conversations
+  end
+
+  def mark_messages_as_read(conversation)
+    conversation.mark_as_read! for: User.current
   end
 
   # def picture_size

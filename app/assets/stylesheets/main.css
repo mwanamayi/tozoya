@@ -2450,6 +2450,11 @@
 						margin-bottom: 0;
 					}
 
+					.posts .badge{
+					background: #2EBAAE;
+					font-size: 80%;
+				}
+
 
 @media screen and (max-width: 736px) {
 	ul.posts {
@@ -3042,6 +3047,21 @@
 					font-weight: 400;
 					letter-spacing: 0.25em;
 					text-transform: uppercase;
+				}
+
+				.links .badge{
+					background: #dc0d17;
+					font-size: 90%;
+					position: relative;
+					bottom: 1em;
+				}
+
+				#header .badge{
+					background: #dc0d17;
+					font-size: 90%;
+					position: relative;
+					bottom: 1em;
+					right: 1em
 				}
 
 		#header .main {

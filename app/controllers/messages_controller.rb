@@ -9,9 +9,7 @@ class MessagesController < ApplicationController
 
  def index
    @messages = @conversation.messages
-   @messages.each do |m|
-    puts m.inspect
-  end
+   current_user.mark_messages_as_read(@conversation)
 
   # if @messages.length > 1000
   #  @over_ten = true
@@ -27,7 +25,6 @@ class MessagesController < ApplicationController
   # if @messages.last.user_id != current_user.id
    # @messages.last.read = true;
   # end
-  puts "messages index"
   @message = @conversation.messages.new
 end
 

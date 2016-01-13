@@ -5,24 +5,27 @@ class ConversationsController < ApplicationController
 
  
   def index
-    puts "conversation index"
     @user = current_user
     @users = User.all
-    @conversations = Conversation.where("(sender_id = ? or recipient_id = ?)", current_user.id, current_user.id)
+    @conversations = []
+    @all_conversations = Conversation.where("(sender_id = ? or recipient_id = ?)", current_user.id, current_user.id)
+
+    @all_conversations.each do |c|
+      if c.messages.present?
+        @conversations << c
+      end
+    end
   #   @reciever = interlocutor(@conversation)
   #   @messages = @conversation.messages
     @message = Message.new
   end
 
   def create
-    puts "create convo?"
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-      puts "no"
       puts params[:sender_id]
       puts params[:recipient_id]
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
     else
-      puts "yes"
       @conversation = Conversation.new(sender_id: params[:sender_id],recipient_id: params[:recipient_id])
       @conversation.save
     end

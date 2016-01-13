@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151227001757) do
+ActiveRecord::Schema.define(:version => 20160113041901) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -129,6 +129,16 @@ ActiveRecord::Schema.define(:version => 20151227001757) do
 
   add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "read_marks", :force => true do |t|
+    t.integer  "readable_id"
+    t.string   "readable_type", :null => false
+    t.integer  "reader_id"
+    t.string   "reader_type",   :null => false
+    t.datetime "timestamp"
+  end
+
+  add_index "read_marks", ["reader_id", "reader_type", "readable_type", "readable_id"], :name => "read_marks_reader_readable_index"
 
   create_table "requests", :force => true do |t|
     t.text     "content"

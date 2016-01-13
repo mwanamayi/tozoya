@@ -1,5 +1,7 @@
 class Conversation < ActiveRecord::Base
 
+  acts_as_readable :on => :updated_at
+
   belongs_to :sender, :foreign_key => :sender_id, class_name: 'User'
   belongs_to :recipient, :foreign_key => :recipient_id, class_name: 'User'
  
@@ -56,6 +58,10 @@ class Conversation < ActiveRecord::Base
       self.updated_at.strftime('%a, %b %d, %I:%M%p')
     end
     # self.updated_at.strftime('%I:%M%p')
+  end
+
+  def is_unread?
+    User.current.unread_conversations.include?(self)
   end
 
 end

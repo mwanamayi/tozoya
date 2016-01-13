@@ -394,6 +394,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unread (0.7.1)
+      activerecord (>= 3)
     warden (1.2.4)
       rack (>= 1.0)
     websocket-driver (0.6.3)
@@ -438,6 +440,7 @@ DEPENDENCIES
   test-unit
   thin
   uglifier (>= 1.0.3)
+  unread
   will_paginate
 
 BUNDLED WITH

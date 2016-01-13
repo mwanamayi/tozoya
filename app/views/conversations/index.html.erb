@@ -8,15 +8,22 @@
 
           <% if @conversations.present? %>  
           <div class="container">
-            <section id="users">
-              <ul class="posts">    
+            <section id="users"> 
+                  <ul class="posts">
                 <% @conversations.each do |conversation| %>
+
                 <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-                <% if conversation.sender_id == current_user.id %>
-                <% recipient = User.find(conversation.recipient_id) %>
-                <% else %>
-                <% recipient = User.find(conversation.sender_id) %>
-                <% end %>
+
+                  <% if conversation.sender_id == current_user.id %>
+
+                    <% recipient = User.find(conversation.recipient_id) %>
+
+                  <% else %>
+
+                    <% recipient = User.find(conversation.sender_id) %>
+
+                  <% end %>
+
                 <% end %>
                 <!-- Posts List -->
                 <li>
@@ -24,8 +31,12 @@
                     <header>
 
                       <a href="<%= conversation_messages_path(conversation) %>">
+
                         <h3>
                           <%= recipient.full_name %>
+                    <% if conversation.is_unread? %>
+                      <span class="badge">Unread</span>
+                    <% end %>
                         </h3>
                         <p>
                           <%= conversation.formatted_updated_at %><br>
@@ -33,6 +44,7 @@
                         </p>
                       </a>
                     </header>
+
                     <a href="#" class="image"><%=image_tag(recipient.avatar) %></a>
                   </article>
                 </li>
