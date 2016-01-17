@@ -22,8 +22,8 @@ Imin::Application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'gmail.com',
-      user_name:            'no-reply@apostell.com',
-      password:             '@postell',
+      user_name:            ENV['EMAIL'],
+      password:             ENV['PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true,
       openssl_verify_mode: 'none'
