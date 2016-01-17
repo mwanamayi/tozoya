@@ -4,6 +4,15 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 $( document ).ready(function() {
+
+	  $(".invite_friends").click(function() {
+
+  	FB.ui({
+    method: 'apprequests',
+    message: 'Join me on Apostell for help with delivering packages to friends or loved ones anywhere in the world!'
+	});
+
+  });
 				console.log("loaded");
 
 (function($) {
@@ -163,5 +172,7 @@ $( document ).ready(function() {
 
 $(".scrollable").animate({ scrollTop: $(document).height()*2 }, "fast");
   return false;
+
+
 
   });

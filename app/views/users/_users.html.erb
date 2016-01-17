@@ -19,7 +19,9 @@
         <% if current_user.friend?(user) %>
           <%= button_to "Unfriend", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
         <% elsif current_user.followed_by?(user) and !current_user.following?(user) %>
-        <%= button_to "Accept Friend Request", { action: "follow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+        <%= button_to "Ignore", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
+
+        <%= button_to "Accept", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
         <% elsif current_user.following?(user) and !current_user.followed_by?(user) %>
         <%= button_to "Your Request Is Pending", { action: "unfollow",method: :put, controller: 'users',remote: true, class: 'icon fa-envelope follow',user_id: user.id} %>
         <% else current_user.following?(user) and !current_user.followed_by?(user) %>

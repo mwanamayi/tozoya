@@ -11,18 +11,25 @@
 <section id="intro">
 
   <!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
-  <header>
+  <header id="friends_header">
     <center>
       <h2>Friends</h2>
 
       <% if current_page?(users_path) %>
       <p> Your Current Friends</p>
-        <%= link_to "Go To Friend Requests", users_find_path %><br><br>
+        <%= link_to "Go To Friend Requests", users_find_path %>
+
+        <% if current_user.friend_requests.count > 0 %>
+          <span class="badge">
+          <%= current_user.friend_requests.count %>
+          </span>
+        <% end %>
+
+        <br><br>
 
       <%= form_tag users_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %><br>
-      <%= submit_tag "Search", :name => nil %>
-      <br><br>
+      <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %>
+      <%= submit_tag "Search", :name => nil, class: :hidden %>
       <% end %>
 
       <% else %>
@@ -31,13 +38,19 @@
         <%= link_to "Go To Current Friends", users_path %><br><br>
 
       <%= form_tag users_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %><br>
-      <%= submit_tag "Search", :name => nil %>
-      <br><br>
+      <%= text_field_tag :search, params[:search], id: 'users_search',placeholder: "Search Friends by first name, last name or email" %>
+      <%= submit_tag "Search", :name => nil, class: :hidden  %>
       <% end %>
 
       <% end %>
 
+    <% if [1,2,3,4].include? current_user.id %>
+     <%= link_to "Invite Facebook Friends",
+     "#invite_friends",
+    class:"button medium invite_friends icon fa-facebook" %> 
+    <% end %>
+
+    <!-- 
     <% if [1,2,3,4].include? current_user.id %>
      <%= link_to "Invite Facebook Friends",
     "http://www.facebook.com/dialog/send?
@@ -45,8 +58,8 @@
     &link=www.apostell.com
     &redirect_uri=https://facebook.com",
     target: '_blank',
-    class:"button big" %> 
-
+    class:"button big invite_friends" %> 
+ -->
     <% end %>
 
   </center>

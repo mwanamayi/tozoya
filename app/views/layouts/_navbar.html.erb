@@ -9,8 +9,14 @@
       <li><a href="<%= flights_path %>">Trips </a></li>
       <li><a href="<%= requests_path %>">Requests </a></li>
       <li><a href="<%= conversations_path %>">Inbox <span class="badge"><%= current_user.unread_conversations.count if 
-              current_user.unread_conversations.count > 0%></span></a></li>
-      <li><a href="<%= users_path %>">Friends</a></li>
+              current_user.unread_conversations.count > 0%></span>
+          </a>
+      </li>
+
+      <li><a href="<%= users_path %>">Friends <span class="badge"><%= current_user.friend_requests.count if 
+              current_user.friend_requests.count > 0%></span>
+          </a>
+      </li>
     </ul>
   </nav>
   <nav class="main">
@@ -68,13 +74,26 @@
                   <li><a href="<%= created_requests_path(user_id: current_user.id) %>"><h3>My Requests</h3></a></li>
 
                   <li><a href="<%= conversations_path %>">
-                    <h3>Inbox<span class="badge"><%= current_user.unread_conversations.count if 
-              current_user.unread_conversations.count > 0%></span>
+                    <h3>Inbox
+                        <% if current_user.unread_conversations.count > 0 %>
+                      <span class="badge">
+                      <%= current_user.unread_conversations.count %>
+                      </span>
+                      <% end %>
                     </h3>
                       </a>
                   </li>
 
-                  <li><a href="<%= users_path %>"><h3>Friends</h3></a></li>
+                  <li><a href="<%= users_path %>">
+                    <h3>Friends
+                       <% if current_user.friend_requests.count > 0 %>
+                      <span class="badge">
+                        <%= current_user.friend_requests.count %>
+                      </span>
+                        <% end %>
+                    </h3>
+                  </a>
+                  </li>
                 </ul>
               </section>
 

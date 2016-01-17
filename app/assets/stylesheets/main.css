@@ -3064,6 +3064,23 @@
 					right: 1em
 				}
 
+				#friends_header .badge{
+					background: #dc0d17;
+					font-size: 90%;
+					position: relative;
+					bottom: 1em;
+					right: 1em
+				}
+
+
+				#header .badge{
+					background: #dc0d17;
+					font-size: 90%;
+					position: relative;
+					bottom: 1em;
+					right: 1em
+				}
+
 		#header .main {
 			height: inherit;
 			line-height: inherit;
