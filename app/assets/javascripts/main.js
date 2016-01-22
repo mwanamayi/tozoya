@@ -1,5 +1,11 @@
 $( document ).ready(function() {
 
+   $('.beta').click(function (e) {
+    e.preventDefault();
+    console.log("beta clicked");
+            alert("Hey there, welcome to Apostell!\n\nDue to larger than expected demand for the service, we've decided to preserve the user experience by no longer allowing new users to sign in.\n\nThis however, is temporary, so please stay tuned!");
+        });
+
 	  $(".invite_friends").click(function() {
 
   	FB.ui({
@@ -165,9 +171,8 @@ $( document ).ready(function() {
       return false;
     });
 
-$(".scrollable").animate({ scrollTop: $(document).height()*2 }, "fast");
+  $(".scrollable").animate({ scrollTop: $(document).height()*2 }, "fast");
   return false;
-
 
 
   });

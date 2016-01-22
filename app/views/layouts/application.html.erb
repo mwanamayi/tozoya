@@ -33,6 +33,7 @@
 <%= javascript_include_tag 'landing_page2' %>
 
   <body class="landing">
+    <div class="corner-ribbon top-left sticky red shadow">Closed Beta</div>
     <div id="page-wrapper">
 
 
@@ -41,7 +42,7 @@
           <h1 class="title">APOSTELL</h1>
           <p>One Community. One Million Shipping Destinations.</p>
           <ul class="actions">
-            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook" %></li>
+            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook beta" %></li>
             <li><a href="#features" class="button">Learn More</a></li>
           </ul>
         </section>
@@ -93,7 +94,7 @@
           <h2>Interested?</h2>
           <p>No Sign Up Needed! Just Log In Easily With Facebook</p>
           <ul class="actions">
-            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook" %></li>
+            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook beta" %></li>
           </ul>
 
 
