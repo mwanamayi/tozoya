@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :status, :first_name, :last_name, :avatar, :password, :password_confirmation, :remember_me, :school_id
+  attr_accessible :username, :email, :status, :first_name, :last_name, :avatar, :password, :password_confirmation, :remember_me, :school_id, :full_name
   attr_accessible :entity_name, :remote_avatar_url, :auth_method
 
   has_many :tasks
@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
   before_create :downcase_everything
   before_create :skip_confirmation!
+  before_create :register_full_name
 
   # validates :email, uniqueness: { case_sensitive: false }
   # validates :username, uniqueness: { case_sensitive: false }
@@ -39,8 +40,8 @@ class User < ActiveRecord::Base
   default_scope order('first_name ASC')
   # mount_uploader :avatar, PictureUploader
 
-  def full_name
-    "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
+  def register_full_name
+    self.full_name = "#{self.first_name}".capitalize + " " + "#{self.last_name}".capitalize
   end
 
   def skip_confirmation!
@@ -128,7 +129,7 @@ class User < ActiveRecord::Base
 
   def filter(search)
     if search && search.present?
-      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ? OR lower(full_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
     else
       friends
       end
@@ -136,7 +137,7 @@ class User < ActiveRecord::Base
 
   def filter_find(search)
     if search && search.present?
-      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+      User.where('lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ? OR lower(full_name) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
     else
       pending_requests + friend_requests
     end
