@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 
+// lock down app's login
    $('.beta').click(function (e) {
     e.preventDefault();
     console.log("beta clicked");
