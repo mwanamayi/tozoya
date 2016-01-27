@@ -15,7 +15,7 @@ before_filter :authenticate_user!
   
 
   def created_index
-    @user = User.find(params[:user_id])
+    @user = current_user
     created_requests = @user.requests
     if created_requests.count > 0
       @requests = created_requests.where(['date > ?', DateTime.now]).paginate(:page => params[:page])
