@@ -15,7 +15,7 @@ Imin::Application.routes.draw do
   #   root to: "users#current_user_show"
   # end
   authenticated :user do
-    root to: "flights#index"
+    root to: "flights#created_index"
   end
   unauthenticated :user do
     root to: "users#index"
