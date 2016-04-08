@@ -3027,7 +3027,7 @@
 		/*background-attachment: scroll,							fixed;*/
 		background-attachment:fixed;
 		background-color: #666;
-		background-image: url("overlay.png"), url("paris2.jpg");
+		background-image: url("overlay.png"), url("street.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
@@ -3045,7 +3045,7 @@
 		}
 
 		#banner h1 {
-			font-size: 4em;
+			font-size: 6em;
 			font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
@@ -3053,7 +3053,7 @@
 		}
 
 		#banner p {
-			font-size: 1.25em;
+			font-size: 1.75em;
 			margin-bottom: 1.75em;
 		}
 

@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
-  <title>Apostell</title>
+  <title>Zoya</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <%= stylesheet_link_tag 'font-awesome' %>
       <%= javascript_include_tag 'jquery'%>
@@ -39,12 +39,13 @@
 
       <!-- Banner -->
         <section id="banner">
-          <h1 class="title">APOSTELL</h1>
-          <p>One Stop. Thousand Shipping Destinations.</p>
-          <ul class="actions">
-            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook " %></li>
-            <li><a href="#features" class="button">Learn More</a></li>
-          </ul>
+          <h1 class="title">Bienvenu chez Zoya.</h1>
+          <p>Trouvez votre transport en ville à la minute.</p>
+<!--          <ul class="actions">
+            <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button special icon fa-facebook " %></li> -->
+            <li><a href="#features" class="button">En Savoir Plus</a></li>
+            <li><a href="#features" class="button">En Savoir Plus</a></li>
+          </ul> 
         </section>
 
       <!-- Main -->
@@ -52,36 +53,35 @@
 
           <section class="box special">
             <header class="major">
-              <h2>Shipping Was Always Meant To Be This Convenient.</h2>
-              <p>Forget the hassle and high costs of getting packages delivered to a loved one, a friend or a family member.</p>
+              <h2>Trouver du transport et se déplacer en ville ne devrait pas être une tâche difficile pour vous.</h2>
+              <p>Grâce à Zoya, trouver facilement des chauffeurs et déplacez vous en toute tranquilité.</p>
             </header>
-            <span class="image featured"><%= image_tag("friends.jpeg") %></span>
+            <span class="image featured"><%= image_tag("gps.jpg") %></span>
           </section>
 
           <section class="box special features" id="features">
             <div class="features-row">
               <section>
                 <span class="icon major fa-send-o accent2"></span>
-                <h3>Need To Send A Package?</h3>
-                <p>Need to send something across the globe but want to avoid high shipping fees?
-                  Want to ship something to a destination where shipping may be non-existent?</p>
+                <h3>Vous voulez vous déplacer?</h3>
+                <p>N'attendez plus votre taxi sous la pluie, ou sous le soleil frappant avec une foule de monde.</p>
               </section>
               <section>
                 <span class="icon major fa-search accent3"></span>
-                <h3>Ship your items</h3>
-                <p>Chances are we have empty luggage space on a flight heading to the destination you're sending your package to.</p>
+                <h3>Ouvrez l'application mobile</h3>
+                <p>Plus besoin d'arrêter des taxis en route, nos chauffeurs voient exactement où vous êtes. Tapez simplement où vous allez.</p>
               </section>
             </div>
             <div class="features-row">
               <section>
                 <span class="icon major fa-plane accent5"></span>
-                <h3>Sell your luggage space</h3>
-                <p>Let us know when and where you're travelling. Have free luggage space? We'll buy it.</p>
+                <h3>Confirmez votre commande</h3>
+                <p>L'application vous donne le prix de votre course à l'avance, donc pas de mauvaise surprise.</p>
               </section>
               <section>
                 <span class="icon major fa-envelope-o accent4"></span>
-                <h3>Connect</h3>
-                <p>Get in touch with us to make arrangements and get packages to where they need to be.</p>
+                <h3>Prenez place à bord</h3>
+                <p>Confirmez votre commande et votre chauffeur est en route. Prenez place et voyagez en toute tranquilité.</p>
               </section>
             </div>
           </section>
@@ -91,11 +91,13 @@
       <!-- CTA -->
         <section id="cta">
 
-          <h2>Interested?</h2>
-          <p>No Sign Up Needed! Just Log In Easily With Facebook</p>
-          <ul class="actions">
+          <h2>Les services de Zoya vous intéressent?</h2>
+          <p>Si vous disposez de véhicules et souhaitez accroître vos revenus, n'hésitez pas à nous contacter.</p>
+          <p> contact@tozoya.com | +243 347 22 30 </p>
+          <p>Nous sommes également ouverts à toutes remarques, suggestions ou demandes d'information.</p>
+<!--          <ul class="actions">
             <li><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), class:"button icon fa-facebook " %></li>
-          </ul>
+          </ul>  -->
 
 
         </section>
@@ -103,11 +105,11 @@
       <!-- Footer -->
         <footer id="footer">
           <ul class="icons">
-            <li><a href="https://www.facebook.com/apostellofficial" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="mailto:support@apostell.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+            <li><a href="https://" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
           </ul>
           <ul class="copyright">
-            <li>&copy; Apostell. All rights reserved.</li>
+            <li>&copy; Zoya. Tous droits réservés.</li>
           </ul>
         </footer>
 
