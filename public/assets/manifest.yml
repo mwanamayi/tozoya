@@ -109,8 +109,14 @@ rails.png: rails-71e944d9b39043eba50b77788c0d767f.png
 rails/index.png: rails-71e944d9b39043eba50b77788c0d767f.png
 ship.jpeg: ship-a6dd1dc704c36727d1caff5f39cb4bfd.jpeg
 ship/index.jpeg: ship-a6dd1dc704c36727d1caff5f39cb4bfd.jpeg
-street.jpg: street-6292c5753442af74fa4324f0f649e30c.jpg
-street/index.jpg: street-6292c5753442af74fa4324f0f649e30c.jpg
+streets copy 2.jpg: streets copy 2-1dd5bbbb40497d4a1b93e40b2059d155.jpg
+streets copy 2/index.jpg: streets copy 2-1dd5bbbb40497d4a1b93e40b2059d155.jpg
+streets copy 3.jpg: streets copy 3-87bf9c195c71ca1f82c795ddff592aea.jpg
+streets copy 3/index.jpg: streets copy 3-87bf9c195c71ca1f82c795ddff592aea.jpg
+streets copy.jpg: streets copy-6292c5753442af74fa4324f0f649e30c.jpg
+streets copy/index.jpg: streets copy-6292c5753442af74fa4324f0f649e30c.jpg
+streets.jpg: streets-6292c5753442af74fa4324f0f649e30c.jpg
+streets/index.jpg: streets-6292c5753442af74fa4324f0f649e30c.jpg
 thumbs/01.jpg: thumbs/01-5b26ceb0a1215fad59e1d77557020fc3.jpg
 thumbs/01/index.jpg: thumbs/01-5b26ceb0a1215fad59e1d77557020fc3.jpg
 thumbs/02.jpg: thumbs/02-ba484d8de19d5efd6435253b18e8f663.jpg
@@ -133,8 +139,10 @@ visiting.jpeg: visiting-861b8b7d4a0904db279ee9f6649d785b.jpeg
 visiting/index.jpeg: visiting-861b8b7d4a0904db279ee9f6649d785b.jpeg
 woman.jpg: woman-77aac16161aebb7856f0730d9795e763.jpg
 woman/index.jpg: woman-77aac16161aebb7856f0730d9795e763.jpg
-zoya_logo.png: zoya_logo-9792f68eaa0b5de4b000ed4efff2a716.png
-zoya_logo/index.png: zoya_logo-9792f68eaa0b5de4b000ed4efff2a716.png
+zoya_logo.jpg: zoya_logo-2f7a696d4546837f46a90663c4586cc8.jpg
+zoya_logo/index.jpg: zoya_logo-2f7a696d4546837f46a90663c4586cc8.jpg
+zoya_logo_2.png: zoya_logo_2-9792f68eaa0b5de4b000ed4efff2a716.png
+zoya_logo_2/index.png: zoya_logo_2-9792f68eaa0b5de4b000ed4efff2a716.png
 application.js: application-ad9a02783c2d84f3203e1d2e2a3985db.js
 application/index.js: application-ad9a02783c2d84f3203e1d2e2a3985db.js
 ie/PIE.htc: ie/PIE-238c32519ae0fef6fb7b626d9265b85b.htc
@@ -143,8 +151,8 @@ ie/backgroundsize.min.htc: ie/backgroundsize.min-d8e1a903131399c37a3b3869fad25fa
 ie/backgroundsize/index.min.htc: ie/backgroundsize.min-d8e1a903131399c37a3b3869fad25faf.htc
 FontAwesome.otf: FontAwesome-32f043dec1954533e5e731cbd725573f.otf
 FontAwesome/index.otf: FontAwesome-32f043dec1954533e5e731cbd725573f.otf
-application.css: application-b357b3078e0038ce81913d383049a2b5.css
-application/index.css: application-b357b3078e0038ce81913d383049a2b5.css
+application.css: application-f1a148e2a91a56399041a8056941e3fb.css
+application/index.css: application-f1a148e2a91a56399041a8056941e3fb.css
 fontawesome-webfont.eot: fontawesome-webfont-2a1eb00d733f7b3abcbc26e365801d00.eot
 fontawesome-webfont/index.eot: fontawesome-webfont-2a1eb00d733f7b3abcbc26e365801d00.eot
 fontawesome-webfont.woff: fontawesome-webfont-f2a9004d897733ee518fb3d48f0fbb53.woff
