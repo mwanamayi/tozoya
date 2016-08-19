@@ -3027,7 +3027,11 @@
 		/*background-attachment: scroll,							fixed;*/
 		background-attachment:fixed;
 		background-color: #666;
+<<<<<<< HEAD
 		background-image: url("overlay.png"), url("_MG_8957.jpg");
+=======
+		background-image: url("overlay.png"), url("_MG_8923.jpg");
+>>>>>>> ece11d7679389b68a0831b8c58e7860ec7695562
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
